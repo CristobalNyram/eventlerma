@@ -31,7 +31,7 @@ class MenuController extends Controller
 
         $log->activity_done('Accedió al módulo de Menús.',0,3,Auth::id(),1);
 
-        $menus=Menu::all();
+        $menus=Menu::all()->where('status','2');
         $menus_numbers=Menu::all()->count();
         $variables=[
             'menu'=>'menus',
@@ -110,7 +110,7 @@ class MenuController extends Controller
 
         if ($menu->new_registration($request) === true) {
 
-          
+
         $log = new Logbook();
 
 

@@ -10,7 +10,7 @@
 
 <div class="container-fluid mt--7">
     <div class="row">
-        @if(Auth::user()->role_id==4 ||Auth::user()->role_id==5 ||Auth::user()->role_id==6)
+        {{-- @if(Auth::user()->role_id==4 ||Auth::user()->role_id==5 ||Auth::user()->role_id==6) --}}
         <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
             <div class="card card-profile shadow">
                 <div class="row justify-content-center">
@@ -88,7 +88,7 @@
         </div>
     </div>
 </div>
-@endif
+{{-- @endif --}}
 <div class="col-xl-8 order-xl-1">
     <div class="card bg-secondary shadow">
         <div class="card-header bg-white border-0">
@@ -152,7 +152,7 @@
 
                     @case(1)
 
-                    
+
                     <div class="form-group">
                         <label for="gender">Genero</label>
 

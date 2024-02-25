@@ -93,7 +93,7 @@ class SponsorController extends Controller
         if ($sponsor->save()) {
             $log=new Logbook();
             $log->activity_done($description = 'Creó la empresa ' . $sponsor->name . 'correctamente', $table_id = 0, $menu_id = 30, $user_id = Auth::id(), $kind_acction = 6);
-            return back()->with('success','Se ha registrado el patrocinador exitosamente...');
+            return back()->with('success','Se ha registrado la empresa exitosamente...');
 
         }
         else

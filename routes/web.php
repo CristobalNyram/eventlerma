@@ -21,6 +21,7 @@ use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\RallyController;
 use App\Http\Controllers\GetBadgeController;
 use App\Http\Controllers\GetCertificateController;
+use App\Http\Controllers\PublicGeneralController;
 use App\Http\Controllers\VideogameController;
 use App\Models\Sponsor;
 
@@ -98,6 +99,18 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/student/edit', [StudentController::class, "edit"])->name('student_edit');
         Route::post('/student/delete/{user_id}', [StudentController::class, "delete"])->name('student_delete');
         // student end--------------------------------------------
+
+        // public g start-------------------------------------------
+        Route::prefix('public_general')->group(function () {
+            Route::get('/', [PublicGeneralController::class, 'index'])->name('publicg_index');
+            Route::get('/create', [PublicGeneralController::class, 'create'])->name('publicg_create');
+            Route::post('/store', [PublicGeneralController::class, 'store'])->name('publicg_store');
+            Route::get('/edit/{id}', [PublicGeneralController::class, 'edit'])->name('publicg_edit');
+            Route::put('/update/{id}', [PublicGeneralController::class, 'update'])->name('publicg_update');
+            Route::post('/delete/{id}', [PublicGeneralController::class, 'delete'])->name('publicg_delete');
+        });
+
+        // public g end--------------------------------------------
 
         //star get badge
         Route::get('/badge', [GetBadgeController::class, "index"])->name('badge_index');

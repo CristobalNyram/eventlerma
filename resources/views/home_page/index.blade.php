@@ -41,7 +41,11 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="{{ asset('assets/home_page/') }}/img/core-img/logo.png" alt=""></a>
+                        <a href="index.html" class="nav-brand">
+                            <img src="{{ asset('argon') }}/brand/{{ config_icon_logo_system() }}"  alt="{{ config_icon_logo_system() }}"">
+
+                            {{-- <img src="{{ asset('assets/home_page/') }}/img/core-img/logo.png" alt=""> --}}
+                        </a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -60,8 +64,8 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="albums-store.html">Albums</a></li>
-                                    <li><a href="#">Pages</a>
+                                    {{-- <li><a href="albums-store.html">Albums</a></li> --}}
+                                    {{-- <li><a href="#">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="index.html">Home</a></li>
                                             <li><a href="albums-store.html">Albums</a></li>
@@ -88,23 +92,33 @@
                                                 </ul>
                                             </li>
                                         </ul>
-                                    </li>
-                                    <li><a href="event.html">Events</a></li>
-                                    <li><a href="blog.html">News</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    </li> --}}
+                                    <li><a href="event.html">Eventos</a></li>
+                                    <li><a href="blog.html">Noticias</a></li>
+                                    <li><a href="contact.html">Contacto</a></li>
                                 </ul>
 
                                 <!-- Login/Register & Cart Button -->
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
-                                    <div class="login-register-btn mr-50">
-                                        <a href="{{ route('login') }}" id="loginBtn">Login / Register</a>
-                                    </div>
+                                    @if (Auth::check())
+                                        <div class="login-register-btn mr-50">
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Cerrar Sesión</a>
+                                            <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    @else
+                                        <div class="login-register-btn mr-50">
+                                            <a href="{{ route('login') }}" id="loginBtn">Login / Register</a>
+                                        </div>
+                                    @endif
+
 
                                     <!-- Cart Button -->
-                                    <div class="cart-btn">
+                                    {{-- <div class="cart-btn">
                                         <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <!-- Nav End -->
@@ -129,9 +143,11 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="hero-slides-content text-center">
-                                <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Beyond Time <span>Beyond Time</span></h2>
-                                <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
+                                <h6 data-animation="fadeInUp" data-delay="100ms">
+                                    {{-- Cultura  --}}
+                                </h6>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">Comunidad de  cultura<span></span></h2>
+                                <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Descrubre <i class="fa fa-angle-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -147,9 +163,9 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="hero-slides-content text-center">
-                                <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Colorlib Music <span>Colorlib Music</span></h2>
-                                <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
+                                <h6 data-animation="fadeInUp" data-delay="100ms">Eventos</h6>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">Para todos <span>las edades</span></h2>
+                                <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Descubre <i class="fa fa-angle-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -165,15 +181,17 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading style-2">
-                        <p>See what’s new</p>
-                        <h2>Latest Albums</h2>
+                        <h2>Descubre nuestros próximos eventos</h2>
+                        {{-- <h2>últimos eventos</h2> --}}
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-9">
                     <div class="ablums-text text-center mb-70">
-                        <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
+                        <p>
+                            En Lerma, México, la vida está llena de vibrantes encuentros y emocionantes actividades. Nuestra plataforma está diseñada para mantenerte al tanto de todos los eventos que suceden en esta hermosa ciudad. Desde festivales culturales hasta conciertos en vivo, pasando por ferias locales y eventos deportivos, aquí encontrarás todo lo que necesitas para planificar tu agenda y no perderte nada.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -265,7 +283,7 @@
     <!-- ##### Latest Albums Area End ##### -->
 
     <!-- ##### Buy Now Area Start ##### -->
-    <section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-100">
+    {{-- <section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-100">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -492,11 +510,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ##### Buy Now Area End ##### -->
 
     <!-- ##### Featured Artist Area Start ##### -->
-    <section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style="background-image: url({{ asset('assets/home_page/') }}/img/bg-img/bg-4.jpg);">
+    {{-- <section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style="background-image: url({{ asset('assets/home_page/') }}/img/bg-img/bg-4.jpg);">
         <div class="container">
             <div class="row align-items-end">
                 <div class="col-12 col-md-5 col-lg-4">
@@ -524,11 +542,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ##### Featured Artist Area End ##### -->
 
     <!-- ##### Miscellaneous Area Start ##### -->
-    <section class="miscellaneous-area section-padding-100-0">
+    {{-- <section class="miscellaneous-area section-padding-100-0">
         <div class="container">
             <div class="row">
                 <!-- ***** Weeks Top ***** -->
@@ -796,11 +814,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ##### Miscellaneous Area End ##### -->
 
     <!-- ##### Contact Area Start ##### -->
-    <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" style="background-image: url({{ asset('assets/home_page/') }}/img/bg-img/bg-2.jpg);">
+    {{-- <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img" style="background-image: url({{ asset('assets/home_page/') }}/img/bg-img/bg-2.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -846,7 +864,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ##### Contact Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
@@ -854,21 +872,32 @@
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-12 col-md-6">
-                    <a href="#"><img src="{{ asset('assets/home_page/') }}/img/core-img/logo.png" alt=""></a>
+                    <a href="#">
+                        {{-- <img src="{{ asset('assets/home_page/') }}/img/core-img/logo.png" alt=""></a> --}}
+
+                        <img src="{{ asset('argon') }}/brand/{{ config_icon_logo_system() }}"  alt="{{ config_icon_logo_system() }}" height="40px" >
+
                     <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        Derechos de autor ©<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Esta web fue creada con <i class="fa fa-heart-o" aria-hidden="true"></i> por
+                        {{ config_author_system() }}
+                        {{-- <a href="https://colorlib.com" target="_blank">Colorlib</a> --}}
+
+
+
+
+
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="footer-nav">
-                        <ul>
+                        {{-- <ul>
                             <li><a href="#">Home</a></li>
                             <li><a href="#">Albums</a></li>
                             <li><a href="#">Events</a></li>
                             <li><a href="#">News</a></li>
                             <li><a href="#">Contact</a></li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
             </div>

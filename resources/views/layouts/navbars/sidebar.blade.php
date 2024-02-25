@@ -12,6 +12,7 @@
 
  --}}
  <script src="/assets/vendor/datatables.net/js/jquery.dataTables.min.js" defer></script>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 {{--
@@ -152,7 +153,6 @@
             </ul>
 
             </ul>
-            @if ( check_acces_to_this_permission(Auth::user()->role_id,25))
             <hr class="my-3">
             <h6 class="navbar-heading text-muted">Reportes</h6>
 
@@ -161,44 +161,21 @@
             <h6 class="navbar-heading text-muted">Admnistración</h6>
             <ul class="navbar-nav">
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link  @if($menu === 'payments')  custom-active text-white  @endif"
                         href="{{ route('payment_index') }}">
                         <i class="ni ni-cart text-primary"></i>Pagos
                     </a>
-                </li>
+                </li> --}}
+                @if ( check_acces_to_this_permission(Auth::user()->role_id,25))
                 <li class="nav-item">
-                    <a class="nav-link @if($menu === 'alumnos_all')  custom-active text-white  @endif"
-                        href="{{ route('student_index') }}">
-                        <i class="fas fa-school text-primary"></i>Alumnos
+                    <a class="nav-link @if($menu === 'publicg_all')  custom-active text-white  @endif"
+                        href="{{ route('publicg_index') }}">
+                        <i class="fas fa-school text-primary"></i>Publico general
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
-                        <i class="fa fa-city text-primary"></i>
-                        Extranjeros
-                    </a>
-                </li>
+                @endif
 
-
-                </li>
-
-
-
-
-                </li>
-
-            </ul>
-            @endif
-
-
-
-            </ul>
-
-
-            <hr class="my-3">
-            <h6 class="navbar-heading text-muted">Página principal</h6>
-            <ul class="navbar-nav">
 
 
                 @if ( check_acces_to_this_permission(Auth::user()->role_id,10))
@@ -219,6 +196,21 @@
                     </a>
                 </li>
                 @endif
+
+
+            </ul>
+
+
+
+            </ul>
+
+
+            <hr class="my-3">
+            <h6 class="navbar-heading text-muted">Página principal</h6>
+            <ul class="navbar-nav">
+
+
+
                 {{-- @if ( check_acces_to_this_permission(Auth::user()->role_id,15))
                 <li class="nav-item">
                     <a class="nav-link @if($menu === 'talks_all')  custom-active text-white @endif"
@@ -275,15 +267,16 @@
                     </a>
                 </li>
                 @endif --}}
+                    {{--
                 @if ( check_acces_to_this_permission(Auth::user()->role_id,32))
-                <li class="nav-item">
+            <li class="nav-item">
                     <a class="nav-link @if($menu === 'rallys_all')  custom-active text-white @endif"
                         href="{{ route('rally_index') }}">
                         <i class="ni ni-controller text-primary" aria-hidden="true"></i>
                         Rallys
                     </a>
                 </li>
-                @endif
+                @endif --}}
                 <!-- </li> -->
             </ul>
 

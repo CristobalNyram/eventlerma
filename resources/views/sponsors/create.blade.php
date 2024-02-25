@@ -14,7 +14,7 @@
 
 
                 <div class="card-header border-0">
-                    <h2 class="mb-0">Agregar Patrocnidaor</h2>
+                    <h2 class="mb-0">Agregar empresa</h2>
 
                 </div>
 

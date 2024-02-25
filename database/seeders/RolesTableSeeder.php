@@ -34,6 +34,7 @@ class RolesTableSeeder extends Seeder
             'name' => 'event organizer',
             'description' => 'This user have access only to the school ,not access to ',
             'level' => '3',
+            'status' => '-2',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -51,18 +52,21 @@ class RolesTableSeeder extends Seeder
              'name' => 'foreigner',
              'description' => 'This for people that in not from of the university ',
              'level' => '5',
+             'status' => '-2',
              'created_at' => now(),
              'updated_at' => now()
          ]);
          DB::table('roles')->insert([
              'name' => 'Speaker',
              'description' => 'This person is who speakes in the event ',
+             'status' => '-2',
              'level' => '6',
              'created_at' => now(),
              'updated_at' => now()
          ]);
          DB::table('roles')->insert([
              'name' => 'Charger',
+             'status' => '-2',
              'description' => 'This person is reponsible for charging money ',
              'level' => '7',
              'created_at' => now(),
@@ -71,6 +75,7 @@ class RolesTableSeeder extends Seeder
 
          DB::table('roles')->insert([
              'name' => 'Entry checker',
+             'status' => '-2',
              'description' => 'This person only check de the ticket ',
              'level' => '8',
              'created_at' => now(),

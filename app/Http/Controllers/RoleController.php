@@ -37,7 +37,7 @@ class RoleController extends Controller
         $log->activity_done($description='Accedió al módulo de Rol.',$table_id=0,$menu_id=2,$user_id=Auth::id(),$kind_acction=1);
 
 
-        $roles=Role::all();
+        $roles=Role::all()->where('status','2');
         $roles_numbers=Role::all()->count();
         $variables=[
             'menu'=>'role',
@@ -172,8 +172,10 @@ class RoleController extends Controller
         }
 
         $current_role_name=  Role::findOrFail($role_id);
-        $menus_and_roles=Relrolmenu::all()->where('role_id',$role_id);
-
+        $menus_and_roles = Relrolmenu::join('menus', 'relrolmenus.menu_id', '=', 'menus.id')
+        ->where('relrolmenus.role_id', $role_id)
+        ->where('menus.status', 2)
+        ->get();
         // return $menus_and_roles;
         // die();
         $variables=[

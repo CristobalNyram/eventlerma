@@ -87,8 +87,8 @@ class MenusTableSeeder extends Seeder
                 'title' => 'Relog de cuenta regresiva',
                 'description' => 'Agregar,editar relog de cuenta regresiva de la página.',
                 'menu_parent' => 7,
+                'status' => -2,
                 'order' => 8,
-                'status' =>2,
 
             ]);
 
@@ -101,7 +101,7 @@ class MenusTableSeeder extends Seeder
                 'description' => 'Modificar el cronograma',
                 'menu_parent' => 7,
                 'order' => 9,
-                'status' =>2,
+                'status' => -2,
 
             ]);
 
@@ -158,8 +158,8 @@ class MenusTableSeeder extends Seeder
             'title' => 'Conferencistas',
             'description' => '  Menu padre.',
             'menu_parent' => 0,
+            'status' => -2,
             'order' => 15,
-            'status' =>2,
 
         ]);
 
@@ -167,8 +167,9 @@ class MenusTableSeeder extends Seeder
             'title' => 'Modificar conferencista',
             'description' => 'Editar,borrar o suspender conferencista.',
             'menu_parent' => 15,
+            'status' => -2,
+
             'order' => 16,
-            'status' =>2,
 
         ]);
 
@@ -176,8 +177,8 @@ class MenusTableSeeder extends Seeder
             'title' => 'Ver conferencistas',
             'description' => 'Editar,borrar o suspender conferencista.',
             'menu_parent' => 15,
+            'status' => -2,
             'order' => 17,
-            'status' =>2,
 
         ]);
 
@@ -186,7 +187,7 @@ class MenusTableSeeder extends Seeder
             'description' => 'Editar,borrar o suspender conferencista.',
             'menu_parent' => 15,
             'order' => 18,
-            'status' =>2,
+            'status' => -2,
 
         ]);
 
@@ -199,7 +200,7 @@ class MenusTableSeeder extends Seeder
             'description' => 'Menu padre.',
             'menu_parent' => 0,
             'order' => 19,
-            'status' =>2,
+            'status' => -2,
 
         ]);
         DB::table('menus')->insert([
@@ -207,7 +208,7 @@ class MenusTableSeeder extends Seeder
             'description' => 'Agregar,editar o borrar suvenir.',
             'menu_parent' => 19,
             'order' => 20,
-            'status' =>2,
+            'status' => -2,
 
         ]);
 
@@ -216,7 +217,7 @@ class MenusTableSeeder extends Seeder
             'description' => 'Comprar souvenir.',
             'menu_parent' => 19,
             'order' => 21,
-            'status' =>2,
+            'status' => -2,
 
         ]);
 
@@ -225,7 +226,7 @@ class MenusTableSeeder extends Seeder
             'description' => 'Agregar,editar o borrar suvenir.',
             'menu_parent' => 19,
             'order' => 22,
-            'status' =>2,
+            'status' => -2,
 
         ]);
 
@@ -234,8 +235,7 @@ class MenusTableSeeder extends Seeder
             'description' => 'Agregar,editar o borrar suvenir.',
             'menu_parent' => 19,
             'order' => 23,
-            'status' =>2,
-
+            'status' => -2,
         ]);
 
         DB::table('menus')->insert([
@@ -243,7 +243,7 @@ class MenusTableSeeder extends Seeder
             'description' => 'Agregar,editar o borrar suvenir.',
             'menu_parent' => 19,
             'order' => 24,
-            'status' =>2,
+            'status' => -2,
 
         ]);
         ///menu padre fin
@@ -251,16 +251,17 @@ class MenusTableSeeder extends Seeder
 
         //menu padre
         DB::table('menus')->insert([
-            'title' => 'Alumnos',
+            'title' => 'Publico general',
             'description' => 'Menu padre.',
             'menu_parent' => 0,
             'order' => 25,
+
             'status' =>2,
 
         ]);
         DB::table('menus')->insert([
-            'title' => 'Modificar alumnos',
-            'description' => 'Agregar,editar o borrar alumno.',
+            'title' => 'Modificar publico general',
+            'description' => 'Agregar,editar o borrar publico general.',
             'menu_parent' => 25,
             'order' => 26,
             'status' =>2,
@@ -270,18 +271,18 @@ class MenusTableSeeder extends Seeder
         DB::table('menus')->insert([
             'title' => 'Ver todos alumnos',
             'description' => 'Agregar,editar o borrar suvenir.',
+            'status' => -2,
             'menu_parent' => 25,
             'order' => 27,
-            'status' =>2,
 
         ]);
 
         DB::table('menus')->insert([
-            'title' => 'Estadisticas alumnos',
+            'title' => 'Estadisticas public general',
             'description' => 'Agregar,editar o borrar suvenir.',
             'menu_parent' => 25,
+            'status' => -2,
             'order' => 28,
-            'status' =>2,
 
         ]);
 
@@ -320,8 +321,9 @@ class MenusTableSeeder extends Seeder
              'title' => 'Paquetes',
              'description' => 'Menu padre .',
              'menu_parent' => 0,
+             'status' => -2,
              'order' => 32,
-             'status' =>2,
+             'status' =>-2,
 
          ]);
 
@@ -329,8 +331,8 @@ class MenusTableSeeder extends Seeder
              'title' => 'Modificar paquetes',
              'description' => 'Agregar,editar o borrar paquetes.',
              'menu_parent' => 32,
+             'status' => -2,
              'order' => 33,
-             'status' => 2,
 
          ]);
 
@@ -338,8 +340,8 @@ class MenusTableSeeder extends Seeder
              'title' => 'Ver todos los paquetes',
              'description' => 'Ver todos los paquetes.',
              'menu_parent' => 32,
+             'status' => -2,
              'order' => 34,
-             'status' => 2,
 
          ]);
 
@@ -408,7 +410,7 @@ class MenusTableSeeder extends Seeder
         //menu padre
 
         DB::table('menus')->insert([
-            'title' => 'Estudiante',
+            'title' => 'Publico general',
             'description' => 'Menu padre',
             'menu_parent' => 41,
             'order' => 41,
@@ -420,6 +422,7 @@ class MenusTableSeeder extends Seeder
             'title' => 'Elegir paquete',
             'description' => 'Poder adquirir un paquete',
             'menu_parent' => 41,
+            'status' => -2,
             'order' => 42,
             'status' => 2,
 
@@ -429,6 +432,7 @@ class MenusTableSeeder extends Seeder
             'title' => 'Elegir Evento',
             'description' => 'Poder registrarse en un evento',
             'menu_parent' => 41,
+            'status' => -2,
             'order' => 43,
             'status' => 2,
 
@@ -438,6 +442,7 @@ class MenusTableSeeder extends Seeder
             'title' => 'Obtener gafet',
             'description' => 'Poder adquirir un gafet del evento',
             'menu_parent' => 41,
+            'status' => -2,
             'order' => 44,
             'status' => 2,
 
@@ -447,6 +452,7 @@ class MenusTableSeeder extends Seeder
             'title' => 'Vista de conferencias',
             'description' => 'Visualizar las conferencias como  usuario',
             'menu_parent' => 41,
+            'status' => -2,
             'order' => 45,
             'status' => 2,
 
@@ -454,8 +460,9 @@ class MenusTableSeeder extends Seeder
 
         DB::table('menus')->insert([
             'title' => 'Vista de evento',
-            'description' => 'Visualizar los evento como  usuario',
+            'description' => 'Visualizar los evento como usuario',
             'menu_parent' => 41,
+            'status' => -2,
             'order' => 46,
             'status' => 2,
 
@@ -469,6 +476,7 @@ class MenusTableSeeder extends Seeder
             'title' => 'Pagos',
             'description' => 'Menu Padre',
             'menu_parent' => 47,
+            'status' => -2,
             'order' => 47,
             'status' => 2,
 
@@ -478,6 +486,7 @@ class MenusTableSeeder extends Seeder
             'title' => 'modificar pago',
             'description' => 'Aprobar, cancelar, borrar, pagos de los paquetes',
             'menu_parent' => 47,
+            'status' => -2,
             'order' => 48,
             'status' => 2,
 
@@ -487,6 +496,7 @@ class MenusTableSeeder extends Seeder
             'title' => 'Confirmar Pago',
             'description' => 'Confirma que el usuario tenga un pago aprobado en la entrada',
             'menu_parent' => 47,
+            'status' => -2,
             'order' => 49,
             'status' => 2,
 
@@ -506,7 +516,7 @@ class MenusTableSeeder extends Seeder
         ]);
 
         DB::table('menus')->insert([
-            'title' => 'Dashboard alumno',
+            'title' => 'Dashboard publico en general',
             'description' => 'Visualizar todas las vistas del alumno',
             'menu_parent' => 50,
             'order' => 51,
@@ -518,8 +528,8 @@ class MenusTableSeeder extends Seeder
             'title' => 'Dashboard admin',
             'description' => 'Visualizar todas las vistas del administrador',
             'menu_parent' => 50,
+            'status' => -2,
             'order' => 52,
-            'status' => 2,
 
         ]);
 
@@ -528,7 +538,7 @@ class MenusTableSeeder extends Seeder
             'description' => 'Visualizar todas las vistas del conferencista o tallerista',
             'menu_parent' => 50,
             'order' => 53,
-            'status' => 2,
+            'status' => -2,
 
         ]);
 
