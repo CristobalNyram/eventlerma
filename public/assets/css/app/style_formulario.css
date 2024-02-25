@@ -1,0 +1,288 @@
+*{
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    z-index: 10;
+    background: #000;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+
+header ul li a{
+    position: relative;
+    margin: 0 35px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 5;
+    left: 180px;
+    font-size: 15px;
+    transition: 0.5s;
+    color: #fff;
+}
+
+header ul li a:hover{
+    color: #34b015;
+    width: 100%;
+    transition: 0.1s;
+    text-shadow: 0 0 10px #f0f8ff,
+                 0 0 20px #f0f8ff;
+    transform: all 0.3s ease-in-out;
+}
+
+header ul li a::before {
+    content: "";
+    position: absolute;
+    background-color: #34b015;
+    height: 1px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+header ul li a::after {
+    content: "";
+    position: absolute;
+    background-color: #ff6200;
+    height: 1px;
+    width: 0;
+    right: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.cu{
+    text-shadow: 0 0 10px #fff,
+    0 0 20px #c4fa31,
+    0 0 30px #c4fa31,
+    0 0 40px #c4fa31,
+    0 0 70px #c4fa31,
+    0 0 80px #c4fa31,
+    0 0 100px #c4fa31,
+    0 0 150px #c4fa31;
+}
+
+header ul li:hover a::before{
+    width: 50%;
+    transform: translate(100%);
+}
+
+header ul li:hover a::after{
+    width: 50%;
+    transform: translate(-100%);
+}
+
+header a img{
+    width: 125px;
+    margin: 0 20px;
+} 
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+
+}
+#posi{
+    position: absolute;
+    padding-top: 20px;
+}
+
+
+.forma{
+    width: 400px;
+    background: rgb(57, 57, 57);
+    padding: 40px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 2px;
+    color: white;
+    padding-top: 10px;
+    border-radius: 5px;
+    box-shadow: 7px 7px rgb(20, 20, 20);
+    
+}
+
+.forma h1{
+    font-size: 2em;
+    padding: 10px;
+    
+}
+
+#posi .forma button a{
+    text-decoration: none;
+    color: black;
+}
+
+#posi .forma .al{
+    color: black;
+
+    
+}
+.con{
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgb(14, 111, 230);
+    font-size: 11px;
+    margin-bottom: 16px;
+    box-shadow: 5px 5px rgb(20, 20, 20);
+    
+   
+}
+
+button {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0.3);
+    box-shadow: 5px 5px rgb(20, 20, 20);
+    color: black;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+
+
+button:hover {
+    background-color: rgb(203, 191, 29);
+    transform: scale(1.1);
+}
+
+@keyframes des {
+    0% {
+        margin-left: -10%;
+    }
+
+    20% {
+        margin-left: -10%;
+    }
+
+    25% {
+        margin-left: -100%;
+    }
+
+    45% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -100%;
+    }
+
+    70% {
+        margin-left: -100%;
+    }
+
+    75% {
+        margin-left: -160%;
+    }
+
+    100% {
+        margin-left: -160%;
+    }
+}
+
+@media(min-width: 00px) {
+    header {
+        position: fixed;
+        width: 100%;
+    }
+
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav {
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+
+    #hero h1 {
+        font-size: 4em;
+    }
+
+    #goo .container {
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+
+    #goo .texto {
+        width: 100%;
+        max-width: 1000px;
+        text-align: center center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px 10px;
+    }
+
+    .color {
+        padding: 110px;
+    }
+    
+
+}
+/*footer*/
+footer {
+    position: absolute;
+    background: #000;
+    height: 30vh;
+    left: 0;
+    width: 100%;
+}
+
+footer .container{
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: #fff;
+    background-position: top;
+    text-align: center;
+    font-size: 18px;
+    padding: 3%;
+    
+}
+
+footer a {
+   
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+footer .ico{
+    align-items: center;
+    text-align: center;
+    height: 90px;
+  
+   
+}
+
+ion-icon{
+    font-size: 1.5em;
+    padding: 5px 15px;
+}
+
+

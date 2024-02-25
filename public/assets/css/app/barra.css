@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Biko';
+    src: url('css/Biko_Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  ::-webkit-scrollbar{
+    width: 6px;
+    height: 20px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(
+        to bottom,
+        #DCE35B, #45B649
+    );
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track{
+    background: transparent;
+}

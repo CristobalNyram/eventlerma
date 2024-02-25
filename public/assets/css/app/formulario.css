@@ -1,0 +1,338 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    background: #111;
+    
+}
+
+.imagen {
+    display: flex;
+    align-items: center;
+    padding: 150px;
+    text-align: center;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.847);
+    height: 100vh;
+    background: rgb(2,0,36);
+    height: 900px;
+}
+
+#posi{
+    margin-top: 10%;
+}
+
+
+
+.forma{
+    width: 400px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    margin: auto;
+    margin-top: 50px;
+    padding-top: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fff;
+    
+}
+
+.forma h1{
+    font-size: 2em;
+    padding: 15px;
+    
+}
+
+#posi .forma button a{
+    text-decoration: none;
+    color: black;
+}
+
+#posi .forma .al{
+    color: black;  
+}
+
+
+.con1{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 16px;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.2);
+    color: rgb(0, 0, 0);
+
+
+}
+
+.con{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 16px;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+   
+}
+
+input::placeholder{
+    color: rgb(0, 0, 0);
+  
+}
+
+button {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: black;
+    background: rgba(255, 255, 255,0.6);
+    
+}
+
+
+
+button:hover {
+    background-color: rgba(242, 242, 242, 0.4);
+    transform: scale(1.1);
+}
+
+
+.re{
+    position: absolute;
+    margin-left: 8.6%;
+    margin-top: 0.5%;
+}
+
+.re a{
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: space-around;
+    transition: 0.5s;
+    padding: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.893);
+    }
+
+header ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+header ul li a {
+    position: relative;
+    margin: 0 30px;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: 5;
+    left: 40px;
+    font-size: 15px;
+    transition: 0.5s;
+
+}
+
+header ul li a::before {
+    content: "";
+    position: absolute;
+    background-color: #94b315;
+    height: 1.5px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+header ul li a::after {
+    content: "";
+    position: absolute;
+    background-color: #b34215;
+    height: 1.5px;
+    width: 0;
+    right: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+header ul li:hover a::before{
+    width: 50%;
+    transform: translate(100%);
+}
+
+header ul li:hover a::after{
+    width: 50%;
+    transform: translate(-100%);
+}
+
+header ul li:hover a::after{
+    width: 50%;
+}
+
+header ul li a:hover{
+    width: 100%;
+    transition: 0.1s;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #c4fa31,
+                 0 0 30px #c4fa31,
+                 0 0 40px #c4fa31,
+                 0 0 70px #c4fa31,
+                 0 0 80px #c4fa31,
+                 0 0 100px #c4fa31,
+                 0 0 150px #c4fa31;
+    transform: all 0.3s ease-in-out;
+}
+
+header .logo {
+    left: 20%;
+}
+
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+header nav {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 20px;
+    text-decoration: none;
+}
+
+header a {
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    padding: 0 0.01px;
+}
+
+header a:hover {
+    transform: scale(1.2);
+}
+
+.cu{
+    text-shadow: 0 0 10px #fff,
+    0 0 20px #c4fa31,
+    0 0 30px #c4fa31,
+    0 0 40px #c4fa31,
+    0 0 70px #c4fa31,
+    0 0 80px #c4fa31,
+    0 0 100px #c4fa31,
+    0 0 150px #c4fa31;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-size: 1.25em;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+}
+
+.carta{
+    padding: 10%;
+}
+
+.carta div #toky{
+    width: 70%;
+    height: 50px;
+    margin-top: 150px;
+    border-radius: 30px;
+    margin-left: 15%;
+    background: rgb(27, 26, 26);
+    text-align: center;
+}
+
+#toky h3{
+        color: white;
+        text-align: center;
+    }
+
+.carta div #shib{
+    width: 70%;
+    margin-top: 20px;
+    border-radius: 30px;
+    margin-left: 15%;
+    background: gainsboro;
+    text-align: center;
+  
+}
+
+.carta div #kyo{
+    width: 70%;
+    margin-top: 20px;
+    border-radius: 30px;
+    margin-left: 15%;
+    background: gainsboro;
+    text-align: center;
+    margin-block-end: 50px;
+}
+
+.carta :hover div {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+
+footer {
+    box-shadow: 0 0 10px #111;
+    background: rgba(0, 0, 0, 0.693);
+    height: 250px;
+}
+
+footer p {
+    margin: 0;
+    color: rgb(255, 255, 255);
+    background-position: top;
+    text-align: center;
+    font-size: 18px;
+    padding: 40px;
+    padding-top: 5%;
+}
+
+footer a {
+    padding: 10px 5px;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+footer a ion-icon{
+    width: 25px;
+    height: 25px;
+}
+
+.iconos{
+    margin-left: 47.5%;
+}

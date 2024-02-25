@@ -1,0 +1,53 @@
+/*footer*/
+footer {
+    
+    position: relative;
+    display: flex;
+    background: #000;
+    height: 25vh;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 10%;
+    
+
+}
+
+footer .container{
+    text-align: center;
+    margin-left: 40%;
+    
+}
+footer p {
+    margin: 0;
+    color: #f0f8ff;
+    background-position: top;
+    text-align: center;
+    font-size: 18px;
+    padding: 3%;
+    
+}
+
+footer a {
+   
+    text-decoration: none;
+    font-weight: bold;
+    color: #f0f8ff;
+}
+
+footer .ico{
+    align-items: center;
+    text-align: center;
+    height: 90px;
+  
+   
+}
+
+footer a:hover{
+    color: #34b015;
+}
+
+ion-icon{
+    font-size: 1.5em;
+    padding: 2px 15px;
+}

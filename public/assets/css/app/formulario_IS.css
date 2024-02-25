@@ -1,0 +1,309 @@
+*{
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    z-index: 10;
+    background: #000;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+
+header ul li a{
+    position: relative;
+    margin: 0 35px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 5;
+    left: 180px;
+    font-size: 15px;
+    transition: 0.5s;
+    color: #fff;
+}
+
+header ul li a:hover{
+    color: #34b015;
+    width: 100%;
+    transition: 0.1s;
+    text-shadow: 0 0 10px #f0f8ff,
+                 0 0 20px #f0f8ff;
+    transform: all 0.3s ease-in-out;
+}
+
+header ul li a::before {
+    content: "";
+    position: absolute;
+    background-color: #34b015;
+    height: 1px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+header ul li a::after {
+    content: "";
+    position: absolute;
+    background-color: #ff6200;
+    height: 1px;
+    width: 0;
+    right: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.cu{
+    text-shadow: 0 0 10px #fff,
+    0 0 20px #c4fa31,
+    0 0 30px #c4fa31,
+    0 0 40px #c4fa31,
+    0 0 70px #c4fa31,
+    0 0 80px #c4fa31,
+    0 0 100px #c4fa31,
+    0 0 150px #c4fa31;
+}
+
+header ul li:hover a::before{
+    width: 50%;
+    transform: translate(100%);
+}
+
+header ul li:hover a::after{
+    width: 50%;
+    transform: translate(-100%);
+}
+
+header a img{
+    width: 125px;
+    margin: 0 20px;
+} 
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;    
+}
+
+
+/*Fondos*/
+.jk{
+    background-image: url(/img/ins.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 101vh;
+    
+}
+
+.cap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 101vh;
+    background: #868686;
+    backdrop-filter: blur(10px);
+    opacity: 80%;
+    mix-blend-mode: overlay;
+    z-index: 3;
+}   
+
+/*Formulario*/
+#posi{
+    position: absolute;
+    padding: 5vh 42vh;
+    z-index: 4;
+}
+
+#posi .forma a{
+    text-decoration: none;
+    color: black;
+}
+
+.forma{
+    width: 400px;
+    background: #f0f8ff30;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 15px 25px rgba(17, 17, 17, 0.659);
+    padding: 40px;
+    margin: 0 60%;
+    margin-top: 100px;
+    border-radius: 5%;
+    color: #f0f8ff;
+    padding-top: 15px  
+}
+
+.forma h1{
+    font-size: 2em;
+    padding: 0 5vh;   
+}
+
+
+#posi .regresar a{
+    color: white;
+    padding-top: 20px;
+}
+
+.regresar{
+margin: 1vh 0.3vh;
+font-size: 14px;
+}
+
+/*Campos*/
+.tokyus{
+    position: relative; 
+    width: 280px;
+    height: 40px;
+}
+
+.oki{
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    transition: all 0.2s;
+    padding: 0 2px;
+    z-index: 1;
+    color: #202020;
+}
+
+.un{
+    padding: 0.8rem;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #f0f8ff7f;
+    background: #f0f8ff30;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+    transition: all 0.3s;
+    color: #6a6a6a;
+}
+
+.oki::before{
+    content: "";
+    height: 5px;
+    background: transparent;
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    width: 100%;
+    z-index: -1;
+    color: #202020;
+}
+
+.un:focus{
+    border: 2px solid #fff;
+}
+
+.un:focus + .oki,
+.filled{
+    top: -10px;
+    color: #6a6a6a;
+    font-size: 14px;
+    background: #f0f8ff30;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+}
+
+.un::placeholder{
+    font-size: 16px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.un:focus::placeholder{
+    opacity: 1;
+}
+
+#pass{
+    margin-top: 20px;
+}
+
+/*Botón*/
+button {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 40px;
+    margin: 0 95px;
+    border-radius: 5px;
+    border: transparent;
+    color: #f0f8ff;
+    background: #f0f8ff04;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 5px 5px rgba(17, 17, 17, 0.434);
+    z-index: 5;
+}
+
+
+button:hover {
+    background: #f0f8ff15;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 5px 5px rgba(17, 17, 17, 0.505);
+    transform: scale(1.1);
+    border: transparent;
+}
+
+/*footer*/
+footer {
+    position: absolute;
+    background: #000;
+    height: 30vh;
+    left: 0;
+    width: 100%;
+    top: 78vh;
+    z-index: 9;
+}
+
+footer .container{
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: #f0f8ff;
+    background-position: top;
+    text-align: center;
+    font-size: 18px;
+    padding: 3%;
+    
+}
+
+footer a {
+   
+    text-decoration: none;
+    font-weight: bold;
+    color: #f0f8ff;
+}
+
+footer .ico{
+    align-items: center;
+    text-align: center;
+    height: 90px;
+  
+   
+}
+
+ion-icon{
+    font-size: 1.5em;
+    padding: 5px 15px;
+}

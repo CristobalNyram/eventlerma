@@ -1,0 +1,678 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+
+*{
+    
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'biko', sans-serif;
+    background: #fff;
+    
+    
+    
+}
+
+#tope img{
+    width: 140px;
+    height: 90px;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+} 
+
+.tex{
+width: 200px;
+}
+
+.tex1{
+    width: 250px;
+}
+
+.menu{
+    list-style: none;
+    background: #000;
+    color: #f8f8f8;
+    height: 17vh;
+    display: block;
+   
+    
+}
+
+.menu__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    
+}
+
+.menu__links{
+    list-style: none;
+    height: 100%;
+    transition: transform .5s;
+    display: flex;
+}
+
+.menu__item{
+    list-style: none;
+    position: relative;
+    height: 20%;
+    --clip: polygon(0 0, 100% 0, 100% 0, 0 0);
+    --transform: rotate(-90deg);
+    top: 5vh;
+}
+
+.menu__item:hover{
+    --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    --transform: rotate(0);
+}
+
+.menu__link{
+    color: #fff;
+    text-decoration: none;
+    padding: 0 30px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin: 0;
+}
+
+.menu__link:hover{
+    color: #34b015;
+    transition: 0.1s;
+    transform: all 0.3s ease-in-out;
+}
+
+.menu__link::before {
+    content: "";
+    position: absolute;
+    background-color: #34b015;
+    height: 1px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.menu__link::after {
+    content: "";
+    position: absolute;
+    background-color: #ff6200;
+    height: 1px;
+    width: 0;
+    right: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.menu__item:hover .menu__link::before{
+    width: 50%;
+    transform: translate(100%);
+}
+
+.menu__item:hover .menu__link::after{
+    width: 50%;
+    transform: translate(-100%);
+}
+
+.menu__link--inside{
+    padding: 30px 100px 30px 20px;
+}
+
+.menu__link--inside:hover{
+    background-color: #f0f8ff20;
+}
+
+.menu__hamburguer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    cursor: pointer;
+    display: none;
+}
+
+.menu__img{
+    display: block;
+    width: 36px;
+}
+
+*{
+    box-sizing: border-box;    
+}
+/*
+Rejol
+*/
+
+.containerR{
+    max-width: 900px;
+    margin:50px auto;
+    margin-left: 100px;
+}
+.containerR h1,
+.containerR p{
+    color:#fff;
+    text-align: center;
+    padding: 20px 0;
+}
+.containerR h1{
+    font-size: 4em;
+}
+.containerR p{
+    font-size: 2em;
+}
+.center-abs{
+    top:0%;
+    left:0%;
+    transform:translate(-50%, -50%);
+    position: absolute;
+}
+.charts{
+    display: flex;
+}
+.chart{
+    position: relative;
+    width: 9%;
+    height: 60px;
+    padding: 40px;
+}
+.chart h3{
+    color:#fff;
+    font-size: 1em;
+    position: absolute;
+    bottom:10px;
+    text-align: center;
+    width: 100%;
+    text-shadow: 1px 1px 10px #000;
+    margin-left: -75px;
+}
+.chart svg{
+    z-index: 2;
+}
+/* DIV CIRCULO DE FONDO */
+.circle{
+    width: 75px;
+    height:75px;
+    border-radius: 50%;
+    z-index:1;
+    border:10px #000 solid;
+}
+.text{
+    z-index: 3;
+    text-align: center;
+    width: 100%;
+    font-size: 1.8em;
+    font-weight: 700;
+    color:#fff
+}
+/* SVG CIRCULO */
+.outer{
+    
+    fill:transparent;
+    stroke: #3aaa35;
+    stroke-width: 5; /* grosor del borde */
+    stroke-dasharray: 189; /* numero de relleno del borde, se usa el mismo valor en el script.js */
+    transform: rotate(270deg) translate(-150px, 0); 
+    /* giramos el circulo para que su apertura sea en la parte superior 
+    y ajustamos su posicion
+    */
+}
+#circulo1{
+    stroke: #3aaa35;
+}
+#circulo2{
+    stroke: #f8ea1b;
+}
+#circulo3{
+    stroke: #e94e1a;
+}
+ #circulo4{
+    stroke: #0096da;
+}
+#textcolor1{
+   color: #f0f8ff;
+}
+#textcolor2{
+   color: #f0f8ff;
+}
+#textcolor3{
+   color:#f0f8ff;
+}
+#textcolor4{
+   color: #f0f8ff;
+   
+}
+.Titulo_Juegos {
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    font-size: 50px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'biko', sans-serif;
+    
+}
+.intrucciones{
+    margin-top: -100px;
+    text-align: center;
+    background: #000;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem,1fr));
+    padding-bottom: 40px;
+}
+.intrucciones .contenedor_m{
+    margin: 0 auto;
+}
+.intrucciones .contenedorimg{
+    margin: 0 auto;
+    margin-top: 250px;
+}
+
+
+/*pppppppppppppppppppppppppppppppppppppppppppppp*/
+.intrucciones .titulo_i{
+    margin-top: 50px;
+    padding-top: 90px;
+    font-size: 40px;
+    
+}
+.intrucciones .Cuadro_P{
+    margin-top: 50px;
+    font-size: 20px; 
+}
+.intrucciones .Titulo_Paso{
+    font-size: 50px;
+}
+/*uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu*/
+
+.FondoBlanco{
+    margin-top: 10vh;
+    width: 100%;
+    height: 150%;
+    background: #fff;
+}
+
+
+/*ppppppppppppppppppppppppp*/
+.tarjetas{
+    display: grid;
+    grid-auto-rows: 40rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    margin: 0 auto;
+}
+
+/*pppppppppppppppppppp*/
+.tarjeta{
+    height: 630px;
+    color: #fff;
+    
+}
+.tarjeta .tarjeta-contenedor{
+    margin: 0 auto;
+    background: #000;
+    color: #fff;
+    width: 70%;
+    height: 590px;
+    text-align: center;
+    transition: all .5s;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.tarjeta .tarjeta-contenedor:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
+}
+.tarjeta .tarjeta-contenedor a img{
+    width: 100%;
+    height: 390px;
+}
+.tarjeta .tarjeta-contenedor a h3{
+    padding: 1rem;
+}
+.tarjeta .tarjeta-contenedor a{
+    text-decoration: none;
+    color: #fff;
+}
+.tarjeta .tarjeta-contenedor p{
+    padding: 1.5rem 1.3rem;
+    text-align: justify;
+}
+.tarjeta .tarjeta-contenedor hr{
+    width: 50%;
+}
+
+/*ppppppppppppppppppp*/
+.tarjeta .boton_tc{
+    width: 60%;
+    height: 10%;
+    background: #000;
+    border-radius: 20px;
+    margin: 10% 20%;
+    color: #fff;
+}
+.btn_modal{
+    padding: 0.8rem;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #f0f8ff7f;
+    background: #f0f8ff30;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+    transition: all 0.3s;
+    color: #6a6a6a;
+}
+.modal-container {
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #000;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;  
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.3s ease;
+  }
+  
+  .show {
+    pointer-events: auto;
+    opacity: 1;
+  }
+  
+  .modal {
+    background-color: #fff;
+    width: 800px;
+    height: 500px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .modal h1 {
+    margin: 0;
+  }
+  
+  .modal p {
+    opacity: 0.7;
+    font-size: 14px;
+  }
+
+
+/*hhhhhhhhhhhhhhhhh*/
+.contenido_titulo{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    margin-top: 400px;
+}
+.contenido_titulo h1{
+    font-size: 60px;
+    font-weight: 600;
+    margin-bottom: -25px;
+    text-align: center;
+}
+
+.back-video{
+    top: 12vh;
+    
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    
+    z-index: -100;
+}
+
+@media(min-aspect-ratio: 16/9){
+    .back-video{
+        width: 100%;
+        height:auto;
+    }
+}
+@media(max-aspect-ratio: 16/9){
+    .back-video{
+        width: auto;
+        height: 100%;
+    }
+}
+
+
+@media(max-width:985px){
+    .intrucciones .contenedorimg{
+    
+        position: flex;
+    }
+    
+
+}
+
+
+@media(max-width:1300px){
+    .tarjeta .tarjeta-contenedor{
+        width: 90%;
+    }
+    .tarjeta .tarjeta-contenedor a img{
+        width: 100%;
+    }
+    .tarjeta .boton_tc{
+        width: 90%;
+        margin: 10% 5%;
+    }
+
+
+    .ha{
+        margin-top: 170px;
+        
+       
+    }
+
+    .shib{
+   
+        left: 190px;
+        margin-left: 100px;
+    }
+ 
+    .barra{
+        left: 55px;
+    }
+
+}
+
+@media(max-width:320px){
+    .barra{
+        left: 8px;
+    }
+}
+
+@keyframes des {
+    0% {
+        margin-left: -10%;
+    }
+
+    20% {
+        margin-left: -10%;
+    }
+
+    25% {
+        margin-left: -100%;
+    }
+
+    45% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -100%;
+    }
+
+    70% {
+        margin-left: -100%;
+    }
+
+    75% {
+        margin-left: -160%;
+    }
+
+    100% {
+        margin-left: -160%;
+    }
+}
+
+
+
+
+@media (max-width:880px){
+    .tarjeta .tarjeta-contenedor a img{
+        width: 100%;
+        height: 300px;
+    }
+    .tarjeta .tarjeta-contenedor{
+        height: 500px;
+    }
+    .charts{
+        margin-top: 150px;
+        left: 0%;
+        margin-left: 0%;
+        padding: 0;
+    }
+    .tex1{
+        
+        width: 150px;
+    }
+
+    #tope img{
+        width: 40%;
+        margin-top: 0;
+        left: 0;
+        z-index: 10;
+    } 
+
+    .menu__hamburguer{
+        display: flex;
+        z-index: 10;
+    }
+
+    .menu__item{
+        --clip:0;
+        overflow:hidden ;
+        margin: 0 0 5px;
+        height: 40px;
+        padding: 0;
+        font-size: 20px;
+        z-index: 10;
+    }
+
+    .menu__item--active{
+        --transform: rotate(0);
+        --background: #f0f8ff20;
+        z-index: 10;
+    }
+
+    .menu__item--show{
+        background-color: #f0f8ff20;
+        z-index: 10;
+    }
+
+    .menu__links{
+        position: fixed;
+        max-width: 400px;
+        width: 100%;
+        top: 60px;
+        bottom: 0;
+        right: 0;
+        background-color: #000;
+        overflow-y: auto;
+        display: grid;
+        grid-auto-rows: max-content;
+        transform: translateX(100%);
+        z-index: 10;
+    }
+
+    .menu__links--show{
+        transform: unset;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .menu__link{
+        padding: 8px 25px;
+        padding-left: 30px;
+        height: auto;
+        z-index: 10;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .Titulo_Juegos {
+        font-size: 25px;
+        
+    }
+    .intrucciones .Titulo_Paso{
+        font-size: 30px;
+        margin: 20px 0;
+    }
+
+
+    .intrucciones .Cuadro_P{
+        margin-top: 50px;
+        font-size: 15px; 
+    }
+    .intrucciones .titulo_i{
+        font-size: 30px;
+        
+    }
+    .contenido_titulo h1{
+        font-size: 40px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .contenido_titulo p{
+        font-size: 10px;
+    }
+    footer p {
+      
+        font-size: 13px;
+    }
+    .tarjeta .tarjeta-contenedor a img{
+        width: 100%;
+        height: 300px;
+    }
+    .tarjeta .tarjeta-contenedor{
+        height: 500px;
+        width: 70%;
+    }
+    .charts{
+        margin-top: 150px;
+        left: 0%;
+        margin-left: 0%;
+        padding: 0;
+    }
+    .tarjeta .boton_tc{
+        width: 70%;
+        height: 10%;
+        margin: 10% 15%;
+    
+    }
+}
+

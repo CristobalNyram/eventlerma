@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+
+*{
+    
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'biko', sans-serif;
+}
+
+div {
+    width: 11.7cm;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 100px;
+    height: 10cm;
+    border-style: double;
+}
+
+#bloque {
+    width: 160px;
+    margin-left: 276px;
+    height: 371px;
+}
+
+#ri2 {
+    bottom: 273px;
+    position: absolute;
+    left: 0;
+    width: 150px;
+}
+
+#logo {
+    width: 100px;
+    position: absolute;
+    left: 170px;
+    top: 40px;
+}
+
+#perfil {
+    width: 100px;
+    position: absolute;
+    left: 300px;
+    top: 60px;
+}
+
+#ri3 {
+    width: 150px;
+    position: absolute;
+    left: 285px;
+    top: 230px;
+
+}
+
+#ri4 {
+    width: 100px;
+    position: absolute;
+    left: 300px;
+    top: 230px;
+
+}
+
+#nombre {
+    position: absolute;
+    bottom: 160px;
+    margin-left: 80px;
+}
+
+#apellidos {
+    position: absolute;
+    bottom: 130px;
+    margin-left: 40px;
+}
+
+#roles {
+    position: absolute;
+    bottom: 100px;
+    margin-left: 80px;
+}

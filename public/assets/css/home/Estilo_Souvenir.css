@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+
+*{
+    
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+body{
+    font-family: 'biko', sans-serif;
+    
+    
+}
+
+
+.pos1{
+    display: flex;
+    
+    justify-content: center;
+    flex-wrap: wrap;
+    background: #fff;
+}
+
+
+.card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    border-radius: 30px;
+    
+    transition: 0.5s;
+    transition-delay: 00.5s;
+    margin: 60px auto;
+    justify-content: flex-start;
+    align-items: center;
+}
+.card:hover
+{
+ width: 350px;
+ transition-delay: 0s;   
+}
+
+.card .circleS{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .circleS::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #bdc3c7; 
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7); 
+    background: linear-gradient(to right, #2c3e50, #bdc3c7);
+    clip-path:circle(120px at center);
+    transition: 0.5s;
+}
+
+.card:hover .circleS::before{
+    clip-path: circle(400px at center);
+}
+.card .circleS .logo{
+    position: relative;
+    width: 200px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+
+}
+.card:hover .circleS .logo{
+    transform: scale(0);
+    transition-delay: 0s;
+}
+.content{
+    position: relative;
+    width: 50%;
+    left: 10%;
+    padding: 20px 20px 20px 40px;
+    opacity: 0;
+    transition: 0.5s;
+    visibility: hidden;
+}
+.card:hover .content{
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.content p{
+    margin-left: -10px;
+    color: #fff;
+    font-size: 95%;
+}
+.content a{
+    position: relative;
+    color: #f0f8ff;
+    background: #ffffff40;
+    backdrop-filter: blur(20px);
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: -10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.content a:hover{
+    transition: scale 0.1s;
+}
+
+.card .product_img{
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    width: 35%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.5s;
+    transition-delay: 0s;
+}
+.card:hover .product_img{
+    left: 70%;
+    transform: translate(-50%,-50%) scale(1);
+    transition-delay: 0.5s;
+}
+
+#img{
+    width: 70%;
+}
+
+#bs{
+    width: 57%;
+}
+
+#libreta{
+    width: 58%;
+    left: 70%;
+}
+
+#libr{
+    width: 80%;
+}
+
+#taza{
+    width: 80%;
+    left: 1px;
+}
+
+#xa{
+    width: 63%;
+    left: 75%;
+}
+
+#pla{
+    width: 43%;
+    left: 75%;
+}
+
+#pl{
+    width: 85%;
+}
+
+.li{
+    color: #fff;
+}
+
+
+@media(max-width:416px){
+   
+
+    .pos1{
+        display: block;
+        
+    }
+    
+
+}
+@media(max-width:416px){
+    footer p {
+      
+        font-size: 13px;
+ 
+        
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:800px){
+
+    #tope img{
+        width: 40%;
+        margin-top: 0;
+        left: 0;
+        z-index: 10;
+    } 
+
+    .menu__hamburguer{
+        display: flex;
+        z-index: 10;
+    }
+
+    .menu__item{
+        --clip:0;
+        overflow:hidden ;
+        margin: 0 0 5px;
+        height: 40px;
+        padding: 0;
+        font-size: 20px;
+        z-index: 10;
+    }
+
+    .menu__item--active{
+        --transform: rotate(0);
+        --background: #f0f8ff20;
+        z-index: 10;
+    }
+
+    .menu__item--show{
+        background-color: #f0f8ff20;
+        z-index: 10;
+    }
+
+    .menu__links{
+        position: fixed;
+        max-width: 400px;
+        width: 100%;
+        top: 60px;
+        bottom: 0;
+        right: 0;
+        background-color: #000;
+        overflow-y: auto;
+        display: grid;
+        grid-auto-rows: max-content;
+        transform: translateX(100%);
+        z-index: 10;
+    }
+
+    .menu__links--show{
+        transform: unset;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .menu__link{
+        padding: 8px 25px;
+        padding-left: 30px;
+        height: auto;
+        z-index: 10;
+    }
+    
+}
+

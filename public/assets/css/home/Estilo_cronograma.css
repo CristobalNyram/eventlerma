@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-image: url('5053309.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 160%;
+}
+
+.contenedor {
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.titulo {
+    color: #fff;
+    margin: auto auto;
+    border-radius: 100%;
+}
+
+.titulo img {
+    width: 50%;
+}
+
+.cuadros {
+    margin-top: auto;
+}
+
+.espacio {
+    display: grid;
+    grid-template-rows: 4rem;
+    grid-template-columns: .5fr 1fr;
+    background: rgba(0, 0, 0, 1);
+    color: #fff;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 50px;
+    box-shadow: yellow -2px 2px 0,
+                green 2px -2px 0;
+
+}
+.botones{
+    margin: 200px auto;
+}
+#Texto_Descripcion{
+    width: 70%;
+    margin:auto;
+    color: #fff;
+}
+.bo{
+    padding: 15px 30px;
+    margin: 10px 20px;
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: yellow -1px 1px 0,
+    green 1px -1px 0 ;
+    transition: all .5s;
+    font-size: 15px;
+}
+
+.bo:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
+
+}
+    
+
+.espacio p {
+    margin-top: 8px;
+}
+
+.espacio .icono {
+    margin: 15px auto;
+    height: 30px;
+    width: 30px;
+}
+
+.es1{
+    position: relative;
+    left: -250px;
+}
+
+.es2{
+    position: relative;
+    left: -200px;
+}
+
+.es3{
+    position: relative;
+    left: -160px;
+}
+
+.es4{
+    position: relative;
+    left: -130px;
+}
+
+.es5{
+    position: relative;
+    left: -110px;
+}
+
+.es6{
+    position: relative;
+    left: -110px;
+}
+
+.es7{
+    position: relative;
+    left: -130px;
+}
+
+.es8{
+    position: relative;
+    left: -160px;
+}
+
+.es9{
+    position: relative;
+    left: -200px;
+}
+
+.es10{
+    position: relative;
+    left: -250px;
+}
+.es10{
+    position: relative;
+    left: -250px;
+}
+.es11{
+    position: relative;
+    left: -300px;
+}
+
+@media(max-width:1000px) {
+   
+    .espacio p{
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .es1{
+        position: relative;
+        left: 0;
+    }
+    
+    .es2{
+        position: relative;
+        left: 0;
+    }
+    
+    .es3{
+        position: relative;
+        left: 0;
+    }
+    
+    .es4{
+        position: relative;
+        left: 0;
+    }
+    
+    .es5{
+        position: relative;
+        left: 0;
+    }
+    
+    .es6{
+        position: relative;
+        left: 0;
+    }
+    
+    .es7{
+        position: relative;
+        left: 0;
+    }
+    
+    .es8{
+        position: relative;
+        left: 0;
+    }
+    
+    .es9{
+        position: relative;
+        left: 0;
+    }
+    
+    .es10{
+        position: relative;
+        left: 0;
+    }
+    .es11{
+        position: relative;
+        left: 0;
+    }
+    
+    
+}
+
+@media(max-width:500px){
+    .botones{
+        margin: 40px auto;
+    }
+}
