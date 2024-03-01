@@ -39,17 +39,16 @@ use App\Models\Sponsor;
 |
 */
 
- Route::get('/', function () {
-    $sponsors=Sponsor::all()->where('status','=','2');
+Route::get('/',[HomeWebController::class, 'index'])->name('home_page_index');
+Route::get('/events',[HomeWebController::class, 'events'])->name('home_page_events');
+Route::get('/event/{slug}', [HomeWebController::class, 'event_detail'])->name('home_page_event_detail');
 
-        $variables=[
-            'sponsors2'=>$sponsors,
-        ];
-    return view('home_page.index')->with($variables);
- });
+Route::get('/calendar',[HomeWebController::class, 'calendar'])->name('home_page_calendar');
 
 Route::prefix('web')->group(function () {
-    Route::get('/index',[HomeWebController::class, 'index'])->name('home_page_index');
+    // Route::get('/index',[HomeWebController::class, 'index'])->name('home_page_index');
+
+
     Route::get('/sponsor',[HomeWebController::class, 'sponsor'])->name('home_page_sponsor');
     Route::get('/courses/index',[HomeWebController::class, 'course'])->name('home_page_course');
     Route::get('/course/interface/{course_id}', [HomeWebController::class, "CourseInterface"])->name('course_interface');

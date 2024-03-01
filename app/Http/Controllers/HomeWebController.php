@@ -12,26 +12,71 @@ use App\Models\Souvenir;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
+use App\Models\Event;
 use App\Models\Package;
 use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class HomeWebController extends Controller
 {
-   
+
     public function index()
     {
-        
 
-
-
-        $sponsors2=Sponsor::all()->where('status','=','2');
+        $sponsors=Sponsor::all()->where('status','=','2');
+        $today = Carbon::today();
+        $events = Event::where('status', 2)
+            ->whereDate('date', '>=', $today)
+            ->get();
 
         $variables=[
-            'sponsors2'=>$sponsors2,
+            'sponsors'=>$sponsors,
+            'events'=>$events,
+
         ];
         return view('home_page.index')->with($variables);
     }
+    public function calendar()
+    {
+        $sponsors1=Sponsor::all()->where('status','=','2');
+
+        $variables=[
+            'sponsors1'=>$sponsors1,
+        ];
+        return view('home_page.calendar')->with($variables);
+    }
+    public function events()
+    {
+        $sponsors=Sponsor::all()->where('status','=','2');
+        $today = Carbon::today();
+        $events = Event::where('status', 2)
+            ->whereDate('date', '>=', $today)
+            ->get();
+        $variables=[
+            'sponsors'=>$sponsors,
+            'events'=>$events,
+
+        ];
+        return view('home_page.events')->with($variables);
+    }
+    public function event_detail($slug)
+    {
+        $sponsors=Sponsor::all()->where('status','=','2');
+        $today = Carbon::today();
+        $event = Event::where('status', 2)
+            ->where('slug', '=', $slug)
+            ->first();
+        $variables=[
+            'sponsors'=>$sponsors,
+            'event'=>$event,
+
+        ];
+
+        // dd($event);
+        return view('home_page.event_detail')->with($variables);
+    }
+
 
 
     public function sponsor()
@@ -47,7 +92,7 @@ class HomeWebController extends Controller
     public function course()
     {
         $courses1=Course::all()->where('status','=','2');
-       
+
 
         $variables=[
             'courses1'=>$courses1,
@@ -66,7 +111,7 @@ class HomeWebController extends Controller
 
         $current_course=Course::findOrFail($course_id);
 
-        $nombre = $current_course->speaker_id; 
+        $nombre = $current_course->speaker_id;
 
         $consulta = Course::join('users', 'courses.speaker_id', '=', 'users.id')->select('courses.speaker_id', 'users.name')->where('users.id', '=', $nombre)->get();
 
@@ -92,7 +137,7 @@ class HomeWebController extends Controller
     public function ConferenceInterface($talk_id)
     {
 
-       
+
 
     $current_conference=Talk::findOrFail($talk_id);
 
@@ -112,10 +157,10 @@ class HomeWebController extends Controller
 
     public function timeline2()
     {
-        
+
         return view('home_page.timeline2');
     }
-    
+
 
     public function really()
     {

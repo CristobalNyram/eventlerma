@@ -6,9 +6,9 @@
     </div>
     <div class="col-xl-6">
         <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Politicas de privacidad</a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a href="{{route('home_page_index')}}" class="nav-link" target="_blank">Página principal</a>
             </li>

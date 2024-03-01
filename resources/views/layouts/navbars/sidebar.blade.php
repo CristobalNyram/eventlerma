@@ -53,7 +53,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/brand/{{ config_icon_logo_system() }}" class="navbar-brand-img" alt="{{ config_icon_logo_system() }}"">
+            <img src="{{ asset('argon') }}/brand/{{ config_icon_logo_system() }}" class="navbar-brand-img" alt="{{ config_icon_logo_system() }}">
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">

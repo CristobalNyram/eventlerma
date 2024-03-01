@@ -2,7 +2,13 @@
 
 @section('content')
     @include('layouts.headers.guest')
-
+    <style>
+        .bg-gradient-primary {
+        background: #282828  !important;
+        -webkit-box-shadow:none!important;
+        box-shadow: none!important;
+    }
+    </style>
     <div class="container mt--8 pb-5">
         <div class="row justify-content-center">
             <div class="col-lg-5 col-md-7">
@@ -55,11 +61,11 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-6">
-                        @if (Route::has('password.request'))
+                        {{-- @if (Route::has('password.request'))
                             <a href="{{ route('password.request') }}" class="text-light">
                                 <small>¿Olvidaste tu contraseña?<small>
                             </a>
-                        @endif
+                        @endif --}}
                     </div>
                     {{-- <div class="col-6 text-right">
                         <a href="{{ route('register') }}" class="text-light">

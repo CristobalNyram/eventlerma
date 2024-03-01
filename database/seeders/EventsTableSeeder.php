@@ -18,9 +18,9 @@ class EventsTableSeeder extends Seeder
         $faker = Faker::create('es_ES'); // Configurar Faker para español
 
         DB::table('events')->insert([
-            'name' => $faker->sentence(4),
-            'slug' => $faker->word(1),
-            'description' => $faker->paragraph(3),
+            'name' =>"BAILE CULTURA BREACK DANCE",
+            'slug' => "baile_cultural_breack_dance",
+            'description' => "baile para bailar",
             'date' => $faker->dateTimeBetween('+1 week', '+1 month')->format('Y-m-d'),
             'url_photo' => "uploads/events/iniciador.jpg",
             'duration' => $faker->randomElement(['1 hora', '2 horas', '3 horas']),
@@ -36,9 +36,9 @@ class EventsTableSeeder extends Seeder
         ]);
 
         DB::table('events')->insert([
-            'name' => $faker->sentence(4),
-            'slug' => $faker->word(1),
-            'description' => $faker->paragraph(1),
+            'name' =>"BAILE CULTURA  DE POP",
+            'slug' => "baile_cultural_de_pop",
+            'description' => "baile para bailar",
             'date' => $faker->dateTimeBetween('+1 week', '+1 month')->format('Y-m-d'),
             'url_photo' => "uploads/events/iniciador.jpg",
             'duration' => $faker->randomElement(['1 hora', '2 horas', '3 horas']),

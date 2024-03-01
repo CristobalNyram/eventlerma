@@ -1,134 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title -->
-    <title>{{ config_name_system() }}</title>
-
-
-    <!-- Favicon -->
-    <link rel="icon" href="{{ asset('assets/home_page/') }}/img/core-img/favicon.ico">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="{{ asset('assets/home_page/') }}/style.css" >
-
-</head>
+<html lang="es">
+    @include('home_page.layouts.head')
 
 <body>
     <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+    @include('home_page.layouts.preloader')
 
     <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
-        <!-- Navbar Area -->
-        <div class="oneMusic-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+    @include('home_page.layouts.header')
 
-                        <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand">
-                            <img src="{{ asset('argon') }}/brand/{{ config_icon_logo_system() }}"  alt="{{ config_icon_logo_system() }}"">
-
-                            {{-- <img src="{{ asset('assets/home_page/') }}/img/core-img/logo.png" alt=""> --}}
-                        </a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
-                        </div>
-
-                        <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    {{-- <li><a href="albums-store.html">Albums</a></li> --}}
-                                    {{-- <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="albums-store.html">Albums</a></li>
-                                            <li><a href="event.html">Events</a></li>
-                                            <li><a href="blog.html">News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                            <li><a href="{{ route('login') }}">Login</a></li>
-                                            <li><a href="#">Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a>
-                                                        <ul class="dropdown">
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li> --}}
-                                    <li><a href="event.html">Eventos</a></li>
-                                    <li><a href="blog.html">Noticias</a></li>
-                                    <li><a href="contact.html">Contacto</a></li>
-                                </ul>
-
-                                <!-- Login/Register & Cart Button -->
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <!-- Login/Register -->
-                                    @if (Auth::check())
-                                        <div class="login-register-btn mr-50">
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Cerrar Sesión</a>
-                                            <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                @csrf
-                                            </form>
-                                        </div>
-                                    @else
-                                        <div class="login-register-btn mr-50">
-                                            <a href="{{ route('login') }}" id="loginBtn">Login / Register</a>
-                                        </div>
-                                    @endif
-
-
-                                    <!-- Cart Button -->
-                                    {{-- <div class="cart-btn">
-                                        <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                    </div> --}}
-                                </div>
-                            </div>
-                            <!-- Nav End -->
-
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Hero Area Start ##### -->
@@ -199,85 +79,22 @@
             <div class="row">
                 <div class="col-12">
                     <div class="albums-slideshow owl-carousel">
+                        @foreach($events as $event)
                         <!-- Single Album -->
                         <div class="single-album">
-                            <img src="{{ asset('assets/home_page/') }}/img/bg-img/a1.jpg" alt="">
+                            <img src="{{ $event->url_photo }}" alt="">
                             <div class="album-info">
                                 <a href="#">
-                                    <h5>The Cure</h5>
+                                    <h5>{{ $event->name }}</h5>
                                 </a>
-                                <p>Second Song</p>
+                                <p>{{ $event->description }}</p>
                             </div>
                         </div>
-
-                        <!-- Single Album -->
-                        <div class="single-album">
-                            <img src="{{ asset('assets/home_page/') }}/img/bg-img/a2.jpg" alt="">
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Sam Smith</h5>
-                                </a>
-                                <p>Underground</p>
-                            </div>
-                        </div>
-
-                        <!-- Single Album -->
-                        <div class="single-album">
-                            <img src="{{ asset('assets/home_page/') }}/img/bg-img/a3.jpg" alt="">
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Will I am</h5>
-                                </a>
-                                <p>First</p>
-                            </div>
-                        </div>
-
-                        <!-- Single Album -->
-                        <div class="single-album">
-                            <img src="{{ asset('assets/home_page/') }}/img/bg-img/a4.jpg" alt="">
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Cure</h5>
-                                </a>
-                                <p>Second Song</p>
-                            </div>
-                        </div>
-
-                        <!-- Single Album -->
-                        <div class="single-album">
-                            <img src="{{ asset('assets/home_page/') }}/img/bg-img/a5.jpg" alt="">
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>DJ SMITH</h5>
-                                </a>
-                                <p>The Album</p>
-                            </div>
-                        </div>
-
-                        <!-- Single Album -->
-                        <div class="single-album">
-                            <img src="{{ asset('assets/home_page/') }}/img/bg-img/a6.jpg" alt="">
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Ustopable</h5>
-                                </a>
-                                <p>Unplugged</p>
-                            </div>
-                        </div>
-
-                        <!-- Single Album -->
-                        <div class="single-album">
-                            <img src="{{ asset('assets/home_page/') }}/img/bg-img/a7.jpg" alt="">
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Beyonce</h5>
-                                </a>
-                                <p>Songs</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
     <!-- ##### Latest Albums Area End ##### -->
@@ -868,54 +685,13 @@
     <!-- ##### Contact Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row d-flex flex-wrap align-items-center">
-                <div class="col-12 col-md-6">
-                    <a href="#">
-                        {{-- <img src="{{ asset('assets/home_page/') }}/img/core-img/logo.png" alt=""></a> --}}
+    @include('home_page.layouts.footer')
 
-                        <img src="{{ asset('argon') }}/brand/{{ config_icon_logo_system() }}"  alt="{{ config_icon_logo_system() }}" height="40px" >
-
-                    <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Derechos de autor ©<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Esta web fue creada con <i class="fa fa-heart-o" aria-hidden="true"></i> por
-                        {{ config_author_system() }}
-                        {{-- <a href="https://colorlib.com" target="_blank">Colorlib</a> --}}
-
-
-
-
-
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="footer-nav">
-                        {{-- <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Albums</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul> --}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
     <!-- ##### Footer Area Start ##### -->
 
     <!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="{{ asset('assets/home_page/') }}/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="{{ asset('assets/home_page/') }}/js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="{{ asset('assets/home_page/') }}/js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="{{ asset('assets/home_page/') }}/js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="{{ asset('assets/home_page/') }}/js/active.js"></script>
+    @include('home_page.layouts.scripts_footer')
+
 </body>
 
 </html>
