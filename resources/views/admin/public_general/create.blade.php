@@ -27,6 +27,14 @@
                         </button>
                     </div>
                     @endif
+                    @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @endif
                     @if ($errors->any())
                         @foreach ($errors->all() as $error)
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -137,12 +145,18 @@
 
          // Formateador de número de teléfono
          $('#phone_number').on('input', function() {
-             var phone = $(this).val().replace(/\D/g, '');
-             if (phone.length === 10) {
-                 phone = phone.replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, "$1-$2-$3-$4");
-                 $(this).val(phone);
-             }
-         });
+            var phone = $(this).val().replace(/\D/g, ''); // Elimina todo excepto los dígitos
+            if (!/^\d+$/.test(phone)) {
+                // Si el valor contiene letras, no hagas nada
+                return;
+            }
+
+            if (phone.length === 10) {
+                phone = phone.replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, "$1-$2-$3-$4");
+                $(this).val(phone);
+            }
+        });
+
          $('#password_confirmation').on('input', function() {
             var password = $('#password').val();
             var confirmPassword = $(this).val();

@@ -55,7 +55,6 @@
 
         <!-- Argon JS -->
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
-        <input type="number" class="form-control form-control-lg" id="order" name="order" placeholder="Menu orden (de acuerdo a la base de datos)" min="0" oninput="validateOrderInput(this)">
 
         <script>
              function confirmLogout() {

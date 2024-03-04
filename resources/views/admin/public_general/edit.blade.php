@@ -132,17 +132,15 @@
             }
         });
 
-         // No permitir números negativos en el teléfono
-         $('#phone_number').keypress(function(e) {
-             var a = [];
-             var k = e.which;
+        $('#phone_number').on('input', function() {
+            var phone = $(this).val().replace(/[^\d]/g, ''); // Eliminar todo excepto los dígitos
+            if (phone.length === 10) {
+                phone = phone.replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, "$1-$2-$3-$4");
+                $(this).val(phone);
+            }
+        });
 
-             for (var i = 48; i < 58; i++)
-                 a.push(i);
 
-             if (!(a.indexOf(k) >= 0))
-                 e.preventDefault();
-         });
      });
  </script>
 </div>

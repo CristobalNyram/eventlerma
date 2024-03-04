@@ -74,7 +74,7 @@ class PublicGeneralController extends Controller
             return view('errors.notaccess')->with($variables);
         }
 
-        $log->activity_done($description = 'Accedió al módulo de crear publico general.',$table_id = 0, $menu_id = 12, $user_id = Auth::id(), $kind_acction = 1);
+        $log->activity_done($description = 'Accedió al módulo de crear publico general.',$table_id = 0, $menu_id = 41, $user_id = Auth::id(), $kind_acction = 1);
 
         $variables=[
             'menu'=>'publicg_all',
@@ -95,6 +95,7 @@ class PublicGeneralController extends Controller
 
     public function store(Request $request)
     {
+        // dd("PRUEBAA");
         try {
             // Validaciones de Laravel
             $request->validate([
@@ -143,7 +144,7 @@ class PublicGeneralController extends Controller
 
             $user->user_image = $user_image;
             $user->save();
-
+            // dd("ero");
             // Confirmar la transacción si todo está bien
             DB::commit();
             $log=new Logbook();
@@ -155,7 +156,7 @@ class PublicGeneralController extends Controller
             DB::rollback();
 
             // Devolver mensaje de error
-            return redirect()->back()->with(['error' => 'Ha ocurrido un error al crear el usuario. Por favor, inténtelo de nuevo más tarde.']);
+            return redirect()->back()->with(['error' => 'Ha ocurrido un error al crear el usuario. Por favor, inténtelo de nuevo más tarde.'.$e->getMessage()]);
         }
     }
 
