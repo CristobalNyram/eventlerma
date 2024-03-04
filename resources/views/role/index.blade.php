@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" type="text/css" href="/assets/libraries/DataTablesJs/datatables.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
 
 @extends('layouts.app')

@@ -102,14 +102,13 @@
                             <div class="form-group">
                                 <label for="gender">Genero</label>
 
-                                <select class="form-control form-control-lg  single-select-2  " data-toggle="select2" id="gender" name="gender" >
-                                    <option value="-1" selected>Seleccionar</option>
-                                    <option value="H" >Masculino</option>
-                                    <option value="M" >Feminino</option>
-                                    <option value="N/A" >No binario</option>
+                                <select class="form-control form-control-lg single-select-2" data-toggle="select2" id="gender" name="gender">
+                                    <option value="-1" {{ old('gender') == '-1' ? 'selected' : '' }}>Seleccionar</option>
+                                    <option value="H" {{ old('gender') == 'H' ? 'selected' : '' }}>Masculino</option>
+                                    <option value="M" {{ old('gender') == 'M' ? 'selected' : '' }}>Femenino</option>
+                                    <option value="N/A" {{ old('gender') == 'N/A' ? 'selected' : '' }}>No binario</option>
+                                </select>
 
-
-                                  </select>
                             </div>
 
 

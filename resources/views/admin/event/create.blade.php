@@ -40,7 +40,7 @@
                     @endif
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Nombre del evento" required>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Nombre del evento" required maxlength="55">
                     </div>
 
                     <div class="form-group">
@@ -50,12 +50,12 @@
 
                     <div class="form-group">
                         <label for="description">Descripción</label>
-                        <textarea class="form-control" id="description" name="description" rows="3" placeholder="Descripción del evento" required>{{ old('description') }}</textarea>
+                        <textarea class="form-control" id="description" name="description" rows="3" placeholder="Descripción del evento" required maxlength="55"> {{ old('description') }}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="capacity">Capacidad</label>
-                        <input type="number" class="form-control" id="capacity" name="capacity" value="{{ old('capacity') }}" placeholder="Capacidad del evento" required>
+                        <input type="number" class="form-control" id="capacity" name="capacity" value="{{ old('capacity') }}" placeholder="Capacidad del evento" min="0" oninput="soloInputsEnterosYMayor0(this)" required>
                     </div>
 
                     <div class="form-group">
@@ -63,8 +63,8 @@
                         <input type="time" class="form-control" id="time" name="time" value="{{ old('time') }}" placeholder="Hora del evento" required>
                     </div>
                     <div class="form-group">
-                        <label for="time">Cost</label>
-                        <input type="number" class="form-control" id="cost" name="cost" value="{{ old('cost') }}" placeholder="Costo" required>
+                        <label for="time">Costo</label>
+                        <input type="number" class="form-control" id="cost" name="costo" value="{{ old('cost') }}" placeholder="Costo" oninput="validarNumerosPositivosCostos(this)" required>
                     </div>
 
                     <div class="form-group">
@@ -74,7 +74,7 @@
 
                     <div class="form-group">
                         <label for="date">Fecha</label>
-                        <input type="date" class="form-control" id="date" name="date" value="{{ old('date') }}" placeholder="Fecha del evento" required>
+                        <input type="date" class="form-control" id="date" name="date" value="{{ old('date') }}" placeholder="Fecha del evento" onchange="validarFechaApartirDeHoy(this)" required>
                     </div>
 
                     <div class="form-group">

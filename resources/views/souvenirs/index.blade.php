@@ -4,7 +4,7 @@
 @include('layouts.navbars.navs.header')
 <script scr="js/modal.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
 
 <div class="container-fluid mt--6">

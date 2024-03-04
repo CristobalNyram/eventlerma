@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a href="{{ route('home') }}">
-                            <img src="{{ asset('argon') }}/img/brand/blue.png">
+                            <img  src="{{ asset('argon') }}/brand/{{ config_icon_logo_system() }}">
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -40,12 +40,12 @@
                         <span class="nav-link-inner--text">{{ __('Dashboard') }}</span>
                     </a>
                 </li> --}}
-                 <li class="nav-item">
+                 {{-- <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('register') }}">
                         <i class="ni ni-circle-08"></i>
                         <span class="nav-link-inner--text">{{ __('Registrarse') }}</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('login') }}">
                         <i class="ni ni-key-25"></i>

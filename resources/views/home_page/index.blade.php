@@ -81,7 +81,7 @@
                     <div class="albums-slideshow owl-carousel">
                         @foreach($events as $event)
                         <!-- Single Album -->
-                        <div class="single-album">
+                        <div class="single-album" onclick="window.location='{{ route('home_page_event_detail', ['slug' => $event->slug]) }}';">
                             <img src="{{ $event->url_photo }}" alt="">
                             <div class="album-info">
                                 <a href="#">
@@ -90,6 +90,7 @@
                                 <p>{{ $event->description }}</p>
                             </div>
                         </div>
+
                         @endforeach
                     </div>
                 </div>

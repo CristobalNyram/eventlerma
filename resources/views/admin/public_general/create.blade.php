@@ -39,23 +39,23 @@
                     @endif
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name" maxlength="55" value="{{ old('name') }}" required>
+                        <input type="text" class="form-control" id="name" name="name" maxlength="55" value="{{ old('name') }}" placeholder="Ingrese su nombre" required>
                     </div>
                     <div class="form-group">
                         <label for="first_surname">Primer Apellido</label>
-                        <input type="text" class="form-control" id="first_surname" name="first_surname"  maxlength="55" value="{{ old('first_surname') }}" required>
+                        <input type="text" class="form-control" id="first_surname" name="first_surname"  maxlength="55" value="{{ old('first_surname') }}" placeholder="Ingrese su primer apellido" required>
                     </div>
                     <div class="form-group">
                         <label for="second_surname">Segundo Apellido</label>
-                        <input type="text" class="form-control" id="second_surname" name="second_surname"  maxlength="55" value="{{ old('second_surname') }}" required>
+                        <input type="text" class="form-control" id="second_surname" name="second_surname"  maxlength="55" value="{{ old('second_surname') }}" placeholder="Ingrese su segundo apellido" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password" maxlength="39" required>
+                        <input type="password" class="form-control" id="password" name="password" maxlength="39" placeholder="Ingrese su contraseña" required>
                     </div>
                     <div class="form-group">
                         <label for="password_confirm">Confirmar Contraseña</label>
-                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" maxlength="39" required>
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" maxlength="39" placeholder="Confirme su contraseña" required>
                     </div>
                     <div id="password_confirm_alert" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
                         Las contraseñas no coinciden. Por favor, asegúrate de que las contraseñas sean iguales.
@@ -65,32 +65,32 @@
                     </div>
                     <div class="form-group">
                         <label for="phone_number">Número de Teléfono</label>
-                        <input type="text" class="form-control" id="phone_number" name="phone_number" maxlength="12" value="{{ old('phone_number') }}" required>
+                        <input type="text" class="form-control" id="phone_number" name="phone_number" maxlength="12" value="{{ old('phone_number') }}" placeholder="Ingrese su número de teléfono" required>
                     </div>
                     <div class="form-group">
                         <label for="gender">Género</label>
                         <select class="form-control" id="gender" name="gender" required>
-                            <option value="">Seleccionar</option>
+                            <option value="" disabled selected>Seleccione su género</option>
                             <option value="H" {{ old('gender') == 'H' ? 'selected' : '' }}>Masculino</option>
                             <option value="M" {{ old('gender') == 'M' ? 'selected' : '' }}>Femenino</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="email">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="email" name="email" maxlength="55" value="{{ old('email') }}" required>
+                        <input type="email" class="form-control" id="email" name="email" maxlength="55" value="{{ old('email') }}" placeholder="Ingrese su correo electrónico" required>
                     </div>
                     <div class="form-group">
                         <label for="user_image">Imagen de Usuario</label>
-                        <input type="file" class="form-control-file" id="user_image" name="user_image" required>
+                        <input type="file" class="form-control-file" id="user_image" name="user_image" placeholder="Seleccione su imagen de usuario" required>
                     </div>
                     <div class="form-group">
                         <label for="date_birth">Fecha de Nacimiento</label>
-                        <input type="date" class="form-control" id="date_birth" name="date_birth" value="{{ old('date_birth') }}" required>
+                        <input type="date" class="form-control" id="date_birth" name="date_birth" value="{{ old('date_birth') }}" placeholder="Seleccione su fecha de nacimiento" required>
                     </div>
                     <div class="form-group">
                         <label for="status">Estado</label>
                         <select class="form-control" id="status" name="status" required>
-                            <option value="">Seleccionar</option>
+                            <option value="" disabled selected>Seleccione el estado</option>
                             <option value="2" {{ old('status') == '2' ? 'selected' : '' }}>Activo</option>
                             <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Inactivo</option>
                         </select>
@@ -105,6 +105,7 @@
                         </div>
                     </div>
                 </form>
+
 
 
 

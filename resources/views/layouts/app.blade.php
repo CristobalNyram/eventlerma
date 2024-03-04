@@ -45,6 +45,10 @@
         @endguest
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
         @stack('js')
@@ -82,6 +86,33 @@
                 input.value = ''; // Si no es un número válido, vaciar el campo
             }
         }
+        function validarFechaApartirDeHoy(input) {
+            var fechaIngresada = new Date(input.value);
+            var fechaActual = new Date();
+
+            // Convertir la fecha actual a formato YYYY-MM-DD para comparación
+            var fechaActualFormateada = fechaActual.toISOString().slice(0, 10);
+
+            // Convertir la fecha ingresada a formato YYYY-MM-DD para comparación
+            var fechaIngresadaFormateada = fechaIngresada.toISOString().slice(0, 10);
+
+            if (fechaIngresadaFormateada < fechaActualFormateada) {
+                alert("La fecha no puede ser anterior a la fecha actual.");
+                input.value = ''; // Limpiar el valor del campo de entrada
+            }
+        }
+        function validarNumerosPositivosCostos(input) {
+            var regex = /^\d+(\.\d{0,2})?$/;
+
+        // Validar si el valor ingresado coincide con la expresión regular
+        if (!regex.test(input.value)) {
+            // Si no coincide, mostrar un mensaje de error y volver al valor anterior
+            input.value = input.value.slice(0, -1);
+        }
+        }
+
+
+
 
         </script>
 

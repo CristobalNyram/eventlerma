@@ -44,12 +44,12 @@
 
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ $reg->name }}" placeholder="Nombre del evento" required>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ $reg->name }}" placeholder="Nombre del evento" required max="45">
                     </div>
 
                     <div class="form-group">
                         <label for="slug">Slug</label>
-                        <input type="text" class="form-control" id="slug" name="slug" value="{{ $reg->slug }}" placeholder="Slug del evento" required>
+                        <input type="text" class="form-control" readonly id="slug" name="slug" value="{{ $reg->slug }}" placeholder="Slug del evento" required maxlength="55">
                     </div>
 
                     <div class="form-group">
@@ -59,12 +59,12 @@
 
                     <div class="form-group">
                         <label for="capacity">Capacidad</label>
-                        <input type="number" class="form-control" id="capacity" name="capacity" value="{{ $reg->capacity }}" placeholder="Capacidad del evento" required>
+                        <input type="number" class="form-control" id="capacity" name="capacity" value="{{ $reg->capacity }}" placeholder="Capacidad del evento" required oninput="soloInputsEnterosYMayor0(this)">
                     </div>
 
                     <div class="form-group">
                         <label for="time">Hora</label>
-                        <input type="time" class="form-control" id="time" name="time" value="{{ $reg->time }}" placeholder="Hora del evento" required>
+                        <input type="time" class="form-control" id="time" name="time" value="{{ date('H:i', strtotime($reg->time)) }}" />
                     </div>
 
                     <div class="form-group">

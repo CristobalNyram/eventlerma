@@ -14,7 +14,9 @@
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('assets/home_page/') }}/img/bg-img/breadcumb3.jpg);">
         <div class="bradcumbContent">
             <p>Detalles del evento</p>
-            <h2>X-X-X-X-</h2>
+            <h2>
+
+            </h2>
         </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
