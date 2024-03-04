@@ -24,9 +24,7 @@ use App\Http\Controllers\GetCertificateController;
 use App\Http\Controllers\PublicGeneralController;
 use App\Http\Controllers\VideogameController;
 use App\Models\Sponsor;
-
-
-
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +36,36 @@ use App\Models\Sponsor;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/generate-key', function () {
+    // Generar y mostrar la nueva clave de la aplicación
+    Artisan::call('key:generate', ['--show' => true]);
+
+    // Limpiar la configuración cacheada
+    Artisan::call('config:cache');
+
+    // Limpiar la cache
+    Artisan::call('cache:clear');
+
+    // Limpiar las vistas cacheadas
+    Artisan::call('view:clear');
+
+    // Limpiar las rutas cacheadas
+    Artisan::call('route:clear');
+
+    return "Nueva clave de aplicación generada.";
+});
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+    Artisan::call('auth:clear-resets');
+    Artisan::call('optimize:clear');
+
+    return "Cache, configuraci贸n, rutas, vistas y autenticaci贸n limpiadas.";
+});
 
 Route::get('/',[HomeWebController::class, 'index'])->name('home_page_index');
 Route::get('/events',[HomeWebController::class, 'events'])->name('home_page_events');
