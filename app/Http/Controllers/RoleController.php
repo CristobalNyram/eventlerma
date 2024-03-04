@@ -38,7 +38,7 @@ class RoleController extends Controller
 
 
         $roles=Role::all()->where('status','2');
-        $roles_numbers=Role::all()->count();
+        $roles_numbers=Role::all()->where('status','2')->count();
         $variables=[
             'menu'=>'role',
             'title_page'=>'Roles',
@@ -175,14 +175,16 @@ class RoleController extends Controller
         $menus_and_roles = Relrolmenu::join('menus', 'relrolmenus.menu_id', '=', 'menus.id')
         ->where('relrolmenus.role_id', $role_id)
         ->where('menus.status', 2)
+        ->select('relrolmenus.id', 'relrolmenus.role_id', 'relrolmenus.status', 'menus.id as menu_id', 'menus.title', 'menus.status as menu_status')
         ->get();
+
         // return $menus_and_roles;
         // die();
         $variables=[
             'menu'=>'role',
             'title_page'=>'Roles',
             'current_role_name'=>$current_role_name,
-            'menus'=>$menus_and_roles,
+            'menus_and_roles'=>$menus_and_roles,
 
 
 

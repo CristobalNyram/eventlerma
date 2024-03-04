@@ -51,5 +51,39 @@
 
         <!-- Argon JS -->
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
+        <input type="number" class="form-control form-control-lg" id="order" name="order" placeholder="Menu orden (de acuerdo a la base de datos)" min="0" oninput="validateOrderInput(this)">
+
+        <script>
+             function confirmLogout() {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¿Deseas cerrar sesión?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, cerrar sesión',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            });
+        }
+        function soloInputsEnterosYMayor0(input) {
+            // Eliminar caracteres no permitidos
+            input.value = input.value.replace(/[^\d]/g, '');
+
+            // Convertir el valor a un número entero
+            var valor = parseInt(input.value);
+
+            // Verificar si el valor es un número y si es mayor que cero
+            if (isNaN(valor) || valor < 0) {
+                input.value = ''; // Si no es un número válido, vaciar el campo
+            }
+        }
+
+        </script>
+
     </body>
 </html>

@@ -48,7 +48,7 @@
                             <div class="row">
 
 
-                                @foreach ($menus as  $menu)
+                                @foreach ($menus_and_roles as  $menu)
 
                                         @if ($menu->menus->menu_parent==0)
 
@@ -66,7 +66,7 @@
 
 
 
-                                                                                    @foreach ($menus as $menus_child)
+                                                                                    @foreach ($menus_and_roles as $menus_child)
                                                                                         @if ($menu->menus->id == $menus_child->menus->menu_parent)
                                                                                                 <li class="list-group-item ml-5">
                                                                                                     <div class="custom-control custom-checkbox mb-3">

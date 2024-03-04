@@ -36,11 +36,12 @@
                         <span>{{ __('Soporte') }}</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ route('logout') }}" class="dropdown-item " onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
+                    <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+                        confirmLogout();">
                         <i class="ni ni-user-run text-danger"></i>
                         <span>{{ __('Cerrar sesión') }}</span>
                     </a>
+
                 </div>
             </li>
         </ul>

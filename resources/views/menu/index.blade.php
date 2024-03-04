@@ -34,7 +34,7 @@
                 <th scope="col" class="sort" data-sort="name">ID</th>
                 <th scope="col" class="sort" data-sort="budget">Nombre</th>
                 <th scope="col" class="sort" data-sort="budget">Descripción</th>
-                <th scope="col" class="sort" data-sort="budget">Acciones</th>
+                {{-- <th scope="col" class="sort" data-sort="budget">Acciones</th> --}}
 
               </tr>
             </thead>
@@ -69,7 +69,7 @@
                   </div>
                 </th>
 
-                <td class="text-cener">
+                {{-- <td class="text-cener">
                   <div class="dropdown">
                     <a class="btn btn-sm btn-icon-only text-danger" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v"></i>
@@ -79,7 +79,7 @@
 
                     </div>
                   </div>
-                </td>
+                </td> --}}
 
 
               </tr>

@@ -119,11 +119,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input  type="password" class="form-control form-control-lg" id="password" value="{{ old('password') }}" name="password" placeholder="Contraseña para este usuario." required maxlength="50">
+                                <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Contraseña para este usuario." required maxlength="50">
                             </div>
+
                             <div class="form-group">
                                 <label for="password_confirmation">Confirmar contraseña</label>
-                                <input  type="password" class="form-control form-control-lg" id=" password_confirmation" name="password_confirmation" placeholder="Confirmar la contraseña para este usuario." required maxlength="50">
+                                <input type="password" class="form-control form-control-lg" id="password_confirmation" name="password_confirmation" placeholder="Confirmar la contraseña para este usuario." required maxlength="50" oninput="checkPasswordMatch()">
+                                <div id="passwordMatchError" class="text-danger" style="display: none;">Las contraseñas no coinciden</div>
                             </div>
 
 
@@ -164,6 +166,19 @@
     <script src="/assets/js/ourownselect.js"></script>
 
     <script src="/assets/js/select2.js"></script>
+    <script>
+        function checkPasswordMatch() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("password_confirmation").value;
+            var passwordMatchError = document.getElementById("passwordMatchError");
+
+            if (password != confirmPassword) {
+                passwordMatchError.style.display = "block";
+            } else {
+                passwordMatchError.style.display = "none";
+            }
+        }
+    </script>
 
     <script src="/assets/js/validations/generalFunctions.js"></script>
 

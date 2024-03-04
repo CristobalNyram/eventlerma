@@ -31,7 +31,7 @@ class SettingController extends Controller
     $log = new Logbook();
 
 
-    $log->activity_done($description = 'Accedió al módulo de consulta de Configuración', $table_id = 0, $menu_id = 19, $user_id = Auth::id(), $kind_acction = 1);
+    $log->activity_done($description = 'Accedió al módulo de consulta de Configuración', $table_id = 0, $menu_id = 7, $user_id = Auth::id(), $kind_acction = 1);
 
     $configuration_active = Configuration::all();
     $configuration_active_number = Configuration::all()->count();

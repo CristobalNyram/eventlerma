@@ -27,7 +27,7 @@
                                     {{-- Cultura  --}}
                                 </h6>
                                 <h2 data-animation="fadeInUp" data-delay="300ms">Comunidad de  cultura<span></span></h2>
-                                <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Descrubre <i class="fa fa-angle-double-right"></i></a>
+                                <a data-animation="fadeInUp" data-delay="500ms"  href="{{ route('home_page_events') }}" class="btn oneMusic-btn mt-50">Descrubre <i class="fa fa-angle-double-right"></i></a>
                             </div>
                         </div>
                     </div>

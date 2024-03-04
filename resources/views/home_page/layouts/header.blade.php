@@ -7,8 +7,8 @@
                 <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                     <!-- Nav brand -->
-                    <a href="index.html" class="nav-brand">
-                        <img src="{{ asset('argon') }}/brand/{{ config_icon_logo_system() }}"  alt="{{ config_icon_logo_system() }}"">
+                    <a  href="{{ route('home_page_index') }}" class="nav-brand">
+                        <img width="100%" src="{{ asset('argon') }}/brand/{{ config_icon_logo_system() }}"  alt="{{ config_icon_logo_system() }}"">
 
                         {{-- <img src="{{ asset('assets/home_page/') }}/img/core-img/logo.png" alt=""> --}}
                     </a>
@@ -64,7 +64,7 @@
                                 {{-- <li>
                                     <a href="{{ route('home_page_calendar') }}"
                                     >Calendario</a></li> --}}
-                                <li><a href="#">Contacto</a></li>
+                                {{-- <li><a href="#">Contacto</a></li> --}}
                             </ul>
 
                             <!-- Login/Register & Cart Button -->
