@@ -145,12 +145,7 @@
 
          // Formateador de número de teléfono
          $('#phone_number').on('input', function() {
-            var phone = $(this).val().replace(/\D/g, ''); // Elimina todo excepto los dígitos
-            if (!/^\d+$/.test(phone)) {
-                // Si el valor contiene letras, no hagas nada
-                return;
-            }
-
+            var phone = $(this).val().replace(/[^\d]/g, ''); // Eliminar todo excepto los dígitos
             if (phone.length === 10) {
                 phone = phone.replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, "$1-$2-$3-$4");
                 $(this).val(phone);
