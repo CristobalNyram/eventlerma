@@ -80,7 +80,7 @@
                 <h4 id="CODERS">CODERSTI</h4>
                 <h4 id="frase">#HAZLODIFERENTE</h4>
 
-                <!-- <div class="texto" id="texto">
+                <div class="texto" id="texto">
                     <label class="frase" id="Frase1" style="display: none;">"El no querer es la causa, el no poder el pretexto"</label>
                     <label class="frase" id="Frase2" style="display: none;">"El ordenador nació para resolver problemas que antes no existían"</label>
                     <label class="frase" id="Frase3" style="display: none;">"El optimismo es un riesgo laboral de la programación; el feedback es el tratamiento"</label>
@@ -88,7 +88,7 @@
                     <label class="frase" id="Frase5" style="display: none;">"Los ordenadores son buenos siguiendo instrucciones, no leyendo tu mente"</label>
                     <label class="frase" id="Frase6" style="display: none;">"Antes de que un software sea reutilizable debería ser utilizable"</label>
                     <label class="frase" id="Frase7" style="display: none;">"Una vez un ordenador me venció jugando al ajedrez, pero no me opuso resistencia cuando pasamos al kick boxing"</label>
-                </div> -->
+                </div>
 
             </div>
 

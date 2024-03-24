@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carrer;
 use App\Models\Course;
+use App\Models\Event;
 use App\Models\Logbook;
 use App\Models\Package;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -34,11 +37,23 @@ class HomeController extends Controller
         //Logbook::activity_done($description = 'Accedió a la página principal', $table_id = 0, $menu_id = 5, $user_id = Auth::id(), $kind_acction = 1);
         $courses_available= Course::all()->where('status','=','2');
         $packages=Package::all()->where('status','=',2);
+
+        $my_events=array();
+        $today = Carbon::today();
+
+        if(Auth::user()->role_id==4 || Auth::user()->role_id==5){
+            $my_events = Event::where('status', 2)
+            #->whereDate('date', '>=', $today)
+            ->get();
+
+        }
+
         $variables=[
             'menu'=>'dashboard',
             'title_page'=>'dashboard',
             'courses_available'=>$courses_available,
             'packages_available'=>$packages,
+            'my_events'=>$my_events,
 
 
         ];

@@ -29,26 +29,26 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        let timerInterval
-        Swal.fire({
-            title: 'Seras redireccionado!',
-            html: 'Para que actualices tus datos y así llevar a cabo este gran evento',
-            timer: 5000,
-            timerProgressBar: true,
-            didOpen: () => {
-                Swal.showLoading()
-                const b = Swal.getHtmlContainer().querySelector('b')
-                timerInterval = setInterval(() => {
-                    // b.textContent = Swal.getTimerLeft()
-                }, 100)
-            },
-            willClose: () => {
-                clearInterval(timerInterval)
+    // $(document).ready(function() {
+    //     let timerInterval
+    //     Swal.fire({
+    //         title: 'Seras redireccionado!',
+    //         html: 'Para que actualices tus datos y así llevar a cabo este gran evento',
+    //         timer: 5000,
+    //         timerProgressBar: true,
+    //         didOpen: () => {
+    //             Swal.showLoading()
+    //             const b = Swal.getHtmlContainer().querySelector('b')
+    //             timerInterval = setInterval(() => {
+    //                 // b.textContent = Swal.getTimerLeft()
+    //             }, 100)
+    //         },
+    //         willClose: () => {
+    //             clearInterval(timerInterval)
 
-            }
-        }).then((result) => {
-            $(location).attr('href', "<?php echo  route('profile.edit')  ?>");
-        })
-    })
+    //         }
+    //     }).then((result) => {
+    //         $(location).attr('href', "<?php echo  route('profile.edit')  ?>");
+    //     })
+    // })
 </script>

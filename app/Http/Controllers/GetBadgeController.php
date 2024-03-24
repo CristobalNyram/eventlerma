@@ -11,20 +11,20 @@ use PDF;
 
 class GetBadgeController extends Controller
 {
-    public function index() 
+    public function index()
     {
 
         $rol= new Role();
         $log= new Logbook();
         if($rol->checkAccesToThisFunctionality(Auth::user()->role_id,44)==null)
         {
-           
 
-            
+
+
             $variables=[
                 'menu'=>'',
                 'title_page'=>'Acceso denegado',
-             
+
             ];
             return view('errors.notaccess')->with($variables);
 
@@ -57,7 +57,10 @@ class GetBadgeController extends Controller
 
 
 
-        $consulta = Role::join('users', 'roles.id', '=', 'users.id')->select('roles.name', 'users.role_id')->where('roles.id', '=', $user)->get();
+        $consulta = Role::join('users', 'roles.id', '=', 'users.id')
+        ->select('roles.name', 'users.role_id')
+        ->where('roles.id', '=', $user)
+        ->get();
 
         $variables=[
             'menu'=>'badge_all',
@@ -65,14 +68,14 @@ class GetBadgeController extends Controller
             'consulta' => $consulta,
         ];
 
- 
+
 
         view()->share('badge.pdf');
          $pdf = PDF::loadView('badge.pdf',['consulta'=>$consulta,]);
          return $pdf->download('Gafet.pdf');
         //  return $pdf->stream('badge.pdf');
 
-       
+
 
        //return view('badge.pdf')->with($variables);
 

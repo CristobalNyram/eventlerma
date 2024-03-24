@@ -13,10 +13,13 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Models\Event;
+use App\Models\EventAttended;
 use App\Models\Package;
 use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class HomeWebController extends Controller
 {
@@ -62,14 +65,49 @@ class HomeWebController extends Controller
     }
     public function event_detail($slug)
     {
+        // 0  no esta en el evento
+        // 1 esta pero no a pagado
+        // 2 esta y ya pago
+        $user_in_event=0;
+        $hashUserId=0;
+
+
+
+
         $sponsors=Sponsor::all()->where('status','=','2');
         $today = Carbon::today();
         $event = Event::where('status', 2)
             ->where('slug', '=', $slug)
             ->first();
+        if (!$event) {
+                return redirect()->route('home')->with('error', 'El evento no existe o no está disponible.');
+        }
+
+        if (Auth::check()) {
+            // $hashUserId=Hash::make(Auth::id());
+            $hashUserId = Crypt::encryptString(Auth::id());
+
+
+            $user_in_event_enrrol = EventAttended::where('event_id', $event->id)
+                                                  ->where('attendee_id', Auth::id())
+                                                  ->first();
+
+            if ($user_in_event_enrrol) {
+                // Si el usuario está registrado en el evento
+                $user_in_event = 1;
+
+                if ($user_in_event_enrrol->payment_status == 2) {
+                    $user_in_event = 2;
+                }
+            }
+        }
+
         $variables=[
             'sponsors'=>$sponsors,
+            'user_in_event'=>$user_in_event,
             'event'=>$event,
+            'hashUserId'=>$hashUserId,
+
 
         ];
 

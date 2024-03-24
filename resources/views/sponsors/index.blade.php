@@ -54,10 +54,10 @@
                             </button>
                         </td>
                         <td>{{ $sponsor->status }}</td>
-                        <td>{{ $sponsor->origin }}</td>
+                        <td>{{ $sponsor->origin_state_name }}</td>
                         <td>{{ $sponsor->phone_number }}</td>
                         <td>{{ $sponsor->email }}</td>
-                        <td>{{ $sponsor->type }}</td>
+                        <td>{{ $sponsor->type_sponsor_name }}</td>
                         <td>
                             @if(check_acces_to_this_permission(Auth::user()->role_id, 30))
                             <div class="dropdown">

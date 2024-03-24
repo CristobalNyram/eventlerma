@@ -13,7 +13,7 @@
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('assets/home_page/') }}/img/bg-img/breadcumb3.jpg);">
         <div class="bradcumbContent">
-            <p>Detalles del evento</p>
+            <p>Formulario de pago</p>
             <h2>
 
             </h2>
@@ -22,131 +22,70 @@
     <!-- ##### Breadcumb Area End ##### -->
 
        <!-- ##### Blog Area Start ##### -->
-       <div class="blog-area section-padding-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-12">
-                    <!-- Single Post Start -->
-                    <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Post Thumb -->
-                        <div class="blog-post-thumb mt-30">
-                            <!-- Aquí se muestra la imagen del evento -->
-                            <img src="{{ asset( $event->url_photo) }}" alt="">
-                            <!-- Post Date -->
-                            <div class="post-date">
-                                <!-- Puedes utilizar la fecha del evento o cualquier otro dato que desees mostrar -->
-                                <span>{{ date('d', strtotime($event->date)) }}</span>
-                                <span>{{ date('F Y', strtotime($event->date)) }}</span>
-                            </div>
-                        </div>
+        {{-- <div class="blog-area section-padding-100">
+                <div class="container">
 
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <!-- Post Title -->
-                            <!-- Aquí se muestra el nombre del evento -->
-                            <a href="#" class="post-title">{{ $event->name }}</a>
-                            <!-- Post Meta -->
-                            <div class="post-meta d-flex mb-30">
-                                <!-- Puedes mostrar información adicional del evento, como el autor, etiquetas, comentarios, etc. -->
-                                <p class="post-author">Por <a href="#">empresa</a></p>
-                                {{-- <p class="tags">in <a href="#">Events</a></p> --}}
-                                <p class="tags"><a href="#">2 asistentes</a></p>
-                            </div>
-                            <p>{{ $event->description }}</p>
-                            <!-- Inscribirse Button -->
-                                @auth
-                                    @if($user_in_event == 0)
-                                        <!-- El usuario no está inscrito en el evento -->
-                                        <a style="width: 100%" href="{{ route('enrroll_to_event', ['event_id' => $event->id, 'user_id' => Auth::id()]) }}" class="btn btn-primary">Inscribirse</a>
-                                    @elseif($user_in_event == 1)
-                                        <!-- El usuario está inscrito pero no ha pagado -->
-                                        <a style="width: 100%"
-                                        href="{{ route('event_payment_form', ['event_id' => $event->id, 'user_id' => $hashUserId]) }}"
-                                         class="btn btn-primary text-white">Ir al Formulario de Pago</a>
-                                    @elseif($user_in_event == 2)
-                                        <!-- El usuario está inscrito y ya ha pagado -->
-                                        <a style="width: 100%"
-                                        href="{{ route('view_badge_event', ['event_id' => $event->id, 'user_id' => Auth::id()]) }}"
-                                        class="btn btn-primary text-white">Ver Gafete</a>
-                                    @endif
-
-                                @else
-                                <p>Debes iniciar sesión para inscribirte.</p>
-                                <a  style="width: 100%" class="btn btn-primary" href="{{ route('login') }}">Iniciar sesión</a>
-                                @endauth
-                    </div>
-                    </div
                 </div>
+        </div> --}}
+        <div class="container  bg-light mt-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-heading white text-center mt-5">
+                        <h2 class="text-dark">
+                            <strong>
+                                Subir Comprobante de Pago
+                            </strong>
+                        </h2>
+                        @if(session('error'))
+                            <div class="alert alert-danger">{{ session('error') }}</div>
+                        @endif
 
-                <div class="col-12 col-lg-3">
-                    <div class="blog-sidebar-area">
-
-                        <!-- Widget Area -->
-                        {{-- <div class="single-widget-area mb-30">
-                            <div class="widget-title">
-                                <h5>Categories</h5>
-                            </div>
-                            <div class="widget-content">
-                                <ul>
-                                    <li><a href="#">Music</a></li>
-                                    <li><a href="#">Events &amp; Press</a></li>
-                                    <li><a href="#">Festivals</a></li>
-                                    <li><a href="#">Lyfestyle</a></li>
-                                    <li><a href="#">Uncategorized</a></li>
-                                </ul>
-                            </div>
-                        </div> --}}
-
-                        <!-- Widget Area -->
-                        {{-- <div class="single-widget-area mb-30">
-                            <div class="widget-title">
-                                <h5>Archive</h5>
-                            </div>
-                            <div class="widget-content">
-                                <ul>
-                                    <li><a href="#">February 2018</a></li>
-                                    <li><a href="#">March 2018</a></li>
-                                    <li><a href="#">April 2018</a></li>
-                                    <li><a href="#">May 2018</a></li>
-                                    <li><a href="#">June 2018</a></li>
-                                </ul>
-                            </div>
-                        </div> --}}
-
-                        <!-- Widget Area -->
-                        {{-- <div class="single-widget-area mb-30">
-                            <div class="widget-title">
-                                <h5>Tags</h5>
-                            </div>
-                            <div class="widget-content">
-                                <ul class="tags">
-                                    <li><a href="#">music</a></li>
-                                    <li><a href="#">events</a></li>
-                                    <li><a href="#">artists</a></li>
-                                    <li><a href="#">press</a></li>
-                                    <li><a href="#">mp3</a></li>
-                                    <li><a href="#">videos</a></li>
-                                    <li><a href="#">concerts</a></li>
-                                    <li><a href="#">performers</a></li>
-                                </ul>
-                            </div>
-                        </div> --}}
-
-                        <!-- Widget Area -->
-                        {{-- <div class="single-widget-area mb-30">
-                            <a href="#"><img src="img/bg-img/add.gif" alt=""></a>
-                        </div> --}}
-
-                        <!-- Widget Area -->
-                        {{-- <div class="single-widget-area mb-30">
-                            <a href="#"><img src="img/bg-img/add2.gif" alt=""></a>
-                        </div> --}}
-
+                        @if(session('success'))
+                            <div class="alert alert-success">{{ session('success') }}</div>
+                        @endif
                     </div>
+                    <form
+                    action="{{ route('event_upload_payment_form', ['event_id' => $event->id, 'user_id' => $user->id]) }}"
+                     method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <h2>Subir Comprobante de Pago por Transferencia Bancaria</h2>
+                             <p>Por favor, realiza tu transferencia a la siguiente cuenta bancaria:</p>
+                            <ul class="list-unstyled text-left">
+                                <li><strong>Beneficiario:</strong> LERMA SYSTEMS SA DE CV</li>
+                                <li><strong>Banco:</strong> EJEMPLO</li>
+                                <li><strong>Número de Cuenta:</strong> 0120229717</li>
+                                <li><strong>CLABE:</strong> XXXXX</li>
+                                <li><strong>Referencia:</strong> Coloca el nombre del asistente al evento: {{ $event->name }}</li>
+                            </ul>
+                            <p>Una vez reflejado el pago en la cuenta, te  notificaremos con todos los detalles de tu registro.</p>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="comprobante" class="white">Seleccionar Comprobante:</label>
+                            <input type="file" class="form-control" id="comprobante" name="comprobante">
+                            @error('comprobante')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="text-center mb-3">
+                            <button type="submit" class="btn btn-primary">Subir Comprobante</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="row col-12 mt-5 pt-3 "
+        style="display: flex;
+        justify-content: center;
+        align-items: center;"
+
+
+        >
+            <a href="{{ route('home_page_event_detail', ['slug' => $event->slug]) }}" class="btn see-more-btn btn btn-primary">Detalles del evento</a>
+
+        </div>
+
     <!-- ##### Blog Area End ##### -->
 
 

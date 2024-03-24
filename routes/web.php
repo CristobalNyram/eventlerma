@@ -6,6 +6,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EventAttendedController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\SouvenirController;
 use App\Http\Controllers\TalkController;
@@ -70,6 +71,13 @@ Route::get('/clear-cache', function() {
 Route::get('/',[HomeWebController::class, 'index'])->name('home_page_index');
 Route::get('/events',[HomeWebController::class, 'events'])->name('home_page_events');
 Route::get('/event/{slug}', [HomeWebController::class, 'event_detail'])->name('home_page_event_detail');
+Route::get('/event/enrroll/{event_id}/{user_id}', [EventAttendedController::class, 'enrroll_to_event'])->name('enrroll_to_event');
+Route::get('/event/show/badge/{event_id}/{user_id}', [EventAttendedController::class, 'view_badge_event'])->name('view_badge_event');
+Route::get('/event/show/form/payment/{event_id}/{user_id}', [EventAttendedController::class, 'event_payment_form'])->name('event_payment_form');
+Route::post('/event/upload/form/payment/{event_id}/{user_id}', [EventAttendedController::class, 'event_upload_payment_form'])->name('event_upload_payment_form');
+
+
+
 
 Route::get('/calendar',[HomeWebController::class, 'calendar'])->name('home_page_calendar');
 

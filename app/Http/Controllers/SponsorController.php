@@ -35,7 +35,14 @@ class SponsorController extends Controller
 
         $log->activity_done($description = 'Accedió al módulo de empresas.', $table_id = 0, $menu_id = 29, $user_id = Auth::id(), $kind_acction = 1);
 
-        $sponsors_active=Sponsor::all()->where('status','=','2');
+        $sponsors_active = Sponsor::select('sponsors.*',"origin_states.name as origin_state_name","type_sponsors.name as type_sponsor_name")
+        ->leftJoin('origin_states', 'origin_states.id', '=', 'sponsors.origin_state_id')
+        ->leftJoin('type_sponsors', 'type_sponsors.id', '=', 'sponsors.type_sponsor_id')
+
+        ->where('sponsors.status', '=', '2')
+        ->get();
+
+
         $sponsors_active_number=Sponsor::all()->where('status','=','2')->count();
 
         $variables=[
@@ -179,6 +186,11 @@ class SponsorController extends Controller
         $sponsor->name = $request->name;
         $sponsor->slogan = $request->slogan;
         $sponsor->url_img = $request->url_img;
+        $sponsor->slug = $request->slug;
+        $sponsor->phone_number = $request->phone_number;
+        $sponsor->email = $request->email;
+        $sponsor->type_sponsor_id = $request->type_sponsor_id;
+        $sponsor->origin_state_id = $request->origin_state_id;
 
 
 
