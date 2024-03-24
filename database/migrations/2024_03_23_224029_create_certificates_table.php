@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOriginStatesTable extends Migration
+class CreateCertificatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateOriginStatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('origin_states', function (Blueprint $table) {
+        Schema::create('certificates', function (Blueprint $table) {
             $table->id();
-            $table->string('status', 2)->default(2);
-            $table->string('name')->nullable();
-
-            $table->string('description')->nullable();
+            $table->text('title')->nullable();
+            $table->unsignedBigInteger('event_id');
+            $table->text('description')->nullable();
+            $table->text('url_image');
+            $table->string('status')->nullable()->default(2);
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateOriginStatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('origin_states');
+        Schema::dropIfExists('certificates');
     }
 }

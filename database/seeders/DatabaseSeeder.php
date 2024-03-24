@@ -2,6 +2,7 @@
 namespace Database\Seeders;
 
 use App\Http\Controllers\TypeEventController;
+use App\Models\OriginState;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
@@ -31,6 +32,8 @@ class DatabaseSeeder extends Seeder
         $this->call([TypeEventsTableSeeder::class]);
         $this->call([TypePublicSeeder::class]);
         $this->call([PlaceEventsTableSeeder::class]);
+        $this->call([OriginStatesSeeder::class]);
+        $this->call([TypeSponsorsSeeder::class]);
 
 
 

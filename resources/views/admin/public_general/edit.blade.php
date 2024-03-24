@@ -34,24 +34,26 @@
                             </div>
                         @endforeach
                     @endif
-                    <div class="form-group">
+                    <div class="form-row">
+
+                     <div class="form-group col-lg-4 col-12">
                         <label for="name">Nombre</label>
                         <input type="text" class="form-control" id="name" name="name" maxlength="55" value="{{ $reg->name }}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-4 col-12">
                         <label for="first_surname">Primer Apellido</label>
                         <input type="text" class="form-control" id="first_surname" name="first_surname"  maxlength="55" value="{{ $reg->first_surname }}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-4 col-12">
                         <label for="second_surname">Segundo Apellido</label>
                         <input type="text" class="form-control" id="second_surname" name="second_surname"  maxlength="55" value="{{ $reg->second_surname }}" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="phone_number">Número de Teléfono</label>
-                        <input type="text" class="form-control" id="phone_number" name="phone_number" maxlength="12" value="{{ $reg->phone_number }}" required>
+                        <input type="text" class="form-control phone_number" id="phone_number" name="phone_number" maxlength="12" value="{{ $reg->phone_number }}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="gender">Género</label>
                         <select class="form-control" id="gender" name="gender" required>
                             <option value="">Seleccionar</option>
@@ -59,25 +61,26 @@
                             <option value="M" {{ $reg->gender == 'M' ? 'selected' : '' }}>Femenino</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="email">Correo Electrónico</label>
                         <input type="email" class="form-control" id="email" name="email" maxlength="55" value="{{ $reg->email }}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="reg_image">Imagen de Usuario</label>
                         <input type="file" class="form-control-file" id="reg_image" name="reg_image">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="date_birth">Fecha de Nacimiento</label>
                         <input type="date" class="form-control" id="date_birth" name="date_birth" value="{{ $reg->date_birth }}" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="status">Estado</label>
                         <select class="form-control" id="status" name="status" required>
                             <option value="">Seleccionar</option>
                             <option value="2" {{ $reg->status == '2' ? 'selected' : '' }}>Activo</option>
                             <option value="1" {{ $reg->status == '1' ? 'selected' : '' }}>Inactivo</option>
                         </select>
+                    </div>
                     </div>
 
                     <div class="row  mt-5 d-flex justify-content-center">

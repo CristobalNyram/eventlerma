@@ -40,24 +40,26 @@
 
                                 @endforeach
                    @endif
-                    <div class="form-group">
-                        <input type="hidden" name="id" id="id" value="{{$current_setting->id}}">
+                   <div class="form-row">
+
+                   <div class="form-group col-lg-6 col-12">
+                     <input type="hidden" name="id" id="id" value="{{$current_setting->id}}">
                         <label for="title">Nombre</label>
-                        <input type="text" class="form-control form-control-lg" id="title" name="title" value="{{$current_setting->title  }}" placeholder="Título del souvenir" max="50" required oninput="uppercaseLetters(event);">
+                        <input type="text" class="form-control form-control-lg" id="title" readonly name="title" value="{{$current_setting->title  }}" placeholder="Título del souvenir" max="50" required oninput="uppercaseLetters(event);">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="type">Tipo</label>
-                        <input type="text" class="form-control form-control-lg" id="type" name="type" value="{{ $current_setting->type }}" placeholder="Descripción" max="50" required oninput="uppercaseLetters(event);">
+                        <input type="text" class="form-control form-control-lg" id="type" readonly name="type" value="{{ $current_setting->type }}" placeholder="Descripción" max="50" required oninput="uppercaseLetters(event);">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="description">Descripción</label>
-                        <input type="text" class="form-control form-control-lg" id="description" name="description" value="{{ $current_setting->description}}" placeholder="Descripción" max="600" required >
+                        <input type="text" class="form-control form-control-lg" readonly id="description" name="description" value="{{ $current_setting->description}}" placeholder="Descripción" max="600" required >
                     </div>
 
                     @if($current_setting->id > 1)
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="content">Contenido</label>
                         <input type="text" class="form-control form-control-lg" id="content" name="content" value="{{ $current_setting->content}}" placeholder="Contenido" max="600" required >
                     </div>
@@ -66,7 +68,7 @@
 
                     @if($current_setting->id == 1)
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="content">Icono del sistema</label>
                         <input type="file" onBlur='LimitAttach(this,1)' ; accept="image/png, image/jpg, image/jpeg" class="form-control form-control-lg" id="content" name="content" value="{{ $current_setting->content }}" placeholder="Logo de sistema" max="50" required >
                     </div>
@@ -77,27 +79,7 @@
                         </button>
                     </div>
                     <script type="text/javascript">
-                        function LimitAttach(tField, iType) {
-                            file = tField.value;
-                            if (iType == 1) {
-                                extArray = new Array(".jpeg", ".jpe", ".jpg", ".png");
-                            }
-                            allowSubmit = false;
-                            if (!file) return;
-                            while (file.indexOf("\\") != -1) file = file.slice(file.indexOf("\\") + 1);
-                            ext = file.slice(file.indexOf(".")).toLowerCase();
-                            for (var i = 0; i < extArray.length; i++) {
-                                if (extArray[i] == ext) {
-                                    allowSubmit = true;
-                                    document.getElementById('alerta').style.display = "none";
-                                    break;
-                                }
-                            }
-                            if (allowSubmit) {} else {
-                                tField.value = "";
-                                document.getElementById('alerta').style.display = "block";
-                            }
-                        }
+
                     </script>
 
                     <div class="form-group justify-content-center align-items-center">
@@ -107,14 +89,14 @@
                         </div>
                     </div>
 
-                    
-                    
+
+
 
 
                     @endif
+                    </div>
 
-                            
-                  
+
 
                     <div class="row  mt-5 d-flex justify-content-center">
                         <div class="col-lg-4 col-12">

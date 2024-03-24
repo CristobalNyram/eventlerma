@@ -45,37 +45,39 @@
                             </div>
                         @endforeach
                     @endif
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
+                    <div class="form-row">
+
+                    <div class="form-group col-lg-4 col-12">
+                            <label for="name">Nombre</label>
                         <input type="text" class="form-control" id="name" name="name" maxlength="55" value="{{ old('name') }}" placeholder="Ingrese su nombre" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-4 col-12">
                         <label for="first_surname">Primer Apellido</label>
                         <input type="text" class="form-control" id="first_surname" name="first_surname"  maxlength="55" value="{{ old('first_surname') }}" placeholder="Ingrese su primer apellido" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-4 col-12">
                         <label for="second_surname">Segundo Apellido</label>
                         <input type="text" class="form-control" id="second_surname" name="second_surname"  maxlength="55" value="{{ old('second_surname') }}" placeholder="Ingrese su segundo apellido" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="password">Contraseña</label>
                         <input type="password" class="form-control" id="password" name="password" maxlength="39" placeholder="Ingrese su contraseña" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="password_confirm">Confirmar Contraseña</label>
                         <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" maxlength="39" placeholder="Confirme su contraseña" required>
                     </div>
-                    <div id="password_confirm_alert" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
+                    <div id="password_confirm_alert" class="form-group col-12 alert alert-danger alert-dismissible fade show d-none" role="alert">
                         Las contraseñas no coinciden. Por favor, asegúrate de que las contraseñas sean iguales.
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            {{-- <span aria-hidden="true">&times;</span> --}}
                         </button>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="phone_number">Número de Teléfono</label>
-                        <input type="text" class="form-control" id="phone_number" name="phone_number" maxlength="12" value="{{ old('phone_number') }}" placeholder="Ingrese su número de teléfono" required>
+                        <input type="text" class="form-control phone_number" id="phone_number" name="phone_number" maxlength="13" value="{{ old('phone_number') }}" placeholder="Ingrese su número de teléfono" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="gender">Género</label>
                         <select class="form-control" id="gender" name="gender" required>
                             <option value="" disabled selected>Seleccione su género</option>
@@ -83,19 +85,19 @@
                             <option value="M" {{ old('gender') == 'M' ? 'selected' : '' }}>Femenino</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="email">Correo Electrónico</label>
                         <input type="email" class="form-control" id="email" name="email" maxlength="55" value="{{ old('email') }}" placeholder="Ingrese su correo electrónico" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="user_image">Imagen de Usuario</label>
                         <input type="file" class="form-control-file" id="user_image" name="user_image" placeholder="Seleccione su imagen de usuario" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="date_birth">Fecha de Nacimiento</label>
                         <input type="date" class="form-control" id="date_birth" name="date_birth" value="{{ old('date_birth') }}" placeholder="Seleccione su fecha de nacimiento" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="status">Estado</label>
                         <select class="form-control" id="status" name="status" required>
                             <option value="" disabled selected>Seleccione el estado</option>
@@ -103,6 +105,7 @@
                             <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Inactivo</option>
                         </select>
                     </div>
+                     </div>
 
                     <div class="row  mt-5 d-flex justify-content-center">
                         <div class="col-lg-4 col-12">
@@ -143,14 +146,7 @@
              }
          });
 
-         // Formateador de número de teléfono
-         $('#phone_number').on('input', function() {
-            var phone = $(this).val().replace(/[^\d]/g, ''); // Eliminar todo excepto los dígitos
-            if (phone.length === 10) {
-                phone = phone.replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, "$1-$2-$3-$4");
-                $(this).val(phone);
-            }
-        });
+
 
          $('#password_confirmation').on('input', function() {
             var password = $('#password').val();
@@ -163,17 +159,6 @@
             }
         });
 
-         // No permitir números negativos en el teléfono
-         $('#phone_number').keypress(function(e) {
-             var a = [];
-             var k = e.which;
-
-             for (var i = 48; i < 58; i++)
-                 a.push(i);
-
-             if (!(a.indexOf(k) >= 0))
-                 e.preventDefault();
-         });
      });
  </script>
 </div>

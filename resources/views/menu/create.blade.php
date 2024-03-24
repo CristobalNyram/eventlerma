@@ -41,27 +41,30 @@
 
                                         @endforeach
                            @endif
-                            <div class="form-group">
+                           <div class="form-row">
+
+                            <div class="form-group col-lg-6 col-12">
                             <label for="exampleFormControlInput1">Nombre</label>
                             <input type="text" class="form-control form-control-lg" id="title" name="title" placeholder="Nombre de menu"  max="50" required>
                             </div>
 
-                            <div class="form-group">
-                                    <label for="exampleFormControlInput1">Descripción</label>
+                            <div class="form-group col-lg-6 col-12">
+                                <label for="exampleFormControlInput1">Descripción</label>
                                     <input type="text" class="form-control form-control-lg" id="description" name="description" placeholder="Descripción de menu" required maxlength="50">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-6 col-12">
                                 <label for="exampleFormControlInput1">Menu padre</label>
                                 <input type="number" class="form-control form-control-lg" id="menu_parent"  name="menu_parent" placeholder="Menu padre (menu raíz 0)"   min="0"  max="200" oninput="soloInputsEnterosYMayor0(this)">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-lg-6 col-12">
                                 <label for="exampleFormControlInput1">Menu orden</label>
 
                                 <input type="number" class="form-control form-control-lg" id="order" name="order" placeholder="Menu orden (de acuerdo a la base de datos)" min="0"  max="200" oninput="soloInputsEnterosYMayor0(this)">
 
 
                             </div>
+                        </div>
 
                             <div class="form-group row d-flex justify-content-center">
                                 <button type="submit" class="btn btn-default">Agregar</button>

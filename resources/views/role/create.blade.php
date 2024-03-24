@@ -41,20 +41,27 @@
 
                                         @endforeach
                            @endif
-                            <div class="form-group">
-                            <label for="exampleFormControlInput1">Nombre</label>
+                           <div class="form-row">
+
+                            <div class="form-group col-lg-6 col-12">
+                             <label for="exampleFormControlInput1">Nombre</label>
                             <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Nombre de rol"  max="50" required>
                             </div>
 
-                            <div class="form-group">
-                                    <label for="exampleFormControlInput1">Descripción</label>
+                            <div class="form-group col-lg-6 col-12">
+                                <label for="exampleFormControlInput1">Descripción</label>
                                     <input type="text" class="form-control form-control-lg" id="description" name="description" placeholder="Descripción de rol" required maxlength="50">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-6 col-12">
                                 <label for="exampleFormControlInput1">Nivel</label>
-                                <input type="number" class="form-control form-control-lg" id="level"  name="level" placeholder="Nivel de acceso" max="50">
+                                <select class="form-control form-control-lg" id="level" name="level">
+                                    @for ($i = 1; $i <= 20; $i++)
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+                                </select>
                             </div>
+                         </div>
 
 
                             <div class="form-group row d-flex justify-content-center">

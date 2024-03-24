@@ -53,37 +53,44 @@
                         <textarea class="form-control" id="description" name="description" rows="3" placeholder="Descripción del evento" required maxlength="55"> {{ old('description') }}</textarea>
                     </div>
 
-                    <div class="form-group">
-                        <label for="capacity">Capacidad</label>
-                        <input type="number" class="form-control" id="capacity" name="capacity" value="{{ old('capacity') }}" placeholder="Capacidad del evento" min="0" oninput="soloInputsEnterosYMayor0(this)" required>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="time">Hora</label>
-                        <input type="time" class="form-control" id="time" name="time" value="{{ old('time') }}" placeholder="Hora del evento" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Costo</label>
-                        <input type="number" class="form-control" id="cost" name="costo" value="{{ old('cost') }}" placeholder="Costo" oninput="validarNumerosPositivosCostos(this)" required>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="duration">Duración</label>
-                        <input type="text" class="form-control" id="duration" name="duration" value="{{ old('duration') }}" placeholder="Duración del evento" required>
-                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-6 col-12">
+                            <label for="capacity">Capacidad</label>
+                            <input type="number" class="form-control" id="capacity" name="capacity" value="{{ old('capacity') }}" placeholder="Capacidad del evento" min="0" oninput="soloInputsEnterosYMayor0(this)" required>
+                        </div>
+                        <div class="form-group col-lg-6 col-12">
+                            <label for="time">Hora</label>
+                            <input type="time" class="form-control" id="time" name="time" value="{{ old('time') }}" placeholder="Hora del evento" required>
+                        </div>
+                        <div class="form-group col-lg-6 col-12">
+                            <label for="time">Costo</label>
+                            <input type="number" class="form-control" id="cost" name="costo" value="{{ old('cost') }}" placeholder="Costo" oninput="validarNumerosPositivosCostos(this)" required>
+                        </div>
+                        <div class="form-group col-lg-6 col-12">
+                            <label for="duration">Duración</label>
+                            <input type="text" class="form-control" id="duration" name="duration" value="{{ old('duration') }}" placeholder="Duración del evento" required>
+                        </div>
 
-                    <div class="form-group">
+
+
+
+
+                    <div class="form-group col-lg-6 col-12">
                         <label for="date">Fecha</label>
                         <input type="date" class="form-control" id="date" name="date" value="{{ old('date') }}" placeholder="Fecha del evento" onchange="validarFechaApartirDeHoy(this)" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="url_photo">Foto</label>
                         <input type="file" class="form-control-file" id="url_photo" name="url_photo" accept="image/png, image/jpg, image/jpeg" required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="status">Estado</label>
+
+
+                    <div class="form-group col-lg-6 col-12">
+                    <label for="status">Estado</label>
                         <select class="form-control" id="status" name="status" required>
                             <option value="" @if(old('status') == '') selected @endif>Seleccionar</option>
                             <option value="1" @if(old('status') == '1') selected @endif>Inactivo</option>
@@ -91,9 +98,10 @@
                         </select>
                     </div>
 
+
                     <!-- Otros campos si los tienes -->
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="type_event_id">Tipo de Evento</label>
                         <select class="form-control" id="type_event_id" name="type_event_id" required>
                             <option value="" @if(old('type_event_id') == '') selected @endif>Seleccionar</option>
@@ -104,7 +112,8 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+
+                    <div class="form-group col-lg-6 col-12">
                         <label for="place_events_id">Lugar del Evento</label>
                         <select class="form-control" id="place_events_id" name="place_events_id" required>
                             <option value="" @if(old('place_events_id') == '') selected @endif>Seleccionar</option>
@@ -114,7 +123,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="type_public_id">Tipo de Público</label>
                         <select class="form-control" id="type_public_id" name="type_public_id" required>
                             <option value="" @if(old('type_public_id') == '') selected @endif>Seleccionar</option>
@@ -123,6 +132,7 @@
                             @endforeach
                         </select>
                     </div>
+                </div>
 
                     <div class="row mt-5 d-flex justify-content-center">
                         <div class="col-lg-4 col-12">

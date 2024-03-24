@@ -56,64 +56,7 @@
         <!-- Argon JS -->
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
 
-        <script>
-             function confirmLogout() {
-            Swal.fire({
-                title: '¿Estás seguro?',
-                text: "¿Deseas cerrar sesión?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sí, cerrar sesión',
-                cancelButtonText: 'Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('logout-form').submit();
-                }
-            });
-        }
-        function soloInputsEnterosYMayor0(input) {
-            // Eliminar caracteres no permitidos
-            input.value = input.value.replace(/[^\d]/g, '');
-
-            // Convertir el valor a un número entero
-            var valor = parseInt(input.value);
-
-            // Verificar si el valor es un número y si es mayor que cero
-            if (isNaN(valor) || valor < 0) {
-                input.value = ''; // Si no es un número válido, vaciar el campo
-            }
-        }
-        function validarFechaApartirDeHoy(input) {
-            var fechaIngresada = new Date(input.value);
-            var fechaActual = new Date();
-
-            // Convertir la fecha actual a formato YYYY-MM-DD para comparación
-            var fechaActualFormateada = fechaActual.toISOString().slice(0, 10);
-
-            // Convertir la fecha ingresada a formato YYYY-MM-DD para comparación
-            var fechaIngresadaFormateada = fechaIngresada.toISOString().slice(0, 10);
-
-            if (fechaIngresadaFormateada < fechaActualFormateada) {
-                alert("La fecha no puede ser anterior a la fecha actual.");
-                input.value = ''; // Limpiar el valor del campo de entrada
-            }
-        }
-        function validarNumerosPositivosCostos(input) {
-            var regex = /^\d+(\.\d{0,2})?$/;
-
-        // Validar si el valor ingresado coincide con la expresión regular
-        if (!regex.test(input.value)) {
-            // Si no coincide, mostrar un mensaje de error y volver al valor anterior
-            input.value = input.value.slice(0, -1);
-        }
-        }
-
-
-
-
-        </script>
+        @include('layouts.funciones-js')
 
     </body>
 </html>

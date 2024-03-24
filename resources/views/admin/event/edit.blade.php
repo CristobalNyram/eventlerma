@@ -56,33 +56,34 @@
                         <label for="description">Descripción</label>
                         <textarea class="form-control" id="description" name="description" rows="3" placeholder="Descripción del evento" required>{{ $reg->description }}</textarea>
                     </div>
+                    <div class="form-row">
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="capacity">Capacidad</label>
                         <input type="number" class="form-control" id="capacity" name="capacity" value="{{ $reg->capacity }}" placeholder="Capacidad del evento" required oninput="soloInputsEnterosYMayor0(this)">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="time">Hora</label>
                         <input type="time" class="form-control" id="time" name="time" value="{{ date('H:i', strtotime($reg->time)) }}" />
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="duration">Duración</label>
                         <input type="text" class="form-control" id="duration" name="duration" value="{{ $reg->duration }}" placeholder="Duración del evento" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="date">Fecha</label>
                         <input type="date" class="form-control" id="date" name="date" value="{{ $reg->date }}" placeholder="Fecha del evento" required>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="url_photo">Foto</label>
                         <input type="file" class="form-control-file" id="url_photo" name="url_photo" accept="image/png, image/jpg, image/jpeg">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="status">Estado</label>
                         <select class="form-control" id="status" name="status" required>
                             <option value="1" {{ $reg->status == 1 ? 'selected' : '' }}>Inactivo</option>
@@ -92,7 +93,7 @@
 
                     <!-- Otros campos si los tienes -->
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="type_event_id">Tipo de Evento</label>
                         <select class="form-control" id="type_event_id" name="type_event_id" required>
                             <option value="">Seleccionar</option>
@@ -102,7 +103,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="place_events_id">Lugar del Evento</label>
                         <select class="form-control" id="place_events_id" name="place_events_id" required>
                             <option value="">Seleccionar</option>
@@ -112,7 +113,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="type_public_id">Tipo de Público</label>
                         <select class="form-control" id="type_public_id" name="type_public_id" required>
                             <option value="">Seleccionar</option>
@@ -120,6 +121,7 @@
                             <option value="{{ $type->id }}" {{ $reg->type_public_id == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
                             @endforeach
                         </select>
+                    </div>
                     </div>
 
                     <div class="row mt-5 d-flex justify-content-center">

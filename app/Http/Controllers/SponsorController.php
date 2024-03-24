@@ -6,6 +6,8 @@ use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use App\Models\Role;
 use App\Models\Logbook;
+use App\Models\OriginState;
+use App\Models\TypeSponsor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -53,11 +55,16 @@ class SponsorController extends Controller
     public function create()
     {
         $role = New Role();
+        $type_sponsor=TypeSponsor::all()->where('status','=','2');
+        $origin_state=OriginState::all()->where('status','=','2');
 
         if ($role->checkAccesToThisFunctionality(Auth::user()->role_id, 29) == null) {
             $variables = [
                 'menu' => '',
                 'title_page' => 'Acceso denegado',
+
+
+
             ];
             return view('errors.notaccess')->with($variables);
         }
@@ -65,6 +72,8 @@ class SponsorController extends Controller
         $variables=[
             'menu'=>'sponsors_all',
             'title_page'=>'Crear empresa',
+            'type_sponsor' =>$type_sponsor,
+            'origin_state' =>$origin_state,
         ];
         return view('sponsors.create')->with($variables);
     }
