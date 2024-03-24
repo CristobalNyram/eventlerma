@@ -16,6 +16,7 @@ class CreateSponsorsTable extends Migration
         Schema::create('sponsors', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->string('slogan')->nullable();
             $table->string('url_img')->nullable(); // Cambié el nombre del campo a image_url
             $table->string('status', 2)->default('2');

@@ -11,6 +11,8 @@ use App\Models\TypeSponsor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+
 class SponsorController extends Controller
 {
     /**
@@ -86,10 +88,52 @@ class SponsorController extends Controller
      */
     public function store(Request $request)
     {
+
+      #VALIDACIONES INICIO
+          // Definir reglas de validación
+    $rules = [
+        'name' => 'required|string|max:255',
+        'slogan' => 'required|string|max:255',
+        'url_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Ejemplo: Archivo de imagen hasta 2MB
+        'slug' => 'required|string|max:255',
+        'phone_number' => 'required|string|max:20',
+        'email' => 'required|email|max:255',
+        'type_sponsor_id' => 'required|exists:type_sponsors,id', // Asegura que el tipo de sponsor exista en la tabla tipo_sponsors
+        'origin_state_id' => 'required|exists:origin_states,id', // Asegura que el estado de origen exista en la tabla states
+    ];
+
+    // Mensajes de error personalizados (opcional)
+    $customMessages = [
+        'url_img.required' => 'La imagen del sponsor es obligatoria.',
+        'url_img.image' => 'El archivo debe ser una imagen.',
+        'url_img.mimes' => 'Formatos de imagen permitidos: jpeg, png, jpg, gif.',
+        'url_img.max' => 'La imagen no debe ser mayor a 2MB.',
+        'type_sponsor_id.exists' => 'El tipo de sponsor seleccionado no es válido.',
+        'origin_state_id.exists' => 'El estado de origen seleccionado no es válido.',
+    ];
+
+    // Validar los datos
+    $validator = Validator::make($request->all(), $rules, $customMessages);
+
+    // Si la validación falla, redirigir de nuevo con errores
+    if ($validator->fails()) {
+        return back()->withErrors($validator)->withInput();
+    }
+    #VALIDACION FIN
+
+        // dd( $request->all());
       $sponsor =new Sponsor();
       $sponsor->name = $request->name;
       $sponsor->slogan = $request->slogan;
       $sponsor->url_img = $request->url_img;
+      $sponsor->slug = $request->slug;
+      $sponsor->phone_number = $request->phone_number;
+      $sponsor->email = $request->email;
+      $sponsor->type_sponsor_id = $request->type_sponsor_id;
+      $sponsor->origin_state_id = $request->origin_state_id;
+
+
+
 
       if($request -> hasFile ('url_img')){
         $file = $request ->file('url_img');

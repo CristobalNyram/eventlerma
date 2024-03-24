@@ -108,7 +108,7 @@
                         <select class="form-control" id="place_events_id" name="place_events_id" required>
                             <option value="">Seleccionar</option>
                             @foreach($place_event as $place)
-                            <option value="{{ $place->id }}" {{ $reg->place_id == $place->id ? 'selected' : '' }}>{{ $place->place_name }}</option>
+                            <option value="{{ $place->id }}" {{ $reg->place_events_id == $place->id ? 'selected' : '' }}>{{ $place->place_name }}</option>
                             @endforeach
                         </select>
                     </div>

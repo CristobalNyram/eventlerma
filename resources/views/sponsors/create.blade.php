@@ -53,7 +53,7 @@
 
                     <div class="form-group col-lg-12 col-12">
                         <label for="slogan">Slug</label>
-                        <input type="text" class="form-control form-control-lg slug" id="slug" name="slug" value="{{ old('slogan') }}" placeholder="Slug" maxlength="50" required >
+                        <input type="text" class="form-control form-control-lg slug" id="slug" name="slug" value="{{ old('slug') }}" placeholder="Slug" maxlength="50" required >
                     </div>
                     <div class="form-group col-lg-12 col-12">
                         <label for="slogan">Eslogon</label>

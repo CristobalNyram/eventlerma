@@ -54,7 +54,7 @@
                         </div>
                         <div class="form-group col-lg-12 col-12">
                             <label for="slogan">Slug</label>
-                            <input type="text" class="form-control form-control-lg slug" id="slug" name="slug" value="{{ old('slogan') }}" placeholder="Slug" max="50" required  maxlength="55">
+                            <input type="text" class="form-control form-control-lg slug" id="slug" name="slug" value="{{ $current_sponsor->slug}}" placeholder="Slug" max="50" required  maxlength="55">
                         </div>
 
                         <div class="form-group col-lg-12 col-12">
@@ -63,19 +63,19 @@
                         </div>
                         <div class="form-group col-lg-6 col-12">
                             <label for="slogan">Numero de telefono</label>
-                            <input type="text" class="form-control form-control-lg phone_number" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" placeholder="Telefono" maxlength="13" required >
+                            <input type="text" class="form-control form-control-lg phone_number" id="phone_number" name="phone_number" value="{{ $current_sponsor->phone_number }}" placeholder="Telefono" maxlength="13" required >
                         </div>
                         <div class="form-group col-lg-6 col-12">
                             <label for="slogan">Correo electronico</label>
-                            <input type="email" class="form-control form-control-lg" id="email" name="email" value="{{ old('email') }}" placeholder="Correo electronico" maxlength="55" required oninput="uppercaseLetters(event);">
+                            <input type="email" class="form-control form-control-lg" id="email" name="email" value="{{ $current_sponsor->email }}" placeholder="Correo electronico" maxlength="55" required oninput="uppercaseLetters(event);">
                         </div>
                         <div class="form-group col-lg-6 col-12">
                             <label for="type_sponsor_id">Tipo de empresa</label>
                             <select class="form-control" id="type_sponsor_id" name="type_sponsor_id" required>
-                                <option value="" @if(old('type_sponsor_id') == '') selected @endif>Seleccionar</option>
+                                <option value="" @if($current_sponsor->type_sponsor_id == '') selected @endif >Seleccionar</option>
 
                                 @foreach($type_sponsor as $reg)
-                                <option value="{{ $reg->id}}" @if(old('type_sponsor_id') == $reg->id) selected @endif>{{  $reg->name }}</option>
+                                <option value="{{ $reg->id}}" {{ $current_sponsor->type_sponsor_id == $reg->id ? 'selected' : '' }}>{{  $reg->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -83,10 +83,10 @@
                         <div class="form-group col-lg-6 col-12">
                             <label for="origin_state_id">Origen</label>
                             <select class="form-control" id="origin_state_id" name="origin_state_id" required>
-                                <option value="" @if(old('origin_state_id') == '') selected @endif>Seleccionar</option>
+                                <option value="" @if($current_sponsor->origin_state_id == '') selected @endif>Seleccionar</option>
 
                                 @foreach($origin_state as $reg)
-                                <option value="{{ $reg->id}}" @if(old('origin_state_id') == $reg->id) selected @endif>{{  $reg->name }}</option>
+                                <option value="{{ $reg->id}}" {{ $current_sponsor->origin_state_id == $reg->id ? 'selected' : '' }}> {{  $reg->name }}</option>
                                 @endforeach
                             </select>
                         </div>
