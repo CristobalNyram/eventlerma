@@ -167,22 +167,27 @@ class SponsorController extends Controller
      */
     public function update($sponsor_id)
     {
-      $role = new Role();
+        $role = new Role();
         $log = new Logbook();
-        if ($role->checkAccesToThisFunctionality(Auth::user()->role_id, 29) == null) {
-        $variables = [
-          'menu' => '',
-          'title_page' => 'Acceso denegado',
-        ];
-        return view('errors.notaccess')->with($variables);
-      }
-    $log->activity_done($description = 'Accedió al módulo de Actualizar emmpresa.', $table_id = 0, $menu_id = 30, $user_id = Auth::id(), $kind_acction = 1);
+            if ($role->checkAccesToThisFunctionality(Auth::user()->role_id, 29) == null) {
+            $variables = [
+            'menu' => '',
+            'title_page' => 'Acceso denegado',
+            ];
+            return view('errors.notaccess')->with($variables);
+        }
+        $log->activity_done($description = 'Accedió al módulo de Actualizar emmpresa.', $table_id = 0, $menu_id = 30, $user_id = Auth::id(), $kind_acction = 1);
 
-          $current_sponsor = Sponsor::findOrFail($sponsor_id);
+        $current_sponsor = Sponsor::findOrFail($sponsor_id);
+        $type_sponsor=TypeSponsor::all()->where('status','=','2');
+        $origin_state=OriginState::all()->where('status','=','2');
 
           $variables = [
             'menu' => 'sponsors_all',
             'title_page' => 'empresas',
+            'type_sponsor' => $type_sponsor,
+            'origin_state' => $origin_state,
+
             'current_sponsor' => $current_sponsor,
           ];
           return view('sponsors.update')->with($variables);

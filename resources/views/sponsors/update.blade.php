@@ -45,36 +45,69 @@
 
                     @endforeach
                     @endif
-                    <div class="form-group">
-                        <input type="hidden" name="id" id="id" value="{{$current_sponsor->id}}">
-                        <label for="name">Nombre</label>
-                        <input type="text" class="form-control form-control-lg" id="name" name="name" value="{{$current_sponsor->name  }}" placeholder="Título del sponsor" max="50" required oninput="uppercaseLetters(event);">
-                    </div>
+                    <div class="form-row">
 
-                    <div class="form-group">
-                        <label for="slogan">Descripción</label>
-                        <input type="text" class="form-control form-control-lg" id="slogan" name="slogan" value="{{ $current_sponsor->slogan }}" placeholder="Slogann" max="50" required oninput="uppercaseLetters(event);">
-                    </div>
+                        <div class="form-group col-lg-12 col-12">
+                            <input type="hidden" name="id" id="id" value="{{$current_sponsor->id}}">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control form-control-lg" id="name" name="name" value="{{$current_sponsor->name  }}" placeholder="Título del patrocinador" maxlength="55" required oninput="uppercaseLetters(event);">
+                        </div>
+                        <div class="form-group col-lg-12 col-12">
+                            <label for="slogan">Slug</label>
+                            <input type="text" class="form-control form-control-lg slug" id="slug" name="slug" value="{{ old('slogan') }}" placeholder="Slug" max="50" required  maxlength="55">
+                        </div>
 
+                        <div class="form-group col-lg-12 col-12">
+                            <label for="slogan">Descripción</label>
+                            <input type="text" class="form-control form-control-lg" id="slogan" name="slogan" value="{{ $current_sponsor->slogan }}" placeholder="Slogan" maxlength="55" required oninput="uppercaseLetters(event);">
+                        </div>
+                        <div class="form-group col-lg-6 col-12">
+                            <label for="slogan">Numero de telefono</label>
+                            <input type="text" class="form-control form-control-lg phone_number" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" placeholder="Telefono" maxlength="13" required >
+                        </div>
+                        <div class="form-group col-lg-6 col-12">
+                            <label for="slogan">Correo electronico</label>
+                            <input type="email" class="form-control form-control-lg" id="email" name="email" value="{{ old('email') }}" placeholder="Correo electronico" maxlength="55" required oninput="uppercaseLetters(event);">
+                        </div>
+                        <div class="form-group col-lg-6 col-12">
+                            <label for="type_sponsor_id">Tipo de empresa</label>
+                            <select class="form-control" id="type_sponsor_id" name="type_sponsor_id" required>
+                                <option value="" @if(old('type_sponsor_id') == '') selected @endif>Seleccionar</option>
 
-                    <div class="form-group">
-                        <label for="url_img">Foto del Patrocinador</label>
-                        <input type="file" onBlur='LimitAttach(this,1)' ; accept="image/*" class="form-control form-control-lg" id="url_img" name="url_img" value="{{ $current_sponsor->url_img }}" placeholder="Foto del sponsor" max="50" required oninput="uppercaseLetters(event);">
-                    </div>
+                                @foreach($type_sponsor as $reg)
+                                <option value="{{ $reg->id}}" @if(old('type_sponsor_id') == $reg->id) selected @endif>{{  $reg->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
-                    <div class="alert alert-warning alert-dismissible fade show" id="alerta" role="alert" style="display: none" role="alert">
-                        <span class="alert-inner--text"><strong>Advertencia: </strong> Sólo se aceptan archivos con extensiones .jpeg, .jpe, .jpg, .png</span>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+                        <div class="form-group col-lg-6 col-12">
+                            <label for="origin_state_id">Origen</label>
+                            <select class="form-control" id="origin_state_id" name="origin_state_id" required>
+                                <option value="" @if(old('origin_state_id') == '') selected @endif>Seleccionar</option>
 
+                                @foreach($origin_state as $reg)
+                                <option value="{{ $reg->id}}" @if(old('origin_state_id') == $reg->id) selected @endif>{{  $reg->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
+                        <div class="form-group col-lg-12 col-12">
+                            <label for="url_img">Foto del Patrocinador</label>
+                            <input type="file" onBlur='LimitAttach(this,1)' ; accept="image/*" class="form-control form-control-lg" id="url_img" name="url_img" value="{{ $current_sponsor->url_img }}" placeholder="Foto del sponsor" max="50" required oninput="uppercaseLetters(event);">
+                        </div>
 
-                    <div class="form-group justify-content-center align-items-center">
-                        <label>Foto Actual</label>
-                        <div class="form-group">
-                            <img src="{{asset($current_sponsor->url_img )}}" alt="{{$current_sponsor->name}}" class="img-fluid img-thumbnail" width="600px">
+                        <div class="col-lg-12 col-12 alert alert-warning alert-dismissible fade show" id="alerta" role="alert" style="display: none" role="alert">
+                            <span class="alert-inner--text"><strong>Advertencia: </strong> Sólo se aceptan archivos con extensiones .jpeg, .jpe, .jpg, .png</span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                {{-- <span aria-hidden="true">&times;</span> --}}
+                            </button>
+                        </div>
+
+                        <div class=" col-lg-12 col-12 form-group justify-content-center align-items-center">
+                            <label>Foto Actual</label>
+                            <div class="form-group">
+                                <img src="{{asset($current_sponsor->url_img )}}" alt="{{$current_sponsor->name}}" class="img-fluid img-thumbnail" width="600px">
+                            </div>
                         </div>
                     </div>
 

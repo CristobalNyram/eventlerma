@@ -45,7 +45,7 @@
 
                     <div class="form-group">
                         <label for="slug">Slug</label>
-                        <input type="text" class="form-control" id="slug" name="slug" value="{{ old('slug') }}" placeholder="Slug del evento" required>
+                        <input type="text" class="form-control slug" id="slug" name="slug" value="{{ old('slug') }}" placeholder="Slug del evento" required>
                     </div>
 
                     <div class="form-group">
@@ -158,26 +158,7 @@
 @endsection
 
 @push('js')
-<script>
-        $('#slug').on('input', function() {
-            var text = $(this).val();
-            var formattedText = text.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-_]/g, '').toLowerCase();
-            $(this).val(formattedText);
-        });
 
-        // También puedes verificar al pegar texto en el campo
-        $('#slug').on('paste', function(e) {
-            var pasteData = e.originalEvent.clipboardData.getData('text');
-            var validChars = /^[a-z0-9\-]+$/i;
-
-            // Verificar si el texto pegado contiene caracteres no permitidos
-            if (!validChars.test(pasteData)) {
-                e.preventDefault();
-                // Puedes mostrar un mensaje de error o limpiar el texto
-                // Ejemplo: $(this).val('');
-            }
-        });
-</script>
 <script src="/assets/js/validations/generalFunctions.js"></script>
 <script src="/assets/js/select2.js"></script>
 
