@@ -251,7 +251,7 @@ class MenusTableSeeder extends Seeder
 
         //menu padre
         DB::table('menus')->insert([
-            'title' => 'Publico general',
+            'title' => 'Beneficiarios',
             'description' => 'Menu padre.',
             'menu_parent' => 0,
             'order' => 25,
@@ -260,8 +260,8 @@ class MenusTableSeeder extends Seeder
 
         ]);
         DB::table('menus')->insert([
-            'title' => 'Modificar publico general',
-            'description' => 'Agregar,editar o borrar publico general.',
+            'title' => 'Modificar Beneficiarios',
+            'description' => 'Agregar,editar o borrar Beneficiarios.',
             'menu_parent' => 25,
             'order' => 26,
             'status' =>2,
@@ -410,7 +410,7 @@ class MenusTableSeeder extends Seeder
         //menu padre
 
         DB::table('menus')->insert([
-            'title' => 'Publico general',
+            'title' => 'Beneficiarios',
             'description' => 'Menu padre',
             'menu_parent' => 41,
             'order' => 41,

@@ -183,7 +183,7 @@
                 <li class="nav-item">
                     <a class="nav-link @if($menu === 'publicg_all')  custom-active text-white  @endif"
                         href="{{ route('publicg_index') }}">
-                        <i class="fas fa-school text-primary"></i>Publico general
+                        <i class="fas fa-school text-primary"></i>Beneficiarios
                     </a>
                 </li>
                 @endif

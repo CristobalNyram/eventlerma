@@ -33,7 +33,7 @@ class PublicGeneralController extends Controller
             return view('errors.notaccess')->with($variables);
         }
 
-        $log->activity_done($description = 'Accedió al módulo de publico general.', $table_id = 0, $menu_id = 28, $user_id = Auth::id(), $kind_acction = 1);
+        $log->activity_done($description = 'Accedió al módulo de Beneficiarios.', $table_id = 0, $menu_id = 28, $user_id = Auth::id(), $kind_acction = 1);
 
 
         $regs_active=User::all()->where('status','=','2')->where('role_id','=','4');
@@ -43,7 +43,7 @@ class PublicGeneralController extends Controller
 
         $variables=[
             'menu'=>'publicg_all',
-            'title_page'=>'Publico general',
+            'title_page'=>'Beneficiarios',
             'regs'=>$regs_active,
             'regs_active_number'=> $regs_active_number,
 
@@ -74,11 +74,11 @@ class PublicGeneralController extends Controller
             return view('errors.notaccess')->with($variables);
         }
 
-        $log->activity_done($description = 'Accedió al módulo de crear publico general.',$table_id = 0, $menu_id = 41, $user_id = Auth::id(), $kind_acction = 1);
+        $log->activity_done($description = 'Accedió al módulo de crear Beneficiarios.',$table_id = 0, $menu_id = 41, $user_id = Auth::id(), $kind_acction = 1);
 
         $variables=[
             'menu'=>'publicg_all',
-            'title_page'=>'Crear publico general',
+            'title_page'=>'Crear Beneficiarios',
 
 
         ];
@@ -203,7 +203,7 @@ class PublicGeneralController extends Controller
 
         $variables=[
             'menu'=>'publicg_all',
-            'title_page'=>'Publico general',
+            'title_page'=>'Beneficiarios',
             'reg'=>$reg,
 
 
