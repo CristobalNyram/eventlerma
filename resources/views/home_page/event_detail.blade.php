@@ -50,8 +50,17 @@
                                 <!-- Puedes mostrar información adicional del evento, como el autor, etiquetas, comentarios, etc. -->
                                 <p class="post-author">Por <a href="#">empresa</a></p>
                                 {{-- <p class="tags">in <a href="#">Events</a></p> --}}
-                                <p class="tags"><a href="#">2 asistentes</a></p>
+                                {{-- <p class="tags"><a href="#">2 asistentes</a></p> --}}
                             </div>
+                            <div class="post-meta d-flex mb-30">
+                                @if (isset($event->cost) && $event->cost !== null && trim($event->cost) !== '' && $event->cost > 0)
+                                <p>Costo: {{ $event->cost }}</p>
+                            @else
+                                <p>Sin costo</p>
+                            @endif
+
+                            </div>
+
                             <p>{{ $event->description }}</p>
                             <!-- Inscribirse Button -->
                                 @auth

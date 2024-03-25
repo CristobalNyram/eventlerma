@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use PDF;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class EventAttendedController extends Controller
@@ -113,7 +114,7 @@ class EventAttendedController extends Controller
             }
 
              if ($eventAttended->payment_status==2) {
-            # return redirect()->back()->with('error', 'El registro ya se pagó.');
+                return redirect()->back()->with('error', 'El registro ya se pagó.');
             }
 
             $variables=[
@@ -190,8 +191,13 @@ class EventAttendedController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
+
+        #dd($user_id);
         // Encontrar el registro del usuario en el evento
-        $EventAttended = EventAttended::findOrFail(['user_id' => $user_id, 'event_id' => $event_id]);
+        $EventAttended = EventAttended::where('attendee_id', $user_id)
+        ->where('event_id', $event_id)
+        ->where('payment_status', 1)
+        ->firstOrFail();
 
         // Actualizar el método de pago y la fecha de pago
         $EventAttended->payment_method = "transferencia";
@@ -199,10 +205,18 @@ class EventAttendedController extends Controller
         // Puedes establecer la fecha de pago como la fecha actual
         $EventAttended->payment_date = now();
 
+       # dd($request->all());
         // Subir el comprobante de pago si se proporcionó
         if ($request->hasFile('comprobante')) {
             $file = $request->file('comprobante');
             $destinationPath = 'argon/comprobantepagosevento/';
+
+            // Verificar si el directorio existe, si no, crearlo
+            if (!File::isDirectory($destinationPath)) {
+                // Crear el directorio con permisos 0755
+                File::makeDirectory($destinationPath, 0755, true, true);
+            }
+
             $filename = time() . '-' . $file->getClientOriginalName();
             $uploadSuccess = $request->file('comprobante')->move($destinationPath, $filename);
 

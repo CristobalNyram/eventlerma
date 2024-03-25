@@ -68,6 +68,15 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <div class=" col-lg-12 col-12 form-group justify-content-center align-items-center">
+                            <label>Foto comprobante</label>
+                            @if ($eventAttended && !empty($eventAttended->payment_receipt_url))
+                                <img src="{{ asset($eventAttended->payment_receipt_url) }}" alt="{{ $eventAttended->id }}" class="img-fluid img-thumbnail" width="600px">
+                            @else
+                                <p>No hay foto de comprobante disponible</p>
+                            @endif
+                        </div>
                         <div class="text-center mb-3">
                             <button type="submit" class="btn btn-primary">Subir Comprobante</button>
                         </div>
