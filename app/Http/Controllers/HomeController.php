@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Carrer;
 use App\Models\Course;
 use App\Models\Event;
+use App\Models\EventAttended;
 use App\Models\Logbook;
 use App\Models\Package;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
 {
@@ -39,12 +41,30 @@ class HomeController extends Controller
         $packages=Package::all()->where('status','=',2);
 
         $my_events=array();
+        $hashUserId=0;
+        $hashUserId = Crypt::encryptString(Auth::user()->id);
+
         $today = Carbon::today();
 
         if(Auth::user()->role_id==4 || Auth::user()->role_id==5){
-            $my_events = Event::where('status', 2)
-            #->whereDate('date', '>=', $today)
+
+            $my_events =EventAttended::where('event_attendeds.status','>=',0)
+            ->where('attendee_id', Auth::user()->id)
+            ->leftJoin('users', 'event_attendeds.attendee_id', '=', 'users.id')
+            ->leftJoin('events', 'event_attendeds.event_id', '=', 'events.id')
+            ->select('event_attendeds.id', 'events.name as event_name'
+            ,'event_attendeds.payment_status as payment_status'
+            ,'event_attendeds.id as event_attendeds_id'
+            ,'events.cost as event_cost'
+            ,'events.id as event_id'
+            #,'events.id as event_id'
+
+            ,'events.slug as event_slug'
+
+
+            )
             ->get();
+
 
         }
 
@@ -54,6 +74,9 @@ class HomeController extends Controller
             'courses_available'=>$courses_available,
             'packages_available'=>$packages,
             'my_events'=>$my_events,
+            'hashUserId'=>$hashUserId,
+
+
 
 
         ];

@@ -140,6 +140,17 @@
                     </a>
                 </li>
 
+                @if (Auth::user()->role_id==4 || Auth::user()->role_id==5)
+                <li class="nav-item">
+                    <a class="nav-link @if($menu === 'home_page_events')  custom-active text-white @endif"
+                        href="{{ route('home_page_events') }}">
+                        <i class="ni ni-building text-primary"></i> {{ __('Eventos') }}
+                    </a>
+                </li>
+
+                @endif
+
+
                   {{-- <li class="nav-item">
                     <a class="nav-link @if($menu === 'videogame')  custom-active text-white @endif"
                         href="{{ route('game_index') }}">

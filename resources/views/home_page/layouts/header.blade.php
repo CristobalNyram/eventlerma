@@ -59,6 +59,14 @@
                                         </li>
                                     </ul>
                                 </li> --}}
+
+                                @auth
+                                    @if (Auth::user()->role_id==4 || Auth::user()->role_id==5)
+                                    <li><a href="{{ route('home') }}"
+                                        >Mis eventos</a></li>
+
+                                    @endif
+                                @endauth
                                 <li><a href="{{ route('home_page_events') }}"
                                     >Eventos</a></li>
                                 {{-- <li>
