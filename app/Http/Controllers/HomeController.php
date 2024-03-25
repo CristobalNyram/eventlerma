@@ -61,7 +61,6 @@ class HomeController extends Controller
 
             ,'events.slug as event_slug'
 
-
             )
             ->get();
 

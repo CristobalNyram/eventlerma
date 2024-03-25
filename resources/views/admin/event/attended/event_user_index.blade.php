@@ -1,26 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-@include('admin.event.headers_cards')
+@include('admin.event.attended.headers_cards')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
 
 <div class="container-fluid mt--6">
-  <div class="row d-flex mb-3 mr-5 justify-content-end">
+  {{-- <div class="row d-flex mb-3 mr-5 justify-content-end">
     @if ( check_acces_to_this_permission(Auth::user()->role_id,12))
 
     <a href="{{ route('event_create') }}" type="button" class="btn btn-info">Agregar</a>
 
     @endif
-  </div>
+  </div> --}}
 
   <div class="row">
     <div class="col">
       <div class="card">
         <!-- Card header -->
         <div class="card-header border-0">
-          <h3 class="mb-0">Eventos registrados</h3>
+          <h3 class="mb-0">Asistentes registrados</h3>
         </div>
         <!-- Light table -->
         <script>
@@ -30,16 +30,11 @@
             <table class="table align-items-center table-striped table-flush table-bordered dt-responsive" id="table_users_all">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col" class="sort" data-sort="id">ID</th>
-                        <th scope="col" class="sort" data-sort="name">Título</th>
-                        <th scope="col" class="sort" data-sort="slug">Slug</th>
-                        <th scope="col" class="sort" data-sort="description">Descripción</th>
-                        <th scope="col" class="sort" data-sort="capacity">Límite</th>
-                        <th scope="col" class="sort" data-sort="time">Hora</th>
-                        <th scope="col" class="sort" data-sort="duration">Duración</th>
+                        <th scope="col" class="sort" data-sort="id">FOLIO</th>
+                        <th scope="col" class="sort" data-sort="name">Nombre de asistente</th>
+                        <th scope="col" class="sort" data-sort="slug">Estatus de pago</th>
+                        <th scope="col" class="sort" data-sort="description">Comprobante de pago</th>
                         <th scope="col" class="sort" data-sort="date">Fecha de registro</th>
-                        <th scope="col" class="sort" data-sort="url_photo">Foto</th>
-                        <th scope="col" class="sort" data-sort="status">Estatus</th>
                         <th scope="col" class="sort" data-sort="actions">Acciones</th>
                     </tr>
                 </thead>
@@ -47,38 +42,32 @@
                     @foreach($regs as $reg)
                     <tr>
                         <td>{{ $reg->id }}</td>
-                        <td>{{ $reg->name }}</td>
-                        <td>{{ $reg->slug }}</td>
-                        <td>{{ $reg->description }}</td>
-                        <td>{{ $reg->capacity }}</td>
-                        <td>{{ $reg->time }}</td>
-                        <td>{{ $reg->duration }}</td>
-                        <td>{{ $reg->date }}</td>
+                        <td>{{ $reg->user_name }}</td>
                         <td>
-                            <img src="{{ asset($reg->url_photo) }}" alt="{{ $reg->name }}" class="img-fluid img-thumbnail modal-trigger" data-toggle="modal" data-target="#imageModal" data-url="{{ asset($reg->url_photo) }}" width="auto">
+
+                                @if ($reg->event_cost > 0 && $reg->payment_status == 2)
+                        <span class="badge badge-success">Pagado</span>
+                        @elseif ($reg->event_cost <= 0 && $reg->payment_status == 2)
+                            <span class="badge badge-primary">Gratuito</span>
+                        @elseif ($reg->event_cost > 0 && $reg->payment_status != 2)
+                        <span class="badge badge-warning">Pendiente</span>
+
+                        @endif
                         </td>
-                        <td>{{ $reg->status }}</td>
+
+                        <td>
+                        @if ($reg && !empty($reg->payment_receipt_url))
+                            <img src="{{ asset($reg->payment_receipt_url) }}" alt="{{ $reg->payment_receipt_url }}" class="img-fluid img-thumbnail modal-trigger" data-toggle="modal" data-target="#imageModal" data-url="{{ asset($reg->payment_receipt_url) }}" width="auto">
+                        @endif
+                        </td>
+                        <td>{{ $reg->event_attended_created_at }}</td>
                         <td class="text-center">
                             <div class="dropdown">
                                 <a class="btn btn-sm btn-icon-only text-danger" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fas fa-ellipsis-v"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                    <a class="dropdown-item" href="{{ route('event_user_index', $reg->id) }}">
-                                        <i class="fas fa-list"></i> Lista de asistentes
-                                    </a>
-                                    @if(check_acces_to_this_permission(Auth::user()->role_id, 12))
-                                    <a class="dropdown-item" href="{{ route('event_edit', $reg->id) }}">
-                                        <i class="fas fa-edit"></i> Actualizar información
-                                    </a>
-                                    <form class="input-group form-eliminar" id="form-delete-event-{{ $reg->id }}" action="{{ route('event_delete', $reg->id) }}" method="POST" >
-                                        @csrf
-                                        @method('DELETE')
-                                        <!-- Agregar botón o enlace para eliminar -->
-                                        <button type="submit" class="dropdown-item text-danger">Eliminar</button>
-                                    </form>
 
-                                    @endif
                                 </div>
                             </div>
                         </td>

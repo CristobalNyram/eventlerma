@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\EventAttended;
+use App\Models\Logbook;
 use App\Models\Role;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use PDF;
@@ -242,9 +244,55 @@ class EventAttendedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function event_user_index($event_id)
     {
-        //
+        $role = New Role();
+        $log = new Logbook();
+
+        if ($role->checkAccesToThisFunctionality(Auth::user()->role_id, 10) == null) {
+            $variables = [
+                'menu' => '',
+                'title_page' => 'No puedes pasar',
+            ];
+            return view('errors.notaccess')->with($variables);
+        }
+
+        $log->activity_done($description = 'Accedió al módulo de detalles de asistentes de un evento.', $table_id = 0, $menu_id = 10, $user_id = Auth::id(), $kind_acction = 1);
+
+
+        $regs_active =EventAttended::where('event_attendeds.status','>=',0)
+        ->where('event_attendeds.event_id',$event_id)
+        ->leftJoin('users', 'event_attendeds.attendee_id', '=', 'users.id')
+        ->leftJoin('events', 'event_attendeds.event_id', '=', 'events.id')
+        ->select('event_attendeds.id', 'events.name as event_name'
+        ,'event_attendeds.payment_status as payment_status'
+        ,'event_attendeds.payment_receipt_url as payment_receipt_url'
+        ,'event_attendeds.created_at as event_attended_created_at'
+
+        ,'event_attendeds.id as event_attendeds_id'
+        ,'events.cost as event_cost'
+        ,'events.id as event_id'
+        ,'users.id as user_id'
+        ,'users.name as user_name'
+
+        ,'events.slug as event_slug'
+
+        )
+        ->get();
+        $regs_active_number= $regs_active->count();
+
+
+
+        $variables=[
+            'menu'=>'events_all',
+            'title_page'=>'Lista de asistentes ',
+            'regs'=>$regs_active,
+            'regs_active_number'=> $regs_active_number,
+
+
+
+        ];
+        return view('admin.event.attended.event_user_index')->with($variables);
     }
 
     /**
