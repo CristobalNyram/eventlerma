@@ -67,6 +67,23 @@
                                     <i class="fas fa-ellipsis-v"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                    <a class="dropdown-item" target="_blanck"
+                                    href="{{ route('view_badge_event', ['event_id' => $reg->event_id, 'user_id' => $reg->user_id]) }}"
+                                    >
+                                    <i class="fas fa-id-badge"></i> Gafete digital
+                                </a>
+                                @if ($reg->event_cost > 0 && $reg->payment_status != 2)
+                                <form id="approvePaymentForm_{{ $reg->event_id }}_{{ $reg->user_id }}" method="POST" action="{{ route('change_payment_status_form', ['event_id' => $reg->event_id, 'user_id' => $reg->user_id]) }}">
+                                    @csrf
+                                    @method('PUT')
+
+                                    <!-- Botón para aprobar el comprobante de pago con confirmación -->
+                                    <button type="submit" class="dropdown-item approve-payment-button" data-form-id="approvePaymentForm_{{ $reg->event_id }}_{{ $reg->user_id }}" onclick="return confirm('¿Estás seguro de aprobar este comprobante de pago?')">
+                                        <i class="fas fa-check-circle"></i> Aprobar comprobante de pago
+                                    </button>
+                                </form>
+                            @endif
+
 
                                 </div>
                             </div>
@@ -105,6 +122,21 @@
 </div>
 
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Escuchar envío de formularios
+        document.querySelectorAll('.approvePaymentForm').forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                var confirmMessage = '¿Estás seguro de aprobar este comprobante de pago?';
+
+                // Mostrar mensaje de confirmación
+                if (!confirm(confirmMessage)) {
+                    event.preventDefault(); // Evitar que el formulario se envíe
+                }
+            });
+        });
+    });
+</script>
 
 <script>
   $(document).ready(function() {
@@ -191,5 +223,15 @@
     })
   });
 </script>
+@if(session('error'))
+<script>
+    alert("{{ session('error') }}");
+</script>
+@endif
 
+@if(session('success'))
+<script>
+    alert("{{ session('success') }}");
+</script>
+@endif
 @endpush

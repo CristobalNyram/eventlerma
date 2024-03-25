@@ -294,6 +294,49 @@ class EventAttendedController extends Controller
         ];
         return view('admin.event.attended.event_user_index')->with($variables);
     }
+    public function change_payment_status($event_id, $user_id, $new_payment_status)
+    {
+        try {
+            // Encontrar el registro del usuario en el evento
+            $EventAttended = EventAttended::where('attendee_id', $user_id)
+                ->where('event_id', $event_id)
+                ->firstOrFail();
+
+            // Actualizar el estado de pago
+            $EventAttended->payment_status = $new_payment_status;
+
+            // Guardar los cambios
+            $EventAttended->save();
+
+            return [
+                'success' => true,
+                'message' => '¡El estado de pago se actualizó exitosamente!'
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => 'Hubo un problema al actualizar el estado de pago. Por favor, inténtalo de nuevo.'
+            ];
+        }
+    }
+
+
+    public function change_payment_status_form(Request $request, $event_id, $user_id)
+    {
+        // ...
+
+        // Cambiar el estado de pago a 1 (pago realizado)
+        $result = $this->change_payment_status($event_id, $user_id, 2);
+
+        if ($result['success']) {
+            // Redireccionar con un mensaje de éxito si todo está bien
+            return back()->with('success', $result['message']);
+        } else {
+            // Redireccionar con un mensaje de error si hubo un problema
+            return back()->with('error', $result['message']);
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.

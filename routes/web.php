@@ -316,6 +316,10 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('/edit/{id}', [EventController::class, 'edit'])->name('event_edit');
                 Route::get('/event_user_index/{event_id}', [EventAttendedController::class, 'event_user_index'])->name('event_user_index');
 
+                Route::put('/approve-payment/{event_id}/{user_id}', [EventAttendedController::class, 'change_payment_status_form'])->name('change_payment_status_form');
+
+
+
 
                 Route::delete('/delete/{id}', [EventController::class, 'delete'])->name('event_delete');
             });
