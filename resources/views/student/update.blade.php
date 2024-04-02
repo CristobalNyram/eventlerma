@@ -75,8 +75,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Correo Electronico</label>
-                        <input type="emil" class="form-control form-control-lg" id="email" name="email" value="{{ $current_student->email }}" placeholder="correo electronico " max="50" required oninput="uppercaseLetters(event);">
+                        <label for="email">Correo electrónico</label>
+                        <input type="emil" class="form-control form-control-lg" id="email" name="email" value="{{ $current_student->email }}" placeholder="Correo electrónico " max="50" required oninput="uppercaseLetters(event);">
                     </div>
 
                     <div class="form-group">
@@ -135,7 +135,7 @@
                     </div>
 
                     <div class="form-group justify-content-center align-items-center">
-                        <label>Foto Actual</label>
+                        <label>Foto actual</label>
                         <div class="form-group">
                             <img src="{{asset($current_student->user_image)}}" alt="{{$current_student->name}}" class="img-fluid img-thumbnail" width="600px">
                         </div>

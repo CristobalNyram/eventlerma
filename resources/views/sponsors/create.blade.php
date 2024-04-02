@@ -45,13 +45,13 @@
 
                     <div class="form-row">
 
-                    <div class="form-group col-lg-12 col-12">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control form-control-lg" id="name" name="name" value="{{   old('title') }}" placeholder="Nombre del patrocinador" maxlength="50" required oninput="uppercaseLetters(event);">
+                        <input type="text" class="form-control form-control-lg" id="name" name="name" value="{{   old('title') }}" placeholder="Nombre de la empresa" maxlength="50" required oninput="uppercaseLetters(event);">
                     </div>
 
 
-                    <div class="form-group col-lg-12 col-12">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="slogan">Slug</label>
                         <input type="text" class="form-control form-control-lg slug" id="slug" name="slug" value="{{ old('slug') }}" placeholder="Slug" maxlength="50" required >
                     </div>
@@ -60,18 +60,18 @@
                         <input type="text" class="form-control form-control-lg" id="slogan" name="slogan" value="{{ old('slogan') }}" placeholder="Eslogan" maxlength="50" required oninput="uppercaseLetters(event);">
                     </div>
 
-                    <div class="form-group col-lg-6 col-12">
-                        <label for="slogan">Numero de telefono</label>
+                    <div class="form-group col-lg-3 col-12">
+                        <label for="slogan">Número de teléfono</label>
                         <input type="text" class="form-control form-control-lg phone_number" id="phone_number" name="phone_number" value="{{ old('phone_number') }}" placeholder="Telefono" maxlength="13" required >
                     </div>
 
 
-                    <div class="form-group col-lg-6 col-12">
-                        <label for="slogan">Correo electronico</label>
-                        <input type="email" class="form-control form-control-lg" id="email" name="email" value="{{ old('email') }}" placeholder="Correo electronico" maxlength="50" required oninput="uppercaseLetters(event);">
+                    <div class="form-group col-lg-3 col-12">
+                        <label for="slogan">Correo electrónico</label>
+                        <input type="email" class="form-control form-control-lg" id="email" name="email" value="{{ old('email') }}" placeholder="Correo electrónico" maxlength="50" required oninput="uppercaseLetters(event);">
                     </div>
 
-                    <div class="form-group col-lg-6 col-12">
+                    <div class="form-group col-lg-3 col-12">
                         <label for="type_sponsor_id">Tipo de empresa</label>
                         <select class="form-control" id="type_sponsor_id" name="type_sponsor_id" required>
                             <option value="" @if(old('type_sponsor_id') == '') selected @endif>Seleccionar</option>
@@ -82,7 +82,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-lg-6 col-12">
+                    <div class="form-group col-lg-3 col-12">
                         <label for="origin_state_id">Origen</label>
                         <select class="form-control" id="origin_state_id" name="origin_state_id" required>
                             <option value="" @if(old('origin_state_id') == '') selected @endif>Seleccionar</option>
@@ -97,7 +97,7 @@
 
 
 
-                    <div class="form-group col-lg-8 col-12">
+                    <div class="form-group col-lg-6 col-12">
                         <label for="url_img">Imagen</label>
                         <input type="file" onBlur='LimitAttach(this,1)' ; accept="image/*" class="form-control form-control-lg" id="url_img" name="url_img" value="{{ old('url_img') }}" placeholder="Foto del sponsor" max="50" required >
                     </div>

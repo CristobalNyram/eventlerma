@@ -9,6 +9,8 @@
         box-shadow: none!important;
     }
     </style>
+ <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <div class="container mt--8 pb-5">
         <div class="row justify-content-center">
             <div class="col-lg-5 col-md-7">
@@ -47,6 +49,15 @@
                                     </span>
                                 @endif
                             </div>
+                            <div class="g-recaptcha" data-sitekey="6LfqYjomAAAAAKd14uctpoZtoZXoi9pJ3ts9_ZqY"></div>
+                                                <br>
+                                                </form>
+                                                </center>
+                                                <br>
+
+                                            </li>
+                            </div>
+
                             {{-- <div class="custom-control custom-control-alternative custom-checkbox">
                                 <input class="custom-control-input" name="remember" id="customCheckLogin" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="customCheckLogin">

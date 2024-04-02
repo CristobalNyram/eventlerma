@@ -37,13 +37,13 @@
                         <div class="form-group col-lg-6 col-12">
                             <label for="password">Nueva Contraseña</label>
                             <input type="hidden" name="id" id="id" value="{{$current_user->id}}">
-                            <input type="password" class="form-control form-control-lg" id="password" name="password" value="{{ old('password')}}" placeholder="Nueva Contraseña" minlength="8"  max="50" required>
+                            <input type="password" class="form-control form-control-lg" id="password" name="password" value="{{ old('password')}}" placeholder="Nueva Contraseña"   minlength="8"  maxlength="16"  required>
                         </div>
 
                         <div class="form-group col-lg-6 col-12">
                             <label for="confirm_password">Confirmar Contraseña</label>
-                            <input type="password" class="form-control form-control-lg" id="confirm_password" name="confirm_password" value="{{ old('confirm_password') }}" placeholder="Confirmar Contraseña"  max="50"  minlength="8"  required>
-                            <div id="passwordError" class="text-danger" style="display: none;">Las contraseñas no coinciden</div>
+                            <input type="password" class="form-control form-control-lg" id="confirm_password" name="confirm_password" value="{{ old('confirm_password') }}" placeholder="Confirmar Contraseña"  minlength="8"  maxlength="16"  required>
+                            <div id="passwordError"  class="text-danger" style="display: none;">Las contraseñas no coinciden</div>
                         </div>
                         </div>
 

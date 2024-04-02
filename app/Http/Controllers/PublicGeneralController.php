@@ -111,17 +111,18 @@ class PublicGeneralController extends Controller
                 'status' => 'required|in:1,2',
                 'user_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             ], [
-                'date_birth.before_or_equal' => 'La fecha de nacimiento no puede ser una fecha futura.',
-                'date_birth.after_or_equal' => 'La fecha de nacimiento debe ser posterior a 1900-01-01.',
+                'date_birth.before_or_equal' => 'La Fecha de nacimiento no puede ser una fecha futura.',
+                'date_birth.after_or_equal' => 'La Fecha de nacimiento debe ser posterior a 1900-01-01.',
             ]);
 
-            // Formateo del número de teléfono
-            $phone_number = str_replace('-', '', $request->phone_number);
+            // Formateo del Número de teléfono
+            #$phone_number = str_replace('-', '', $request->phone_number);
+            $phone_number =  $request->phone_number;
 
             // Iniciar una transacción de base de datos
             DB::beginTransaction();
 
-            // Guardar la imagen de usuario
+            // Guardar la Imagen de usuario
             $destinationPath = 'uploads/user/';
             $file = $request->file('user_image');
             $filename = time() . '-' . $file->getClientOriginalName();
@@ -150,7 +151,7 @@ class PublicGeneralController extends Controller
             $log=new Logbook();
             $log->activity_done($description='Se registro al usuario '. $user->name. 'correctamente' ,$table_id=0,$menu_id=12,$user_id=Auth::id(),$kind_acction=6);
 
-            return redirect()->back()->with('success', 'Usuario creado exitosamente.');
+            return redirect()->route('publicg_index')->with('success', 'Usuario creado exitosamente.');
         } catch (\Exception $e) {
             // Si hay algún error, deshacer la transacción
             DB::rollback();
@@ -228,39 +229,61 @@ class PublicGeneralController extends Controller
         try {
             // Validaciones de Laravel
             $request->validate([
-                'name' => 'required|string|max:255',
-                'first_surname' => 'required|string|max:255',
-                'second_surname' => 'required|string|max:255',
-                'phone_number' => 'required|string|max:255',
-                'gender' => 'required|in:H,M',
-                'email' => 'required|string|email|max:255|unique:users,email,'.$id,
-                'date_birth' => 'required|date|before_or_equal:today|after_or_equal:1900-01-01',
-                'status' => 'required|in:1,2',
+                'name' => 'string|max:255',
+                'first_surname' => 'string|max:255',
+                'second_surname' => 'string|max:255',
+                'phone_number' => 'max:15',
+                'gender' => 'in:H,M',
+                'email' => 'string|email|max:255|unique:users,email,'.$id,
+                'date_birth' => 'date|before_or_equal:today|after_or_equal:1900-01-01',
+                'status' => 'in:1,2,0',
                 'user_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ], [
-                'date_birth.before_or_equal' => 'La fecha de nacimiento no puede ser una fecha futura.',
-                'date_birth.after_or_equal' => 'La fecha de nacimiento debe ser posterior a 1900-01-01.',
+                'date_birth.before_or_equal' => 'La Fecha de nacimiento no puede ser una fecha futura.',
+                'date_birth.after_or_equal' => 'La Fecha de nacimiento debe ser posterior a 1900-01-01.',
             ]);
 
-            // Validación personalizada de la fecha de nacimiento
+            // Validación personalizada de la Fecha de nacimiento
 
             // Obtener el usuario a actualizar
             $user = User::findOrFail($id);
 
-            // Formateo del número de teléfono
-            $phone_number = str_replace('-', '', $request->phone_number);
+            // Formateo del Número de teléfono
+            #$phone_number = str_replace('-', '', $request->phone_number);
+            $phone_number =  $request->phone_number;
+            if ($request->has('name')) {
+                $user->name = $request->name !== '' ? $request->name : null;
+            }
 
-            // Actualizar los datos del usuario
-            $user->name = $request->name;
-            $user->first_surname = $request->first_surname;
-            $user->second_surname = $request->second_surname;
-            $user->phone_number = $phone_number;
-            $user->gender = $request->gender;
-            $user->email = $request->email;
-            $user->date_birth = $request->date_birth;
-            $user->status = $request->status;
+            if ($request->has('first_surname')) {
+                $user->first_surname = $request->first_surname !== '' ? $request->first_surname : null;
+            }
 
-            // Actualizar la imagen de usuario si se proporcionó una nueva
+            if ($request->has('second_surname')) {
+                $user->second_surname = $request->second_surname !== '' ? $request->second_surname : null;
+            }
+
+            if ($request->has('phone_number')) {
+              $user->phone_number = $request->phone_number !== '' ? $request->phone_number : null;
+            }
+
+            if ($request->has('gender')) {
+                $user->gender = $request->gender !== '' ? $request->gender : null;
+            }
+
+            if ($request->has('email')) {
+                $user->email = $request->email !== '' ? $request->email : null;
+            }
+
+            if ($request->has('date_birth')) {
+                $user->date_birth = $request->date_birth !== '' ? $request->date_birth : null;
+            }
+
+            if ($request->has('status')) {
+                $user->status = $request->status !== '' && $request->status !== 0 ? $request->status : null;
+            }
+
+            // Actualizar la Imagen de usuario si se proporcionó una nueva
             if ($request->hasFile('user_image')) {
                 $file = $request->file('user_image');
                 $destinationPath = 'uploads/user/';
@@ -279,7 +302,7 @@ class PublicGeneralController extends Controller
             // Commit de la transacción
             DB::commit();
 
-            return redirect()->back()->with('success', 'Usuario actualizado exitosamente.');
+            return  redirect()->route('publicg_index')->with('success', 'Usuario actualizado exitosamente.');
         } catch (\Exception $e) {
             // En caso de error, hacer rollback de la transacción
             DB::rollback();

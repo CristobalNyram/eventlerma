@@ -52,12 +52,12 @@
                         <input type="text" class="form-control" id="name" name="name" maxlength="55" value="{{ old('name') }}" placeholder="Ingrese su nombre" required>
                     </div>
                     <div class="form-group col-lg-4 col-12">
-                        <label for="first_surname">Primer Apellido</label>
-                        <input type="text" class="form-control" id="first_surname" name="first_surname"  maxlength="55" value="{{ old('first_surname') }}" placeholder="Ingrese su primer apellido" required>
+                        <label for="first_surname">Segundo apellido</label>
+                        <input type="text" class="form-control" id="first_surname" name="first_surname"  maxlength="55" value="{{ old('first_surname') }}" placeholder="Ingrese su Segundo apellido" required>
                     </div>
                     <div class="form-group col-lg-4 col-12">
-                        <label for="second_surname">Segundo Apellido</label>
-                        <input type="text" class="form-control" id="second_surname" name="second_surname"  maxlength="55" value="{{ old('second_surname') }}" placeholder="Ingrese su segundo apellido" required>
+                        <label for="second_surname">Segundo apellido</label>
+                        <input type="text" class="form-control" id="second_surname" name="second_surname"  maxlength="55" value="{{ old('second_surname') }}" placeholder="Ingrese su Segundo apellido" required>
                     </div>
                     <div class="form-group col-lg-6 col-12">
                         <label for="password">Contraseña</label>
@@ -74,8 +74,8 @@
                         </button>
                     </div>
                     <div class="form-group col-lg-6 col-12">
-                        <label for="phone_number">Número de Teléfono</label>
-                        <input type="text" class="form-control phone_number" id="phone_number" name="phone_number" maxlength="13" value="{{ old('phone_number') }}" placeholder="Ingrese su número de teléfono" required>
+                        <label for="phone_number">Número de teléfono</label>
+                        <input type="text" class="form-control phone_number" id="phone_number" name="phone_number" maxlength="13" value="{{ old('phone_number') }}" placeholder="Ingrese su Número de teléfono" required>
                     </div>
                     <div class="form-group col-lg-6 col-12">
                         <label for="gender">Género</label>
@@ -86,16 +86,16 @@
                         </select>
                     </div>
                     <div class="form-group col-lg-6 col-12">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="email" name="email" maxlength="55" value="{{ old('email') }}" placeholder="Ingrese su correo electrónico" required>
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" maxlength="55" value="{{ old('email') }}" placeholder="Ingrese su Correo electrónico" required>
                     </div>
                     <div class="form-group col-lg-6 col-12">
-                        <label for="user_image">Imagen de Usuario</label>
-                        <input type="file" class="form-control-file" id="user_image" name="user_image" placeholder="Seleccione su imagen de usuario" required>
+                        <label for="user_image">Imagen de usuario</label>
+                        <input type="file" class="form-control-file" id="user_image" name="user_image" placeholder="Seleccione su Imagen de usuario" required>
                     </div>
                     <div class="form-group col-lg-6 col-12">
-                        <label for="date_birth">Fecha de Nacimiento</label>
-                        <input type="date" class="form-control" id="date_birth" name="date_birth" value="{{ old('date_birth') }}" placeholder="Seleccione su fecha de nacimiento" required>
+                        <label for="date_birth">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="date_birth" name="date_birth" value="{{ old('date_birth') }}" placeholder="Seleccione su Fecha de nacimiento" required>
                     </div>
                     <div class="form-group col-lg-6 col-12">
                         <label for="status">Estado</label>
@@ -131,7 +131,7 @@
 
     <script>
         $(document).ready(function() {
-         // Validación de fecha de nacimiento
+         // Validación de Fecha de nacimiento
          $('#date_birth').change(function() {
              var dob = new Date($(this).val());
              var today = new Date();
@@ -140,8 +140,8 @@
              if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
                  age--;
              }
-             if (age < 3 || age > 100) {
-                 alert('La fecha de nacimiento debe ser mayor de 3 años y menor de 100 años.');
+             if (age < 12 || age > 100) {
+                 alert('La Fecha de nacimiento debe ser mayor de 12 años y menor de 100 años.');
                  $(this).val('');
              }
          });

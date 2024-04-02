@@ -55,7 +55,7 @@
                         <input type="text" class="form-control form-control-lg" id="second_surname" name="second_surname" value="{{ old('second_surname') }}" placeholder="Apellido materno" max="50" required oninput="uppercaseLetters(event);">
                     </div>
 
-                    
+
 
                     <div class="form-group">
                         <label for="speaker_cv">Curriculum Vitae</label>
@@ -85,7 +85,7 @@
                         }
                     </script>
 
-                   
+
 
 
 
@@ -110,8 +110,8 @@
 
 
                     <div class="form-group">
-                        <label for="email">Correo electronico</label>
-                        <input type="email" class="form-control form-control-lg" id="email" name="email" value=" {{ old('email') }}" placeholder="Correo electronico." required maxlength="50">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" class="form-control form-control-lg" id="email" name="email" value=" {{ old('email') }}" placeholder="Correo electrónico." required maxlength="50">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>

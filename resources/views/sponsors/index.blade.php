@@ -20,12 +20,20 @@
       <div class="card">
         <!-- Card header -->
         <div class="card-header border-0">
-          <h3 class="mb-0">Patrocinadores registrados</h3>
+          <h3 class="mb-0">Empresas registradas</h3>
         </div>
         <!-- Light table -->
         <script>
 
         </script>
+                            @if(session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            @endif
         <div class="table-responsive">
             <table class="table align-items-center table-striped table-flush table-bordered dt-responsive" id="table_users_all">
                 <thead class="thead-light">
@@ -36,8 +44,8 @@
                         <th scope="col" class="sort" data-sort="url_img">Foto</th>
                         <th scope="col" class="sort" data-sort="status">Estado</th>
                         <th scope="col" class="sort" data-sort="origin">Origen</th>
-                        <th scope="col" class="sort" data-sort="phone_number">Número de Teléfono</th>
-                        <th scope="col" class="sort" data-sort="email">Correo Electrónico</th>
+                        <th scope="col" class="sort" data-sort="phone_number">Número de teléfono</th>
+                        <th scope="col" class="sort" data-sort="email">Correo electrónico</th>
                         <th scope="col" class="sort" data-sort="type">Tipo</th>
                         <th scope="col" class="sort" data-sort="actions">Acciones</th>
                     </tr>
@@ -70,7 +78,6 @@
                                     </a>
                                     <form action="{{ route('sponsor_delete', $sponsor->id) }}" class="input-group form-eliminar" method="POST">
                                         @csrf
-                                        @method('DELETE')
                                         <input type="submit" class="dropdown-item text-danger" value="Eliminar">
                                     </form>
                                 </div>
@@ -102,8 +109,8 @@
                             <p><strong>Eslogan:</strong> {{ $sponsor->slogan }}</p>
                             <p><strong>Estado:</strong> {{ $sponsor->status }}</p>
                             <p><strong>Origen:</strong> {{ $sponsor->origin }}</p>
-                            <p><strong>Número de Teléfono:</strong> {{ $sponsor->phone_number }}</p>
-                            <p><strong>Correo Electrónico:</strong> {{ $sponsor->email }}</p>
+                            <p><strong>Número de teléfono:</strong> {{ $sponsor->phone_number }}</p>
+                            <p><strong>Correo electrónico:</strong> {{ $sponsor->email }}</p>
                             <p><strong>Tipo:</strong> {{ $sponsor->type }}</p>
                         </div>
                     </div>
@@ -174,7 +181,7 @@
 <script type="text/javascript">
   Swal.fire(
     '¡Eliminado!',
-    'Tu archivo se ha borrado completamente.',
+    'El registro se ha borrado completamente.',
     'success'
   )
 </script>

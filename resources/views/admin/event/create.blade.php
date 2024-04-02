@@ -20,14 +20,7 @@
 
                 <form class="m-5" action="{{ route('event_store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @if(session('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ session('success') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @endif
+
                     @if ($errors->any())
                         @foreach ($errors->all() as $error)
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -104,7 +97,7 @@
                     <!-- Otros campos si los tienes -->
 
                     <div class="form-group col-lg-3 col-12">
-                        <label for="type_event_id">Tipo de Evento</label>
+                        <label for="type_event_id">Tipo de evento</label>
                         <select class="form-control" id="type_event_id" name="type_event_id" required>
                             <option value="" @if(old('type_event_id') == '') selected @endif>Seleccionar</option>
 
@@ -116,7 +109,7 @@
 
 
                     <div class="form-group col-lg-3 col-12">
-                        <label for="place_events_id">Lugar del Evento</label>
+                        <label for="place_events_id">Lugar del evento</label>
                         <select class="form-control" id="place_events_id" name="place_events_id" required>
                             <option value="" @if(old('place_events_id') == '') selected @endif>Seleccionar</option>
                             @foreach($place_event as $reg)
@@ -126,7 +119,7 @@
                     </div>
 
                     <div class="form-group col-lg-3 col-12">
-                        <label for="type_public_id">Tipo de Público</label>
+                        <label for="type_public_id">Tipo de público</label>
                         <select class="form-control" id="type_public_id" name="type_public_id" required>
                             <option value="" @if(old('type_public_id') == '') selected @endif>Seleccionar</option>
                             @foreach($type_public as $reg)

@@ -18,7 +18,7 @@ class TypePublicSeeder extends Seeder
             ['name' => 'Infantil', 'status' => '2', 'description' => 'Para público infantil'],
             ['name' => 'Adultos', 'status' => '2', 'description' => 'Para público adultos'],
             ['name' => 'Mixto', 'status' => '2', 'description' => 'Para público mixto'],
-            ['name' => 'Otro', 'status' => '2', 'description' => 'Otro tipo de público'],
+            ['name' => 'Otro', 'status' => '2', 'description' => 'Otro Tipo de público'],
         ];
 
         DB::table('type_public')->insert($types);

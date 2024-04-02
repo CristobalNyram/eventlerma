@@ -153,7 +153,7 @@ class SponsorController extends Controller
         if ($sponsor->save()) {
             $log=new Logbook();
             $log->activity_done($description = 'Creó la empresa ' . $sponsor->name . 'correctamente', $table_id = 0, $menu_id = 30, $user_id = Auth::id(), $kind_acction = 6);
-            return back()->with('success','Se ha registrado la empresa exitosamente...');
+            return redirect()->route('sponsor_index')->with('success','Se ha registrado la empresa exitosamente...');
 
         }
         else
@@ -185,7 +185,6 @@ class SponsorController extends Controller
         $sponsor = Sponsor::findOrFail($request->id);
         $sponsor->name = $request->name;
         $sponsor->slogan = $request->slogan;
-        $sponsor->url_img = $request->url_img;
         $sponsor->slug = $request->slug;
         $sponsor->phone_number = $request->phone_number;
         $sponsor->email = $request->email;
@@ -200,6 +199,8 @@ class SponsorController extends Controller
           $filename = time() .'-'. $file->getClientOriginalName();
           $uploadSuccess = $request->file('url_img')->move($destiantionPath, $filename);
           $sponsor->url_img = $destiantionPath . $filename;
+         # $sponsor->url_img = $request->url_img;
+
         }
 
         $role = new Role();
@@ -207,10 +208,10 @@ class SponsorController extends Controller
 
 
         if ($sponsor->save()) {
-        $log->activity_done($description = 'Actualizó el patrocinador ' . $sponsor->name . ' correctamente', $table_id = 0, $menu_id = 30, $user_id = Auth::id(), $kind_acction = 3);
-          return back()->with('success', 'Se ha actualizado el emmpresa exitosamente...');
+        $log->activity_done($description = 'Actualizó la empresa ' . $sponsor->name . ' correctamente', $table_id = 0, $menu_id = 30, $user_id = Auth::id(), $kind_acction = 3);
+            return redirect()->route('sponsor_index')->with('success', 'Se ha actualizado la empresa exitosamente...');
         } else {
-          return  back()->withErrors('No se ha actualizado el emmpresa...');
+          return  back()->withErrors('No se ha actualizado la empresa...');
         }
     }
 
@@ -264,7 +265,7 @@ class SponsorController extends Controller
     $sponsor = Sponsor::findOrFail($sponsor_id);
     $sponsor->status=-2;
     if($sponsor->save()){
-      $log->activity_done($description = 'Eliminó el patrocinador ' . $sponsor->name . 'correctamente', $table_id = 0, $menu_id = 30, $user_id = Auth::id(), $kind_acction = 4);
+      $log->activity_done($description = 'Eliminó la empresa ' . $sponsor->name . 'correctamente', $table_id = 0, $menu_id = 30, $user_id = Auth::id(), $kind_acction = 4);
       return back()->with('success', 'Se ha borrado el sponsor exitosamente...')->with('eliminar', 'ok');
     }else{
       return back()->with('success', 'No se ha borrado el sponsor exitosamente...');

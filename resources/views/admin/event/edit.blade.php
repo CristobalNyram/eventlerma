@@ -88,7 +88,9 @@
 
                     <div class="form-group col-lg-4 col-12">
                         <label for="status">Estado</label>
-                        <select class="form-control" id="status" name="status" required>
+                        <select class="form-control" id="status" name="status"
+                        {{-- required --}}
+                        >
                             <option value="1" {{ $reg->status == 1 ? 'selected' : '' }}>Inactivo</option>
                             <option value="2" {{ $reg->status == 2 ? 'selected' : '' }}>Activo</option>
                         </select>
@@ -97,8 +99,10 @@
                     <!-- Otros campos si los tienes -->
 
                     <div class="form-group col-lg-4 col-12">
-                        <label for="type_event_id">Tipo de Evento</label>
-                        <select class="form-control" id="type_event_id" name="type_event_id" required>
+                        <label for="type_event_id">Tipo de evento</label>
+                        <select class="form-control" id="type_event_id" name="type_event_id"
+                        {{-- required --}}
+                        >
                             <option value="">Seleccionar</option>
                             @foreach($type_event as $type)
                             <option value="{{ $type->id }}" {{ $reg->type_event_id == $type->id ? 'selected' : '' }}>{{ $type->type_name }}</option>
@@ -107,17 +111,19 @@
                     </div>
 
                     <div class="form-group col-lg-4 col-12">
-                        <label for="place_events_id">Lugar del Evento</label>
-                        <select class="form-control" id="place_events_id" name="place_events_id" required>
+                        <label for="place_events_id">Lugar del evento</label>
+                        <select class="form-control" id="place_events_id" name="place_events_id"
+                        {{-- required --}}
+                        >
                             <option value="">Seleccionar</option>
                             @foreach($place_event as $place)
-                            <option value="{{ $place->id }}" {{ $reg->place_events_id == $place->id ? 'selected' : '' }}>{{ $place->place_name }}</option>
+                            <option value="{{ $place->id }}" {{ $reg->place_id == $place->id ? 'selected' : '' }}>{{ $place->place_name }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="form-group col-lg-4 col-12">
-                        <label for="type_public_id">Tipo de Público</label>
+                        <label for="type_public_id">Tipo de público</label>
                         <select class="form-control" id="type_public_id" name="type_public_id" required>
                             <option value="">Seleccionar</option>
                             @foreach($type_public as $type)

@@ -83,7 +83,7 @@
                     </script>
 
                     <div class="form-group justify-content-center align-items-center">
-                        <label>Foto Actual</label>
+                        <label>Foto actual</label>
                         <div class="form-group">
                             <img src="{{asset($current_setting->content )}}" alt="{{$current_setting->name}}" class="img-fluid img-thumbnail" width="600px">
                         </div>

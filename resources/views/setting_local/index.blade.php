@@ -173,7 +173,7 @@
 
         Swal.fire(
         '¡Eliminado!',
-        'Tu archivo se ha borrado completamente.',
+        'El registro se ha borrado completamente.',
         'success'
      )
 

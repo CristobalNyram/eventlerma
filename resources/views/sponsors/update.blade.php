@@ -18,7 +18,7 @@
                 <!-- Light table -->
 
                 <div class="card-header border-0">
-                    <h2 class="mb-0">Actualizar información del patrocinador: {{ $current_sponsor->name }}</h2>
+                    <h2 class="mb-0">Actualizar información de la empresa: {{ $current_sponsor->name }}</h2>
                 </div>
 
 
@@ -47,12 +47,12 @@
                     @endif
                     <div class="form-row">
 
-                        <div class="form-group col-lg-12 col-12">
+                        <div class="form-group col-lg-6 col-12">
                             <input type="hidden" name="id" id="id" value="{{$current_sponsor->id}}">
                             <label for="name">Nombre</label>
-                            <input type="text" class="form-control form-control-lg" id="name" name="name" value="{{$current_sponsor->name  }}" placeholder="Título del patrocinador" maxlength="55" required oninput="uppercaseLetters(event);">
+                            <input type="text" class="form-control form-control-lg" id="name" name="name" value="{{$current_sponsor->name  }}" placeholder="Título de la empresa" maxlength="55" required oninput="uppercaseLetters(event);">
                         </div>
-                        <div class="form-group col-lg-12 col-12">
+                        <div class="form-group col-lg-6 col-12">
                             <label for="slogan">Slug</label>
                             <input type="text" class="form-control form-control-lg slug" id="slug" name="slug" value="{{ $current_sponsor->slug}}" placeholder="Slug" max="50" required  maxlength="55">
                         </div>
@@ -61,15 +61,15 @@
                             <label for="slogan">Descripción</label>
                             <input type="text" class="form-control form-control-lg" id="slogan" name="slogan" value="{{ $current_sponsor->slogan }}" placeholder="Slogan" maxlength="55" required oninput="uppercaseLetters(event);">
                         </div>
-                        <div class="form-group col-lg-6 col-12">
-                            <label for="slogan">Numero de telefono</label>
+                        <div class="form-group col-lg-3 col-12">
+                            <label for="slogan">Número de teléfono</label>
                             <input type="text" class="form-control form-control-lg phone_number" id="phone_number" name="phone_number" value="{{ $current_sponsor->phone_number }}" placeholder="Telefono" maxlength="13" required >
                         </div>
-                        <div class="form-group col-lg-6 col-12">
-                            <label for="slogan">Correo electronico</label>
-                            <input type="email" class="form-control form-control-lg" id="email" name="email" value="{{ $current_sponsor->email }}" placeholder="Correo electronico" maxlength="55" required oninput="uppercaseLetters(event);">
+                        <div class="form-group col-lg-3 col-12">
+                            <label for="slogan">Correo electrónico</label>
+                            <input type="email" class="form-control form-control-lg" id="email" name="email" value="{{ $current_sponsor->email }}" placeholder="Correo electrónico" maxlength="55" required oninput="uppercaseLetters(event);">
                         </div>
-                        <div class="form-group col-lg-6 col-12">
+                        <div class="form-group col-lg-3 col-12">
                             <label for="type_sponsor_id">Tipo de empresa</label>
                             <select class="form-control" id="type_sponsor_id" name="type_sponsor_id" required>
                                 <option value="" @if($current_sponsor->type_sponsor_id == '') selected @endif >Seleccionar</option>
@@ -80,7 +80,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group col-lg-6 col-12">
+                        <div class="form-group col-lg-3 col-12">
                             <label for="origin_state_id">Origen</label>
                             <select class="form-control" id="origin_state_id" name="origin_state_id" required>
                                 <option value="" @if($current_sponsor->origin_state_id == '') selected @endif>Seleccionar</option>
@@ -91,9 +91,9 @@
                             </select>
                         </div>
 
-                        <div class="form-group col-lg-12 col-12">
-                            <label for="url_img">Foto del Patrocinador</label>
-                            <input type="file" onBlur='LimitAttach(this,1)' ; accept="image/*" class="form-control form-control-lg" id="url_img" name="url_img" value="{{ $current_sponsor->url_img }}" placeholder="Foto del sponsor" max="50" required oninput="uppercaseLetters(event);">
+                        <div class="form-group col-lg-6 col-12">
+                            <label for="url_img">Foto de la empresa</label>
+                            <input type="file" onBlur='LimitAttach(this,1)' ; accept="image/*" class="form-control form-control-lg" id="url_img" name="url_img" value="{{ $current_sponsor->url_img }}" placeholder="Foto de la empresa" >
                         </div>
 
                         <div class="col-lg-12 col-12 alert alert-warning alert-dismissible fade show" id="alerta" role="alert" style="display: none" role="alert">
@@ -104,7 +104,7 @@
                         </div>
 
                         <div class=" col-lg-12 col-12 form-group justify-content-center align-items-center">
-                            <label>Foto Actual</label>
+                            <label>Foto actual</label>
                             <div class="form-group">
                                 <img src="{{asset($current_sponsor->url_img )}}" alt="{{$current_sponsor->name}}" class="img-fluid img-thumbnail" width="600px">
                             </div>

@@ -45,6 +45,10 @@ class PasswordController extends Controller
     public function edit(Request $request)
     {
 
+        $request->validate([
+            'password' => 'required|min:8|max:16',
+        ]);
+
         $user = User::findOrFail($request->id);
         $user->password = Hash::make($request->password) ;
 

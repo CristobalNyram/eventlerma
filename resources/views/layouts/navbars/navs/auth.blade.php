@@ -31,7 +31,10 @@
                         <span>{{ __('Settings') }}</span>
                     </a> --}}
 
-                    <a href="#" class="dropdown-item">
+                    <a
+                    href="https://wa.me/527292461338?text=Hola,%20necesito%20soporte%20en%20la%20plataforma%20de%20LERMA."
+                    target="_blank"
+                     class="dropdown-item">
                         <i class="ni ni-support-16 text-primary"></i>
                         <span>{{ __('Soporte') }}</span>
                     </a>

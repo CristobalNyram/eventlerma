@@ -41,42 +41,41 @@
                         <input type="text" class="form-control" id="name" name="name" maxlength="55" value="{{ $reg->name }}" required>
                     </div>
                     <div class="form-group col-lg-4 col-12">
-                        <label for="first_surname">Primer Apellido</label>
+                        <label for="first_surname">Segundo apellido</label>
                         <input type="text" class="form-control" id="first_surname" name="first_surname"  maxlength="55" value="{{ $reg->first_surname }}" required>
                     </div>
                     <div class="form-group col-lg-4 col-12">
-                        <label for="second_surname">Segundo Apellido</label>
+                        <label for="second_surname">Segundo apellido</label>
                         <input type="text" class="form-control" id="second_surname" name="second_surname"  maxlength="55" value="{{ $reg->second_surname }}" required>
                     </div>
 
                     <div class="form-group col-lg-6 col-12">
-                        <label for="phone_number">Número de Teléfono</label>
-                        <input type="text" class="form-control phone_number" id="phone_number" name="phone_number" maxlength="12" value="{{ $reg->phone_number }}" required>
+                        <label for="phone_number">Número de teléfono</label>
+                        <input type="text" class="form-control phone_number" id="phone_number" name="phone_number" maxlength="12" value="{{ $reg->phone_number }}" >
                     </div>
                     <div class="form-group col-lg-6 col-12">
                         <label for="gender">Género</label>
-                        <select class="form-control" id="gender" name="gender" required>
-                            <option value="">Seleccionar</option>
+                        <select class="form-control" id="gender" name="gender" >
                             <option value="H" {{ $reg->gender == 'H' ? 'selected' : '' }}>Masculino</option>
                             <option value="M" {{ $reg->gender == 'M' ? 'selected' : '' }}>Femenino</option>
                         </select>
                     </div>
                     <div class="form-group col-lg-6 col-12">
-                        <label for="email">Correo Electrónico</label>
+                        <label for="email">Correo electrónico</label>
                         <input type="email" class="form-control" id="email" name="email" maxlength="55" value="{{ $reg->email }}" required>
                     </div>
                     <div class="form-group col-lg-6 col-12">
-                        <label for="reg_image">Imagen de Usuario</label>
+                        <label for="reg_image">Imagen de usuario</label>
                         <input type="file" class="form-control-file" id="reg_image" name="reg_image">
                     </div>
                     <div class="form-group col-lg-6 col-12">
-                        <label for="date_birth">Fecha de Nacimiento</label>
-                        <input type="date" class="form-control" id="date_birth" name="date_birth" value="{{ $reg->date_birth }}" required>
+                        <label for="date_birth">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="date_birth" name="date_birth" required value="{{ $reg->date_birth }}" >
                     </div>
                     <div class="form-group col-lg-6 col-12">
                         <label for="status">Estado</label>
                         <select class="form-control" id="status" name="status" required>
-                            <option value="">Seleccionar</option>
+                            <option value="0">Seleccionar</option>
                             <option value="2" {{ $reg->status == '2' ? 'selected' : '' }}>Activo</option>
                             <option value="1" {{ $reg->status == '1' ? 'selected' : '' }}>Inactivo</option>
                         </select>
@@ -100,7 +99,7 @@
 
     <script>
         $(document).ready(function() {
-         // Validación de fecha de nacimiento
+         // Validación de Fecha de nacimiento
          $('#date_birth').change(function() {
              var dob = new Date($(this).val());
              var today = new Date();
@@ -109,13 +108,13 @@
              if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
                  age--;
              }
-             if (age < 3 || age > 100) {
-                 alert('La fecha de nacimiento debe ser mayor de 3 años y menor de 100 años.');
+             if (age < 12 || age > 100) {
+                 alert('La Fecha de nacimiento debe ser mayor de 12 años y menor de 100 años.');
                  $(this).val('');
              }
          });
 
-         // Formateador de número de teléfono
+         // Formateador de Número de teléfono
          $('#phone_number').on('input', function() {
              var phone = $(this).val().replace(/\D/g, '');
              if (phone.length === 10) {

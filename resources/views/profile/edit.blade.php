@@ -156,13 +156,10 @@
                     <div class="form-group">
                         <label for="gender">Genero</label>
 
-                        <select class="form-control form-control-lg single-select-2 " data-toggle="select2" id="gender" name="gender">
-                            <option value="-1" selected>Seleccionar</option>
-                            <option value="H">Masculino</option>
-                            <option value="M">Feminino</option>
-                            <option value="N/A">No binario</option>
 
-
+                        <select class="form-control form-control-lg single-select-2 " class="form-control" id="gender" name="gender" >
+                            <option value="H" {{ $reg->gender == 'H' ? 'selected' : '' }}>Masculino</option>
+                            <option value="M" {{ $reg->gender == 'M' ? 'selected' : '' }}>Femenino</option>
                         </select>
                     </div>
 
@@ -299,7 +296,7 @@
 
 
                     <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                        <label class="form-control-label" for="input-email">{{ __('Correo electronico') }}</label>
+                        <label class="form-control-label" for="input-email">{{ __('Correo electrónico') }}</label>
                         <input type="email" name="email" id="email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ old('email', auth()->user()->email) }}" required>
 
                         @if ($errors->has('email'))
@@ -349,7 +346,7 @@
                 <div class="pl-lg-4">
                     <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
                         <label class="form-control-label" for="input-current-password">{{ __('Contraseña actual') }}</label>
-                        <input type="password" name="old_password" id="input-current-password" class="form-control form-control-alternative{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Contraseña actual') }}" value="" required>
+                        <input type="password" minlength="8" maxlength="16" name="old_password" id="input-current-password" class="form-control form-control-alternative{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Contraseña actual') }}" value="" required>
 
                         @if ($errors->has('old_password'))
                         <span class="invalid-feedback" role="alert">
@@ -359,7 +356,7 @@
                     </div>
                     <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                         <label class="form-control-label" for="input-password">{{ __('Nueva contraseña') }}</label>
-                        <input type="password" name="password" id="input-password" class="form-control form-control-alternative{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Nueva contraseña') }}" value="" required>
+                        <input type="password" minlength="8" maxlength="16" name="password" id="input-password" class="form-control form-control-alternative{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Nueva contraseña') }}" value="" required>
 
                         @if ($errors->has('password'))
                         <span class="invalid-feedback" role="alert">

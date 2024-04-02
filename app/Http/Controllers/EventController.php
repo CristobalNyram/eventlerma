@@ -144,7 +144,7 @@ class EventController extends Controller
             $log = new Logbook();
             $log->activity_done('Agregó el evento ' . $event->name . ' exitosamente', 0, 12, Auth::id(), 6);
 
-            return back()->with('success', 'Se ha registrado el evento exitosamente.');
+            return redirect()->route('event_index')->with('success', 'Se ha registrado el evento exitosamente.');
         } catch (Exception $e) {
             DB::rollBack();
 
@@ -192,6 +192,8 @@ class EventController extends Controller
               $event->place_id = $request->input('place_events_id');
               $event->type_public_id = $request->input('type_public_id');
 
+             # dd($request->all());
+
               // Handle photo upload if provided
 
               if ($request->hasFile('url_photo')) {
@@ -202,11 +204,11 @@ class EventController extends Controller
                 $event->url_photo = $destinationPath . $filename;
             }
 
-              $event->save();
+              $event->update();
 
               DB::commit();
 
-              return back()->with('success', 'Evento actualizado exitosamente');
+              return redirect()->route('event_index')->with('success', 'Evento actualizado exitosamente');
           } catch (\Exception $e) {
               DB::rollback();
               return redirect()->back()->with('error', 'Error al actualizar el evento: ' . $e->getMessage());

@@ -14,6 +14,14 @@
 
     @endif
   </div>
+  @if(session('success'))
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{ session('success') }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  @endif
 
   <div class="row">
     <div class="col">
@@ -33,9 +41,9 @@
                         <th scope="col" class="sort" data-sort="id">ID</th>
                         <th scope="col" class="sort" data-sort="name">Nombre</th>
                         <th scope="col" class="sort" data-sort="second_surname">Apellidos</th>
-                        <th scope="col" class="sort" data-sort="phone_number">Número de Teléfono</th>
+                        <th scope="col" class="sort" data-sort="phone_number">Número de teléfono</th>
                         <th scope="col" class="sort" data-sort="gender">Género</th>
-                        <th scope="col" class="sort" data-sort="email">Correo Electrónico</th>
+                        <th scope="col" class="sort" data-sort="email">Correo electrónico</th>
                         <th scope="col" class="sort" data-sort="user_image">Imagen</th>
                         <th scope="col" class="sort" data-sort="user_image">F. Nacimiento</th>
 
@@ -60,7 +68,11 @@
 
                             {{ $reg->date_birth }}
                         </td>
-                        <td>{{ $reg->status }}</td>
+                        <td>  @if($reg->status == 2)
+                            Activo
+                            @else
+                                Inactivo
+                            @endif</td>
                         <td class="text-center">
                             @if ( check_acces_to_this_permission(Auth::user()->role_id,26))
 
@@ -163,7 +175,7 @@
 <script type="text/javascript">
   Swal.fire(
     '¡Eliminado!',
-    'Tu archivo se ha borrado completamente.',
+    'El registro se ha borrado completamente.',
     'success'
   )
 </script>

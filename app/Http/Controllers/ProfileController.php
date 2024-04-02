@@ -29,7 +29,7 @@ class ProfileController extends Controller
             $variables=[
                 'menu'=>'',
                 'title_page'=>'Acceso denegado',
-            
+
             ];
             return view('errors.notaccess')->with($variables);
 
@@ -37,12 +37,13 @@ class ProfileController extends Controller
         $log->activity_done($description='Accedió al módulo editar perfil.',$table_id=0,$menu_id=36,$user_id=Auth::id(),$kind_acction=1);
 
         $Foto = auth()->user()->user_image_updated;
-        
+
 
         $fotoPosterio = $Foto;
 
         $carrers_available=Carrer::all()->where('status','=','2');
         $course_available=Course::all()->where('status', '=', '2');
+        $reg=User::findOrFail(Auth::id());
 
 
         $variables=[
@@ -51,6 +52,8 @@ class ProfileController extends Controller
             'carrers_available' => $carrers_available,
             'course_available' => $course_available,
             'Foto' => $Foto,
+            'reg'=>$reg,
+
 
 
         ];
@@ -79,7 +82,7 @@ class ProfileController extends Controller
 
         $current_user=User::findOrFail(Auth::id());
 
-        
+
         // global variables
         $current_user->name=$request->name;
         $current_user->first_surname=$request->first_surname;
@@ -91,8 +94,8 @@ class ProfileController extends Controller
         $Datephoto = Auth()->user()->user_image_updated; // obtiene la fecha que actualizo la foto
         $Date = Carbon::now()->format('Y-m-d'); // variable en que obtiene la fecha actual
 
-        
-        
+
+
 
          if($request -> user_image){ // se comprueba si la variable user_image trae respuesta
 
@@ -107,19 +110,19 @@ class ProfileController extends Controller
                         'menu'=>'',
                         'title_page'=>'Acceso denegado',
                     ];
-                    return view('errors.notaccess')->with($variables); //retorna un mensaje de error 
+                    return view('errors.notaccess')->with($variables); //retorna un mensaje de error
                 } else {
                     $current_user->user_image_updated = Carbon::now()->format('Y-m-d');
-                    $current_user->user_image = $request->user_image; //guarda el registro del input 
+                    $current_user->user_image = $request->user_image; //guarda el registro del input
                 }
             }
-            
+
          }
 
 
 
         //Speaker
-        
+
         $current_user->academic_level=$request->academic_level;
         $current_user->description=$request->description;
         $current_user->specialty=$request->specialty;
@@ -140,7 +143,7 @@ class ProfileController extends Controller
             $current_user->user_image = $destiantionPath . $filename;
           }
 
-    
+
         if($request -> hasFile ('speaker_cv')){
             $file = $request ->file('speaker_cv');
             $destiantionPath = 'argon/speaker_cv/';

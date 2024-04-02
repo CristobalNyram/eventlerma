@@ -250,8 +250,8 @@
 
             <div id="box_others_inputs" style="display: none;">
                 <div class="con">
-                    <label for="email">Correo electronico</label>
-                    <input type="email" style="color:black;" class="con" id="email" name="email" value=" {{ old('email') }}" placeholder="Correo electronico ." required maxlength="50">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" style="color:black;" class="con" id="email" name="email" value=" {{ old('email') }}" placeholder="Correo electrónico ." required maxlength="50">
                 </div>
 
                 <div class="con">

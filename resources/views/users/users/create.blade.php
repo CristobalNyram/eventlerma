@@ -113,8 +113,8 @@
 
 
                             <div class="form-group">
-                                <label for="email">Correo electronico</label>
-                                <input  type="email" class="form-control form-control-lg" id="email" name="email" value=" {{ old('email') }}" placeholder="Correo electronico del usuario." required maxlength="50">
+                                <label for="email">Correo electrónico</label>
+                                <input  type="email" class="form-control form-control-lg" id="email" name="email" value=" {{ old('email') }}" placeholder="Correo electrónico del usuario." required maxlength="50">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>

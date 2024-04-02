@@ -73,7 +73,7 @@
         }
     }
 
-    // Formateador de número de teléfono
+    // Formateador de Número de teléfono
     $('.phone_number').on('input', function() {
         var phone = $(this).val().replace(/[^\d]/g, ''); // Eliminar todo excepto los dígitos
         if (phone.length === 10) {

@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="form-group justify-content-center align-items-center">
-                        <label>Foto Actual</label>
+                        <label>Foto actual</label>
                         <div class="form-group">
                             <img src="{{asset($current_souvenir->url_img )}}" alt="{{$current_souvenir->name}}" class="img-fluid img-thumbnail" width="600px">
                         </div>

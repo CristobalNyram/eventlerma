@@ -14,7 +14,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Soporte</a>
+                <a href="https://wa.me/527292461338?text=Hola,%20necesito%20soporte%20en%20la%20plataforma%20de%20LERMA." class="nav-link" target="_blank">Soporte</a>
             </li>
 
         </ul>

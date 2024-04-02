@@ -15,6 +15,14 @@
     @endif
   </div>
 
+  @if(session('success'))
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+      {{ session('success') }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  @endif
   <div class="row">
     <div class="col">
       <div class="card">
@@ -55,9 +63,20 @@
                         <td>{{ $reg->duration }}</td>
                         <td>{{ $reg->date }}</td>
                         <td>
-                            <img src="{{ asset($reg->url_photo) }}" alt="{{ $reg->name }}" class="img-fluid img-thumbnail modal-trigger" data-toggle="modal" data-target="#imageModal" data-url="{{ asset($reg->url_photo) }}" width="auto">
+                            <img src="{{ asset($reg->url_photo) }}" alt="{{ $reg->name }}" class="img-fluid img-thumbnail modal-trigger" data-toggle="modal" data-target="#imageModal" data-url="{{ asset($reg->url_photo) }}" width="15px" height="15px">
                         </td>
-                        <td>{{ $reg->status }}</td>
+                        <td>
+                            @if($reg->status == 2)
+                            Activo
+                            @else
+                                Inactivo
+                            @endif
+                            {{--   @if($reg->status == 2)
+                            Activo
+                            @else
+                                Inactivo
+                            @endif --}}
+                        </td>
                         <td class="text-center">
                             <div class="dropdown">
                                 <a class="btn btn-sm btn-icon-only text-danger" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -175,7 +194,7 @@
 <script type="text/javascript">
   Swal.fire(
     '¡Eliminado!',
-    'Tu archivo se ha borrado completamente.',
+    'Tu evento se ha borrado completamente.',
     'success'
   )
 </script>
